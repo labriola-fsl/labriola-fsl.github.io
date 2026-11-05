@@ -6,5 +6,5 @@
 
 window.DIARIO_CONFIG = {
   supabaseUrl: "https://vjiftnqlavfmctqicbek.supabase.co",
-  supabaseKey: ""    // es. "sb_publishable_xxxxxxxxxxxxxxxx"
+  supabaseKey: "sb_publishable_TerVtyhAGP-1AppW_EidQw_VBol8QVW"    // es. "sb_publishable_xxxxxxxxxxxxxxxx"
 };
