@@ -1,0 +1,1932 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Diario di bordo PCTO</title>
+<meta name="description" content="Diario di bordo della formazione scuola-lavoro (ex PCTO): ore, esperienze, relazione finale e foglio presenze.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Caveat:wght@600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+[hidden]{display:none!important}
+img{max-width:100%}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+/* Layout: quaderno a quadretti. Testata su carta quadrettata, schede sticky, colonna unica; le giornate e le esperienze si aprono in un foglio dal basso. Le pagine della relazione sono a righe. */
+:root{
+  --paper:#F5F6FA; --surface:#FFFFFF; --surface-2:#EEF1F7; --line:#DCE1EC; --line-2:#C7CEDF;
+  --grid:rgba(37,71,201,.085); --rule:rgba(37,71,201,.13);
+  --ink:#141C33; --ink-2:#47526F; --ink-3:#737C9B;
+  --pen:#2547C9; --pen-2:#1B37A3; --pen-soft:#E4EAFC; --on-pen:#FFFFFF;
+  --red:#C2362B; --red-soft:#FBE6E3; --on-red:#FFFFFF;
+  --green:#1D7A4C; --green-soft:#E1F2E8;
+  --amber:#995A00; --amber-soft:#FBEED6;
+  --p0:#2547C9; --p1:#C2571A; --p2:#009488; --p3:#7E3FC2; --p4:#4A8A12; --p5:#C4306F;
+  --scrim:rgba(14,20,40,.42);
+  --tip-bg:#141C33; --tip-fg:#FFFFFF;
+  --shadow:0 1px 2px rgba(20,28,51,.06),0 10px 28px rgba(20,28,51,.10);
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --f-hand:"Caveat","Segoe Print","Bradley Hand",cursive;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1220; --surface:#161B2C; --surface-2:#1E2438; --line:#2A3149; --line-2:#3A4260;
+    --grid:rgba(138,160,255,.07); --rule:rgba(138,160,255,.12);
+    --ink:#E8EBF5; --ink-2:#AEB5CC; --ink-3:#848DA9;
+    --pen:#8AA0FF; --pen-2:#A9B9FF; --pen-soft:#232C52; --on-pen:#0E1220;
+    --red:#FF8A7A; --red-soft:#3A1E1D; --on-red:#1A0B0A;
+    --green:#6FD19B; --green-soft:#16301F;
+    --amber:#F2B45A; --amber-soft:#35270F;
+    --p0:#6A84EE; --p1:#D27A3A; --p2:#14A091; --p3:#9A70DE; --p4:#6E9F36; --p5:#D8628E;
+    --scrim:rgba(0,0,0,.6);
+    --tip-bg:#E8EBF5; --tip-fg:#0E1220;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.4);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1220; --surface:#161B2C; --surface-2:#1E2438; --line:#2A3149; --line-2:#3A4260;
+  --grid:rgba(138,160,255,.07); --rule:rgba(138,160,255,.12);
+  --ink:#E8EBF5; --ink-2:#AEB5CC; --ink-3:#848DA9;
+  --pen:#8AA0FF; --pen-2:#A9B9FF; --pen-soft:#232C52; --on-pen:#0E1220;
+  --red:#FF8A7A; --red-soft:#3A1E1D; --on-red:#1A0B0A;
+  --green:#6FD19B; --green-soft:#16301F;
+  --amber:#F2B45A; --amber-soft:#35270F;
+  --p0:#6A84EE; --p1:#D27A3A; --p2:#14A091; --p3:#9A70DE; --p4:#6E9F36; --p5:#D8628E;
+  --scrim:rgba(0,0,0,.6);
+  --tip-bg:#E8EBF5; --tip-fg:#0E1220;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.4);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--paper)}
+body.noscroll{overflow:hidden}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--pen)}
+:focus-visible{outline:2.5px solid var(--pen);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.muted{color:var(--ink-2)}
+.small{font-size:13.5px}
+.grow{flex:1 1 auto}
+.quad{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:18px 18px;background-position:-1px -1px}
+
+/* testata */
+.top{border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:22px 16px}
+.brand{min-width:0}
+.eyebrow{margin:0;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pen)}
+h1{margin:4px 0 2px;font-family:var(--f-display);font-weight:800;font-size:clamp(30px,7vw,42px);line-height:1.02;letter-spacing:-.015em;font-variation-settings:"opsz" 72}
+.who{margin:0;color:var(--ink-2);font-size:15px}
+.status{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 11px 5px 10px;white-space:nowrap}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--ink-3)}
+.chips-top{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-width:0}
+.acct{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 11px;max-width:100%;min-width:0}
+.acct span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.acct b{font-weight:700;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.status[data-k="cloud"] i{background:var(--green)}
+.status[data-k="saving"] i{background:var(--amber)}
+.status[data-k="local"] i{background:var(--pen)}
+.status[data-k="volatile"] i,.status[data-k="offline"] i{background:var(--red)}
+.status[data-k="demo"] i{background:var(--p3)}
+
+/* schede */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--paper);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.tabs .wrap::-webkit-scrollbar{display:none}
+.tab{flex:none;display:block;padding:13px 12px 10px;font-weight:700;font-size:15px;color:var(--ink-2);text-decoration:none;border-bottom:3px solid transparent}
+.tab:hover{color:var(--ink)}
+.tab[aria-current="page"]{color:var(--pen);border-bottom-color:var(--pen)}
+
+.banner{background:var(--pen-soft);border-bottom:1px solid var(--line)}
+.banner .wrap{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;padding-block:10px;font-size:14.5px}
+
+main.wrap{padding-block:20px 116px;display:grid;gap:16px}
+
+/* elementi base */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}
+.h2{margin:0 0 12px;font-family:var(--f-display);font-weight:600;font-size:19px;line-height:1.2;text-wrap:balance}
+.h2-row{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.h2-row .h2{margin:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:0 15px;border-radius:10px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);font-weight:700;font-size:14.5px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{background:var(--surface-2)}
+.btn.primary{background:var(--pen);border-color:var(--pen);color:var(--on-pen)}
+.btn.primary:hover{background:var(--pen-2);border-color:var(--pen-2)}
+.btn.ghost{border-color:transparent;background:transparent;color:var(--pen)}
+.btn.ghost:hover{background:var(--pen-soft)}
+.btn.small{min-height:34px;padding:0 11px;font-size:13.5px}
+.btn.danger{color:var(--red);border-color:var(--line-2)}
+.btn.danger.armed{background:var(--red);border-color:var(--red);color:var(--on-red)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.btnrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ai-only{display:none!important}
+.has-ai .ai-only{display:inline-flex!important}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{font-size:12.5px;line-height:1.3;padding:3px 9px;border-radius:999px;background:var(--surface-2);color:var(--ink-2)}
+.pill{display:inline-block;font-size:12px;font-weight:700;line-height:1.3;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pill.todo{color:var(--amber);background:var(--amber-soft)}
+.pill.ok{color:var(--green);background:var(--green-soft)}
+.pill.off{color:var(--ink-2);background:var(--surface-2)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--c,var(--ink-3));flex:none}
+.c0{--c:var(--p0)}.c1{--c:var(--p1)}.c2{--c:var(--p2)}.c3{--c:var(--p3)}.c4{--c:var(--p4)}.c5{--c:var(--p5)}.cx{--c:var(--ink-3)}
+.stamp{font-family:var(--f-hand);font-weight:600;font-size:19px;line-height:1;color:var(--green);border:1.5px solid currentColor;border-radius:6px;padding:2px 8px 1px;transform:rotate(-4deg);letter-spacing:.02em;white-space:nowrap}
+.notice{padding:12px 14px;border-radius:12px;background:var(--surface-2);font-size:14.5px;color:var(--ink-2)}
+.notice p{margin:0 0 6px}.notice p:last-child{margin:0}
+.notice b{color:var(--ink)}
+
+/* avanzamento */
+.progress{border:1px solid var(--line-2);border-radius:16px;padding:20px 18px 16px;display:grid;gap:14px}
+.pg-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 24px}
+.pg-num{margin:4px 0 0;font-family:var(--f-display);font-weight:800;font-size:clamp(46px,13vw,68px);line-height:.95;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.pg-num small{font-size:.36em;font-weight:600;color:var(--ink-2);letter-spacing:0;margin-left:6px}
+.pg-side{display:grid;gap:2px;max-width:34ch}
+.pg-rem{margin:0;font-size:18px;font-weight:700}
+.pg-rem.done{color:var(--green)}
+.segbar{position:relative;height:16px}
+.seg-in{display:flex;gap:2px;height:100%;background:var(--surface-2);border-radius:4px;overflow:hidden}
+.seg-in span{height:100%;flex:none}
+.segbar .goal{position:absolute;top:-6px;bottom:-6px;width:2px;margin-left:-1px;background:var(--ink);border-radius:1px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0;padding:0;list-style:none;font-size:13.5px;color:var(--ink-2)}
+.legend li{display:flex;align-items:center;gap:7px}
+.legend b{color:var(--ink);font-family:var(--f-mono);font-weight:500}
+.sw{width:11px;height:11px;border-radius:3px;background:var(--c)}
+
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:0}
+.kpi{padding:14px 16px;border-left:1px solid var(--line);min-width:0}
+.kpi:first-child{border-left:0}
+.kpi b{display:block;font-family:var(--f-mono);font-size:24px;font-weight:500;line-height:1.2}
+.kpi span{font-size:13px;color:var(--ink-2)}
+.kpi.warn b{color:var(--amber)}
+@media (max-width:600px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi:nth-child(3){border-left:0}.kpi:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* grafico mensile */
+.mplot{position:relative;height:150px;margin:20px 0 0 30px;border-bottom:1px solid var(--line-2)}
+.gl{position:absolute;left:0;right:0;height:0;border-top:1px dashed var(--line)}
+.gl span{position:absolute;right:calc(100% + 6px);top:-8px;font-size:11px;color:var(--ink-3)}
+.mbars{position:absolute;inset:0;display:flex;align-items:flex-end;gap:4px}
+.mcol{position:relative;flex:1 1 0;min-width:0;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;outline:none}
+.mcol:focus-visible .mbar{outline:2.5px solid var(--pen);outline-offset:2px}
+.mbar{width:100%;max-width:30px;background:var(--p0);border-radius:4px 4px 0 0;flex-shrink:0}
+.mmax{font-size:11px;color:var(--ink-2);margin-bottom:3px;flex-shrink:0}
+.mtip{position:absolute;left:50%;bottom:calc(var(--bh) + 6px);transform:translateX(-50%);white-space:nowrap;background:var(--tip-bg);color:var(--tip-fg);font-size:12px;padding:4px 8px;border-radius:6px;opacity:0;pointer-events:none;z-index:3;transition:opacity .12s}
+.mcol.edge-l .mtip{left:0;transform:none}
+.mcol.edge-r .mtip{left:auto;right:0;transform:none}
+.mcol:hover .mtip,.mcol:focus .mtip{opacity:1}
+.mlabels{display:flex;gap:4px;margin:6px 0 0 30px}
+.mlabels span{flex:1 1 0;min-width:0;text-align:center;font-size:11px;color:var(--ink-3);line-height:1.25}
+.mlabels i{display:block;font-style:normal;font-size:10px}
+
+/* barre orizzontali */
+.bars{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.bars li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;font-size:14px;align-items:baseline}
+.bars .lbl{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bars .val{font-family:var(--f-mono);font-size:13px;color:var(--ink-2)}
+.track{grid-column:1/-1;height:8px;background:var(--surface-2);border-radius:4px;overflow:hidden}
+.track span{display:block;height:100%;background:var(--c,var(--p0));border-radius:4px}
+.pl{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.pl li{display:grid;gap:5px}
+.pl .row{display:flex;align-items:center;gap:8px;min-width:0;font-size:14.5px}
+.pl .row .n{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}
+.pl .row .h{font-family:var(--f-mono);font-size:13px;color:var(--ink-2);white-space:nowrap}
+
+/* da sistemare */
+.todo{list-style:none;margin:0;padding:0}
+.todo li{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--line);font-size:14.5px}
+.todo li:first-child{border-top:0;padding-top:2px}
+.todo .mk{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font-size:13px;font-weight:700;flex:none}
+.mk.warn{background:var(--amber-soft);color:var(--amber)}
+.mk.ok{background:var(--green-soft);color:var(--green)}
+.todo .t{flex:1;min-width:0}
+
+/* giornate */
+.entries{display:grid;gap:8px}
+.entry{display:grid;grid-template-columns:50px minmax(0,1fr);gap:12px;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px 12px 8px;cursor:pointer;color:var(--ink)}
+.entry:hover{border-color:var(--line-2)}
+.e-date{display:flex;flex-direction:column;align-items:center;padding-top:2px;border-right:1px dashed var(--line-2);padding-right:8px}
+.e-day{font-size:22px;font-weight:500;line-height:1.05}
+.e-wd,.e-mon{font-size:12px;color:var(--ink-3);line-height:1.3}
+.e-body{display:grid;gap:4px;min-width:0}
+.e-top{display:flex;align-items:center;gap:8px;min-width:0}
+.e-proj{flex:1;min-width:0;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.e-h{font-size:15px;font-weight:500;white-space:nowrap}
+.e-meta{font-size:13px;color:var(--ink-3)}
+.e-text{font-size:14.5px;color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.e-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:3px}
+.mhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:10px 4px 2px;font-weight:700;font-size:15px}
+.mhead:first-child{margin-top:0}
+.mhead span:first-letter{text-transform:uppercase}
+.mhead .mono{font-weight:500;font-size:13px;color:var(--ink-2)}
+
+/* barra filtri */
+.toolbar{display:grid;gap:10px}
+.tb-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tb-row select,.tb-row .search{flex:1 1 180px;min-width:0}
+.tb-sum{font-size:13.5px;color:var(--ink-2)}
+
+/* moduli */
+.field{display:grid;gap:6px;min-width:0;margin:0;padding:0;border:0}
+.field>span,.field legend,.flabel{font-size:13.5px;font-weight:700;color:var(--ink-2);padding:0}
+.field legend{margin-bottom:6px}
+.field-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.in{width:100%;min-height:44px;padding:9px 12px;border:1px solid var(--line-2);border-radius:10px;background:var(--surface);color:var(--ink);font-size:16px}
+select.in{padding-right:30px}
+textarea.in{min-height:84px;resize:vertical;line-height:1.5}
+.in:focus{outline:none;border-color:var(--pen);box-shadow:0 0 0 3px var(--pen-soft)}
+.row2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px}
+.row4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:520px){.row4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.hint{margin:0;font-size:13.5px;color:var(--ink-3)}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.segopt{position:relative;display:inline-flex}
+.segopt input{position:absolute;opacity:0;width:1px;height:1px}
+.segopt span{display:inline-flex;align-items:center;min-height:38px;padding:0 13px;border:1px solid var(--line-2);border-radius:999px;font-size:14px;font-weight:700;color:var(--ink-2);cursor:pointer;background:var(--surface)}
+.segopt input:checked+span{background:var(--pen-soft);color:var(--pen);border-color:var(--pen)}
+.segopt input:focus-visible+span{outline:2.5px solid var(--pen);outline-offset:2px}
+.tchip{min-height:34px;padding:0 12px;border:1px solid var(--line-2);border-radius:999px;background:var(--surface);color:var(--ink-2);font-size:13.5px;font-weight:700;cursor:pointer}
+.tchip[aria-pressed="true"]{background:var(--pen-soft);color:var(--pen);border-color:var(--pen)}
+.tchips{display:flex;flex-wrap:wrap;gap:6px}
+.addc{display:flex;gap:8px}
+.addc .in{min-height:38px;padding:6px 10px;font-size:15px}
+.voto{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.vbtn{display:grid;gap:1px;justify-items:center;padding:8px 2px;border:1px solid var(--line-2);border-radius:10px;background:var(--surface);cursor:pointer;color:var(--ink)}
+.vbtn b{font-family:var(--f-mono);font-size:18px;font-weight:500}
+.vbtn span{font-size:11.5px;color:var(--ink-3);text-align:center;line-height:1.2}
+.vbtn[aria-pressed="true"]{border-color:var(--pen);background:var(--pen-soft)}
+.vbtn[aria-pressed="true"] b{color:var(--pen)}
+.check{display:flex;align-items:flex-start;gap:10px;font-size:15px;cursor:pointer}
+.check input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--pen);flex:none}
+.calc{margin:-6px 0 0;font-size:13.5px;color:var(--ink-2)}
+.form-err{margin:0;padding:10px 12px;border-radius:10px;background:var(--red-soft);color:var(--red);font-size:14px;font-weight:700}
+.swatches{display:flex;gap:8px;flex-wrap:wrap}
+.swopt{position:relative}
+.swopt input{position:absolute;opacity:0;width:1px;height:1px}
+.swopt span{display:block;width:32px;height:32px;border-radius:50%;background:var(--c);border:3px solid var(--surface);box-shadow:0 0 0 1px var(--line-2);cursor:pointer}
+.swopt input:checked+span{box-shadow:0 0 0 2.5px var(--ink)}
+.swopt input:focus-visible+span{outline:2.5px solid var(--pen);outline-offset:3px}
+
+/* foglio */
+.sheet-wrap{position:fixed;inset:0;z-index:60;background:var(--scrim);display:flex;align-items:flex-end;justify-content:center;padding-top:calc(12px + env(safe-area-inset-top,0px))}
+.sheet{width:100%;max-width:680px;max-height:100%;display:flex;flex-direction:column;background:var(--surface);border-radius:18px 18px 0 0;box-shadow:var(--shadow);overflow:hidden}
+.sheet>form,.sheet>.sheet-in{display:flex;flex-direction:column;min-height:0;flex:1 1 auto}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px max(18px,env(safe-area-inset-right,0px)) 12px max(18px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line)}
+.sheet-head h2{margin:0;font-family:var(--f-display);font-weight:600;font-size:20px;line-height:1.2}
+.sheet-body{padding:16px max(18px,env(safe-area-inset-right,0px)) 18px max(18px,env(safe-area-inset-left,0px));display:grid;gap:16px;align-content:start;overflow-y:auto;min-height:0;flex:1 1 auto}
+.sheet-body p{margin:0}
+.sheet-foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px max(18px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px));border-top:1px solid var(--line);background:var(--surface)}
+.icon-btn{width:40px;height:40px;flex:none;border-radius:10px;border:1px solid var(--line);background:var(--surface);font-size:22px;line-height:1;cursor:pointer;color:var(--ink-2)}
+@media (min-width:720px){.sheet-wrap{align-items:center;padding:24px}.sheet{border-radius:16px}.sheet-foot{padding-bottom:12px}}
+
+/* pulsante flottante e avvisi */
+.fab{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:35;min-height:54px;padding:0 22px;border-radius:999px;box-shadow:var(--shadow);font-size:15.5px}
+.toast{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom,0px));transform:translate(-50%,10px);z-index:70;width:max-content;max-width:min(540px,calc(100% - 32px));background:var(--tip-bg);color:var(--tip-fg);padding:11px 16px;border-radius:12px;font-size:14.5px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;display:flex;gap:14px;align-items:center}
+.toast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.toast button{background:none;border:0;padding:0;color:inherit;font-weight:700;text-decoration:underline;cursor:pointer;white-space:nowrap}
+
+/* benvenuto */
+.welcome{border:1px solid var(--line-2);border-radius:16px;padding:24px 20px;display:grid;gap:16px}
+.welcome h2{font-family:var(--f-display);font-weight:800;font-size:clamp(25px,5.8vw,36px);line-height:1.1;margin:6px 0 0;max-width:24ch;text-wrap:balance;letter-spacing:-.01em}
+.steps{margin:0;padding:0;list-style:none;display:grid;gap:10px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;counter-increment:s;max-width:62ch}
+.steps li::before{content:counter(s);font-family:var(--f-mono);font-weight:500;color:var(--pen);border:1.5px solid var(--pen);border-radius:50%;width:26px;height:26px;display:grid;place-items:center;font-size:13px;background:var(--surface)}
+.form-grid{display:grid;gap:14px}
+.school-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:8px}
+.sopt{position:relative;display:block}
+.sopt input{position:absolute;opacity:0;width:1px;height:1px}
+.sopt span{display:grid;gap:2px;padding:12px 14px;border:1px solid var(--line-2);border-radius:12px;cursor:pointer;background:var(--surface)}
+.sopt b{font-size:15px}
+.sopt small{font-family:var(--f-mono);color:var(--ink-2);font-size:13px}
+.sopt input:checked+span{border-color:var(--pen);background:var(--pen-soft)}
+.sopt input:focus-visible+span{outline:2.5px solid var(--pen);outline-offset:2px}
+
+/* esperienze */
+.group-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:4px 2px -4px}
+.group-h h2{margin:0;font-family:var(--f-display);font-weight:600;font-size:18px}
+.group-h .mono{font-size:13px;color:var(--ink-2)}
+.proj-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:12px}
+.proj{display:grid;gap:10px;align-content:start}
+.proj-h{display:flex;align-items:flex-start;gap:10px}
+.proj-h .dot{margin-top:7px}
+.proj h3{margin:0;font-size:17px;line-height:1.3;flex:1;min-width:0;overflow-wrap:anywhere}
+.proj-sub{margin:0;font-size:14px;color:var(--ink-2)}
+.dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;margin:0;font-size:14px}
+.dl dt{color:var(--ink-3)}
+.dl dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.meter-l{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--ink-2);margin-top:-4px}
+.proj .btnrow{margin-top:2px}
+
+/* catalogo */
+.cat-tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.cat-tools .in{flex:1 1 200px;min-width:0}
+.cat-tools select.in{flex:0 1 170px}
+.cat-row{display:grid;grid-template-columns:38px minmax(0,1fr) auto;gap:8px 12px;align-items:start;padding:13px 0;border-top:1px solid var(--line)}
+.cat-row:first-child{border-top:0}
+.cat-n{font-family:var(--f-mono);font-size:13px;color:var(--ink-3);padding-top:2px}
+.cat-t{font-weight:700;overflow-wrap:anywhere}
+.cat-e{font-size:13.5px;color:var(--ink-2)}
+.cat-meta{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.cat-links,.links{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13.5px;margin-top:6px}
+.cat-links a,.links a{font-weight:700;text-decoration:none}
+.cat-links a:hover,.links a:hover{text-decoration:underline}
+.rules{margin:0;padding-left:20px;display:grid;gap:7px;max-width:72ch}
+.rules li::marker{color:var(--pen)}
+.checks{display:flex;flex-wrap:wrap;gap:6px}
+.validity{font-size:13px}
+@media (max-width:520px){.cat-row{grid-template-columns:30px minmax(0,1fr)}.cat-row .cat-act{grid-column:2}}
+
+/* relazione */
+.sec{display:grid;gap:8px}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.sec-h h3{margin:0;font-family:var(--f-display);font-weight:600;font-size:18px;line-height:1.25}
+.sec-h .mono{font-size:12.5px;color:var(--ink-3);white-space:nowrap}
+.ruled{min-height:150px;line-height:1.6;padding:.35em 12px;background-color:var(--surface);background-image:linear-gradient(to bottom,transparent calc(1.6em - 1px),var(--rule) calc(1.6em - 1px),var(--rule) 1.6em);background-size:100% 1.6em;background-position:0 .35em;background-attachment:local}
+.ruled[readonly]{opacity:.85}
+.sec-actions{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.todo-note{color:var(--amber);font-weight:700}
+.ai-status{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 12px;border-radius:10px;background:var(--pen-soft);font-size:14.5px}
+.spin{width:16px;height:16px;border:2px solid var(--pen);border-right-color:transparent;border-radius:50%;animation:sp .8s linear infinite;flex:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+.tbl-wrap{overflow-x:auto;margin:0 -2px}
+table.tbl{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+.tbl th,.tbl td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);font-weight:700}
+.tbl .num{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl tfoot td{font-weight:700;border-bottom:0}
+.slides{margin:0;padding-left:24px;display:grid;gap:10px}
+.slides li::marker{font-family:var(--f-mono);color:var(--pen)}
+.slides ul{margin:4px 0 0;padding-left:18px;color:var(--ink-2);font-size:14.5px}
+.export-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.export-row .flabel{margin-right:2px}
+
+.empty{display:grid;gap:12px;justify-items:start;padding:22px}
+.empty p{margin:0;max-width:60ch;color:var(--ink-2)}
+.loader{display:flex;align-items:center;gap:12px;padding:28px 4px;color:var(--ink-2)}
+.copyline{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.copyline code{font-family:var(--f-mono);font-size:14px;background:var(--surface-2);padding:3px 8px;border-radius:6px;user-select:all;overflow-wrap:anywhere}
+.ta-out{min-height:260px;font-family:var(--f-mono);font-size:13.5px}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top quad">
+  <div class="wrap">
+    <div class="brand">
+      <p class="eyebrow" id="eyebrow">Formazione scuola-lavoro · ex PCTO</p>
+      <h1>Diario di bordo</h1>
+      <p class="who" id="who">Il tuo percorso di formazione scuola-lavoro</p>
+    </div>
+    <div class="chips-top"><span class="acct" id="acct" hidden><span>Accesso:</span><b id="acct-name"></b></span><span class="status" id="status" data-k="loading" role="status"><i></i><span>Apro il diario…</span></span><button type="button" class="btn ghost small" id="acct-out" data-act="logout" hidden>Esci</button></div>
+  </div>
+</header>
+<nav class="tabs" aria-label="Sezioni">
+  <div class="wrap">
+    <a class="tab" href="#riepilogo" data-tab="riepilogo">Riepilogo</a>
+    <a class="tab" href="#registro" data-tab="registro">Registro</a>
+    <a class="tab" href="#esperienze" data-tab="esperienze">Esperienze</a>
+    <a class="tab" href="#relazione" data-tab="relazione">Relazione</a>
+    <a class="tab" href="#profilo" data-tab="profilo">Profilo</a>
+  </div>
+</nav>
+<div id="banner"></div>
+<main class="wrap" id="view"><div class="loader"><span class="spin"></span>Apro il diario…</div></main>
+<button type="button" class="btn primary fab" id="fab" data-act="new-entry" hidden>+ Giornata</button>
+<div class="sheet-wrap" id="sheet" hidden><div class="sheet" id="sheet-card" role="dialog" aria-modal="true"></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<input type="file" id="imp-file" accept=".json,application/json" hidden>
+
+<script src="config.js"></script>
+<script>
+(function(){
+"use strict";
+
+/* ---------- utilità ---------- */
+const $=(s,r)=>(r||document).querySelector(s);
+const $$=(s,r)=>Array.from((r||document).querySelectorAll(s));
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const clone=o=>JSON.parse(JSON.stringify(o));
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const newId=()=>Math.random().toString(36).slice(2,9)+Date.now().toString(36).slice(-5);
+const pad=n=>String(n).padStart(2,"0");
+const round2=n=>Math.round((+n||0)*100)/100;
+const fmtH=n=>round2(n).toLocaleString("it-IT",{maximumFractionDigits:2});
+const parseNum=v=>{const x=parseFloat(String(v==null?"":v).replace(",","."));return isFinite(x)?x:NaN;};
+const plural=(n,a,b)=>n===1?a:b;
+const sum=a=>a.reduce((x,y)=>x+(+y||0),0);
+const toD=s=>{const p=String(s).split("-").map(Number);return new Date(p[0],(p[1]||1)-1,p[2]||1);};
+const todayISO=()=>{const d=new Date();return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());};
+const isISO=s=>/^\d{4}-\d{2}-\d{2}$/.test(s||"");
+const fmtD=(s,o)=>isISO(s)?toD(s).toLocaleDateString("it-IT",o||{day:"numeric",month:"short",year:"numeric"}):"";
+const firstDay=s=>s.replace(/^1 /,"1° ");
+const fmtLong=s=>firstDay(fmtD(s,{day:"numeric",month:"long",year:"numeric"}));
+const asOf=s=>{const d=toD(s);const y=d.getMonth()>=8?d.getFullYear():d.getFullYear()-1;return y+"/"+pad((y+1)%100);};
+const addDays=(s,n)=>{const d=toD(s);d.setDate(d.getDate()+n);return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());};
+const minutes=t=>{if(!/^\d{1,2}:\d{2}$/.test(t||""))return null;const p=t.split(":").map(Number);return p[0]*60+p[1];};
+const calcOre=(a,b,p)=>{const x=minutes(a),y=minutes(b);if(x==null||y==null||y<=x)return null;return Math.max(0,Math.round(((y-x-(+p||0))/60)*4)/4);};
+function fmtRange(a,b){
+  if(!isISO(a)&&!isISO(b))return "";
+  if(!isISO(b)||a===b)return "il "+fmtLong(isISO(a)?a:b);
+  if(!isISO(a))return "fino al "+fmtLong(b);
+  const A=toD(a),B=toD(b);
+  if(A.getFullYear()===B.getFullYear()){
+    if(A.getMonth()===B.getMonth())return "dal "+(A.getDate()===1?"1°":A.getDate())+" al "+fmtLong(b);
+    return "dal "+firstDay(fmtD(a,{day:"numeric",month:"long"}))+" al "+fmtLong(b);
+  }
+  return "dal "+fmtLong(a)+" al "+fmtLong(b);
+}
+function fmtRangeShort(a,b){
+  if(!isISO(a)&&!isISO(b))return "";
+  if(!isISO(b)||a===b)return fmtD(isISO(a)?a:b);
+  if(!isISO(a))return "fino al "+fmtD(b);
+  return fmtD(a,{day:"numeric",month:"short"})+" – "+fmtD(b);
+}
+const firstSentence=t=>{t=String(t||"").trim();const m=t.match(/^[^.;!?]+/);return(m?m[0]:t).trim();};
+const lcFirst=s=>s&&s.length>1&&s[1]===s[1].toLowerCase()?s[0].toLowerCase()+s.slice(1):s;
+const listIt=a=>a.length<=1?(a[0]||""):a.slice(0,-1).join(", ")+" e "+a[a.length-1];
+const words=t=>(String(t||"").trim().match(/\S+/g)||[]).length;
+const slug=s=>String(s||"studente").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"studente";
+const prefGet=k=>{try{return JSON.parse(localStorage.getItem("diario-pcto-pref")||"{}")[k];}catch(e){return undefined;}};
+const prefSet=(k,v)=>{try{const o=JSON.parse(localStorage.getItem("diario-pcto-pref")||"{}");o[k]=v;localStorage.setItem("diario-pcto-pref",JSON.stringify(o));}catch(e){}};
+
+/* ---------- costanti ---------- */
+const SCHOOL={nome:"Liceo Scientifico Antonio Labriola",breve:"Liceo Labriola",sede:"Via Capo Sperone 50, 00122 Roma Lido",indirizzi:["Tradizionale","Scienze applicate","STEAM"],referenti:"Prof.sse Iardino e Salierno",email:"fsl@liceolabriola.edu.it",tel:"06.121.128.006",segreteria:"rmps010004@istruzione.it",telSeg:"06.121.128.005",
+  url:"https://www.liceolabriola.edu.it/servizio/attivita-e-percorsi-formativi-pcto/",
+  informativa:"https://www.liceolabriola.edu.it/informativa-pcto-ex-asl/",
+  circolari:"https://www.liceolabriola.edu.it/tipologia-circolare/circolari-pcto/",
+  netiquette:"https://www.canva.com/design/DAGB07w-DH0/xkSCYZkCcjDe4D2Od0VOJA/edit?utm_content=DAGB07w-DH0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+  videoSicurezza:"https://youtu.be/aV2amGr85ws",
+  materieMin:"https://visualizzamaterieesame.static.istruzione.it/"};
+const isLab=P=>/labriola/i.test((P&&P.istituto)||"");
+const MATERIE=["Italiano","Latino","Inglese","Storia","Filosofia","Matematica","Fisica","Scienze naturali","Informatica","Disegno e storia dell'arte","Scienze motorie","Educazione civica"];
+const MAT2026=["Italiano","Matematica","Storia","Scienze naturali"];
+const splitMat=x=>String(x||"").split(/[,;]/).map(y=>y.trim()).filter(Boolean);
+const TIPI=[["stage","Stage in azienda o ente"],["corso","Corso o laboratorio"],["project","Project work"],["sicurezza","Formazione sulla sicurezza"],["orientamento","Orientamento"],["volontariato","Volontariato e cittadinanza"],["ifs","Impresa formativa simulata"],["estero","Esperienza all'estero"],["altro","Altro"]];
+const TIPO=Object.fromEntries(TIPI);
+const MODALITA=[["presenza","In presenza"],["distanza","A distanza"],["scuola","A scuola"]];
+const MOD=Object.fromEntries(MODALITA);
+const COMPETENZE=["Lavoro di squadra","Comunicazione","Problem solving","Pensiero critico","Competenza matematica e scientifica","Competenza digitale","Organizzazione e gestione del tempo","Autonomia e responsabilità","Spirito di iniziativa","Lingua straniera","Sicurezza sul lavoro","Creatività","Imparare a imparare","Cittadinanza attiva","Competenze specifiche del settore"];
+const TECNICHE=new Set(["Competenza matematica e scientifica","Competenza digitale","Sicurezza sul lavoro","Lingua straniera","Competenze specifiche del settore"]);
+const VOTI=["Difficile","Così così","Buona","Molto buona","Ottima"];
+const SCUOLE={liceo:["Liceo",90],tecnico:["Istituto tecnico",150],professionale:["Istituto professionale",210],altro:["Altro percorso",0]};
+const ANNI=[["3","3ª","--p0"],["4","4ª","--p1"],["5","5ª","--p2"],["x","Senza esperienza","--ink-3"]];
+const SECTIONS=[
+ {key:"intro",title:"Introduzione e contesto",hint:"Chi sei, la tua scuola, quante esperienze e quante ore hai svolto nel triennio."},
+ {key:"esperienze",title:"Le esperienze svolte",hint:"Per ogni esperienza: ente, periodo, tutor, che cosa hai fatto e con quali strumenti. Racconta come hai gestito i problemi, non solo l'elenco dei compiti."},
+ {key:"competenze",title:"Competenze tecniche e trasversali",hint:"Le competenze tecniche (hard skill) e trasversali (soft skill) che hai sviluppato, con esempi concreti presi dal diario."},
+ {key:"collegamenti",title:"Collegamenti con le materie",hint:"Collega l'esperienza alle materie del colloquio solo dove il legame è reale. L'Educazione civica (sicurezza, diritti dei lavoratori, sostenibilità, legalità) offre spesso un aggancio solido."},
+ {key:"bilancio",title:"Bilancio orientativo",hint:"Che cosa è cambiato nel tuo modo di lavorare e come queste esperienze hanno influito sulle scelte dopo il diploma: università, ITS Academy, lavoro."},
+ {key:"conclusione",title:"Conclusione",hint:"Due o tre frasi per chiudere."}
+];
+const LIBS={jspdf:"https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js",autotable:"https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js",jszip:"https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js",supabase:"https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.110.1"};
+
+/* Catalogo dalla pagina "Percorsi Formativi Scuola Lavoro (ex PCTO)" del Liceo Labriola, letta il 5 novembre 2026 */
+const CAT_DATE="5 novembre 2026";
+const CATALOGO=[
+ {as:"2026/27",n:"37",nome:"School for Future",ente:"",dest:"Classi 4ª e 5ª",ore:22,mod:"In presenza",stato:"Candidature aperte",tipo:"corso",posti:"6 posti",circ:"https://www.liceolabriola.edu.it/circolare/13836/"},
+ {as:"2026/27",n:"38",nome:"EcoPsy Lab",ente:"Università di Roma Tor Vergata",dest:"Una classe 4ª o 5ª su candidatura dei docenti",ore:20,mod:"Mista",stato:"Chiuso",tipo:"corso",posti:"20-25 posti",mat:["Scienze naturali"]},
+ {as:"2026/27",n:"45",nome:"Sicurezza Generale (corso «Studiare il lavoro»)",ente:"",dest:"Classi 3ª, obbligatorio",ore:4,mod:"Online",stato:"Entro il 31/10/2026",tipo:"sicurezza",posti:"Tutte le terze",mat:["Educazione civica"],circ:"https://www.liceolabriola.edu.it/circolare/45-fsl-corso-obbligatorio-sicurezza-generale-tutela-della-salute-e-della-sicurezza-dei-lavoratori-4-ore/",video:"https://youtu.be/aV2amGr85ws"},
+ {as:"2026/27",n:"47",nome:"Casetta di Rita",ente:"Centro per la Vita di Ostia",dest:"Tutte le classi",ore:40,max:true,mod:"In presenza",stato:"Chiuso",tipo:"volontariato",posti:"30 posti",mat:["Educazione civica"]},
+ {as:"2026/27",n:"50",nome:"Scuola della Pace",ente:"",dest:"Tutte le classi",ore:30,max:true,mod:"In presenza",stato:"Chiuso",tipo:"volontariato",posti:"30 posti",mat:["Educazione civica","Storia"]},
+ {as:"2026/27",n:"57",nome:"Cineforum",ente:"Associazione Occhio Estraneo",dest:"Tutte le classi",ore:30,mod:"In presenza",stato:"Chiuso",tipo:"corso",posti:"90 posti",mat:["Italiano","Storia"]},
+ {as:"2026/27",n:"58",nome:"Management Antimafia",ente:"NOI Associazione Antimafia ODV",dest:"Tutte le classi",ore:48,mod:"In presenza",stato:"Candidature aperte",tipo:"corso",posti:"Senza limite",mat:["Educazione civica","Storia"],circ:"https://www.liceolabriola.edu.it/circolare/58-fsl-adesione-progetto-corso-di-management-antimafia/"},
+ {as:"2026/27",n:"61",nome:"Radici Comuni",ente:"",dest:"Classi 3ª, 4ª e 5ª",ore:50,mod:"In presenza",stato:"Candidature aperte",tipo:"project",posti:"60 posti",note:"Percorso di cinema e ricerca sul territorio",mat:["Storia","Italiano"],circ:"https://www.liceolabriola.edu.it/circolare/61-fsl-percorso-di-cinema-e-ricerca-sul-territorio-radici-comuni-presentazione-del-progetto-e-adesioni/"},
+ {as:"2026/27",n:"80",nome:"Giovani per la prevenzione",ente:"Croce Rossa Italiana, Comitato Municipio X Roma",dest:"Classi 4ª e 5ª",ore:30,mod:"In presenza",stato:"Candidature aperte",tipo:"volontariato",posti:"10 posti",mat:["Scienze naturali","Educazione civica"],circ:"https://www.liceolabriola.edu.it/circolare/giovani-per-la-prevenzione-croce-rossa-italiana-comitato-municipio-10-di-roma/"},
+ {as:"2026/27",n:"82",nome:"Da grande farò il biologo",ente:"Università Roma Tre",dest:"Classi 4ª e 5ª",ore:40,mod:"In presenza",stato:"Chiuso",tipo:"corso",posti:"3 posti",mat:["Scienze naturali"]},
+ {as:"2026/27",n:"92",nome:"IBM SkillsBuild Digital Path «from zero to hero»",ente:"IBM",dest:"Classi 5ª, per completare le ore",ore:10,mod:"Online",stato:"Chiuso",tipo:"corso",posti:"",mat:["Informatica","Inglese"],circ:"https://www.liceolabriola.edu.it/circolare/92-fsl-su-piattaforma-ibm-per-completamento-ore-progetto-ibm-skillsbuild-digital-path-from-zero-to-hero-studenti-5-anno/"},
+ {as:"2025/26",nome:"Global Politics and Society Course",ente:"Associazione Diplomatici",dest:"Classi 4ª e 5ª",ore:20,stato:"Avvio 18/12/2025",tipo:"corso",mat:["Storia","Inglese","Educazione civica"]},
+ {as:"2025/26",nome:"Progetto Memoria",ente:"Associazione La Sibilla",dest:"Classi 3ª, obbligatorio",ore:25,stato:"Avvio 5/3/2026",tipo:"project",mat:["Storia","Educazione civica"]},
+ {as:"2025/26",nome:"Progetto Olga (educazione contro la violenza)",ente:"Associazione Olga",dest:"Classi 4ª e 5ª",ore:15,stato:"Avvio 9/2/2026",tipo:"volontariato",mat:["Educazione civica"]},
+ {as:"2025/26",nome:"Casetta di Rita",ente:"Centro per la Vita di Ostia",dest:"Triennio",ore:40,stato:"In corso",tipo:"volontariato",mat:["Educazione civica"]},
+ {as:"2025/26",nome:"Health4U",ente:"Johnson & Johnson",dest:"Triennio",ore:30,stato:"Avviato 4/11/2025",tipo:"corso",mat:["Scienze naturali"]},
+ {as:"2025/26",nome:"Sicurezza Generale",ente:"",dest:"Classi 3ª, obbligatorio",ore:4,stato:"Avviato 13/11/2025",tipo:"sicurezza",mat:["Educazione civica"]},
+ {as:"2025/26",nome:"Sillabario Pasolini",ente:"Naufragar M'è Dolce",dest:"Classi 4ª e 5ª",ore:22,stato:"Concluso",tipo:"corso",mat:["Italiano","Storia"]},
+ {as:"2025/26",nome:"Management Antimafia",ente:"NOI Associazione Antimafia ODV",dest:"Triennio",ore:48,stato:"Avviato 26/11/2025",tipo:"corso",mat:["Educazione civica","Storia"]},
+ {as:"2025/26",nome:"La lanterna magica",ente:"Associazione Occhio Estraneo",dest:"Triennio",ore:30,stato:"Avviato 15/10/2025",tipo:"corso",note:"Educazione all'immagine cinematografica",mat:["Italiano","Storia","Disegno e storia dell'arte"]},
+ {as:"2025/26",nome:"La Protezione Civile nella Didattica",ente:"Roma Capitale",dest:"Classe 3B",ore:20,stato:"Avviato",tipo:"corso",mat:["Scienze naturali","Educazione civica"]},
+ {as:"2025/26",nome:"Da grande farò il Biologo",ente:"Università Roma Tre",dest:"Classi 4ª e 5ª",ore:40,stato:"Concluso",tipo:"corso",mat:["Scienze naturali"]},
+ {as:"2025/26",nome:"Rocce e minerali del patrimonio romano",ente:"Università Roma Tre",dest:"Classe 4G",ore:25,stato:"Avvio 6/11/2025",tipo:"corso",mat:["Scienze naturali","Disegno e storia dell'arte"]},
+ {as:"2025/26",nome:"La trasmissione meccanica: dalle biciclette alle vetture ibride",ente:"Università Roma Tre",dest:"Classi 4ª e 5ª",ore:40,stato:"Avvio 4/12/2025",tipo:"corso",mat:["Fisica","Matematica"]},
+ {as:"2025/26",nome:"Introduzione all'ingegneria elettronica",ente:"Università Roma Tre",dest:"Classi 4ª e 5ª",ore:20,stato:"Avvio 22/1/2026",tipo:"orientamento",mat:["Fisica","Matematica"]},
+ {as:"2025/26",nome:"Bioingegneria dello sport",ente:"Università Roma Tre",dest:"Classi 4ª e 5ª",ore:16,stato:"Avvio 20/4/2026",tipo:"orientamento",mat:["Fisica","Scienze naturali","Scienze motorie"]},
+ {as:"2025/26",nome:"La Meccanica nelle applicazioni marine",ente:"Università Roma Tre",dest:"Triennio",ore:15,stato:"Gennaio-marzo 2026",tipo:"corso",mat:["Fisica","Matematica"]},
+ {as:"2025/26",nome:"Biotecnologie alimentari: il lievito naturale",ente:"Sapienza Università di Roma",dest:"Classi 4ª e 5ª",ore:14,stato:"In fase di avvio",tipo:"corso",mat:["Scienze naturali"],doc:"https://www.liceolabriola.edu.it/documento/biotecnologie-alimentari/"},
+ {as:"2025/26",nome:"Chimica e fisica: al centro della Terra",ente:"Sapienza Università di Roma",dest:"Triennio",ore:15,stato:"In fase di avvio",tipo:"corso",mat:["Scienze naturali","Fisica"],doc:"https://www.liceolabriola.edu.it/documento/chimica-e-fisica-dellinterno-del-pianeta-terra/"},
+ {as:"2025/26",nome:"LAB2GO",ente:"Sapienza Università di Roma",dest:"Triennio",ore:40,stato:"Avvio 12/1/2026",tipo:"corso",mat:["Fisica","Scienze naturali"],doc:"https://www.liceolabriola.edu.it/documento/lab2go/"},
+ {as:"2025/26",nome:"La geologia nei laboratori naturali",ente:"Sapienza Università di Roma",dest:"Classi 4ª e 5ª",ore:8,stato:"In fase di avvio",tipo:"corso",mat:["Scienze naturali"]},
+ {as:"2025/26",nome:"slAte PROMPTE! (empowerment femminile e IA)",ente:"Sapienza Università di Roma",dest:"Studentesse del triennio",ore:21,stato:"In corso",tipo:"corso",mat:["Informatica","Educazione civica"]},
+ {as:"2025/26",nome:"Una giornata da medico al Sant'Andrea",ente:"Sapienza Università di Roma",dest:"Studenti maggiorenni di 4ª e 5ª",ore:20,stato:"Inizio 10/12/2025",tipo:"orientamento",mat:["Scienze naturali"]},
+ {as:"2025/26",nome:"STEAM4future",ente:"Scuola Attiva",dest:"Classi 3A, 3G, 3N",ore:35,stato:"In corso",tipo:"project",mat:["Matematica","Fisica","Scienze naturali"]},
+ {as:"2025/26",nome:"Choose your Future (educazione finanziaria)",ente:"VIK School",dest:"Classi 3ª",ore:16,stato:"In corso",tipo:"corso",mat:["Matematica","Educazione civica"]},
+ {as:"2025/26",nome:"GET",ente:"",dest:"Classi 3C, 3D, 4D, 3E",ore:20,stato:"In corso",tipo:"corso"},
+ {as:"2025/26",nome:"Vaccini: Io scelgo sì!",ente:"Sapienza Università di Roma",dest:"Classi 4ª e 5ª",ore:10,stato:"Concluso",tipo:"corso",mat:["Scienze naturali","Educazione civica"]},
+ {as:"2025/26",nome:"Tutor di spazio museale - Progetto Memoria",ente:"GEA",dest:"Classi 4ª e 5ª",ore:15,stato:"In fase di avvio",tipo:"volontariato",mat:["Storia"]},
+ {as:"2025/26",nome:"Reimagining Democratic Participation",ente:"Università di Milano-Bicocca (RE.De.PART)",dest:"Classi 3ª e 4ª",ore:35,stato:"",tipo:"project",mat:["Educazione civica","Storia","Filosofia"]},
+ {as:"2025/26",nome:"Masterclass INFN Tor Vergata",ente:"INFN",dest:"",ore:8,stato:"",tipo:"orientamento",mat:["Fisica"]}
+];
+
+/* ---------- stato ---------- */
+function blankProfile(){return{nome:"",classe:"",istituto:SCHOOL.nome,indirizzo:"",scuola:"liceo",obiettivo:90,tutorSc:"",as:asOf(todayISO()),materie:"",cert3:"",cert4:"",cert5:""};}
+function blankMeta(){return{v:1,started:false,profile:blankProfile(),projects:[],report:{sections:{}}};}
+function normProject(p){const o=Object.assign({id:"",nome:"",tipo:"corso",ente:"",settore:"",sede:"",tutorAz:"",tutorSc:"",anno:3,as:"",inizio:"",fine:"",previste:0,descr:"",colore:0,fase:"",materie:[],patto:false,cert:false,docum:false,circ:"",doc:""},p||{});o.materie=Array.isArray(o.materie)?o.materie.map(String):[];o.patto=!!o.patto;o.cert=!!o.cert;o.docum=!!o.docum;o.fase=["1","2"].includes(String(o.fase))?String(o.fase):"";o.anno=[3,4,5].includes(+o.anno)?+o.anno:3;o.previste=Math.max(0,+o.previste||0);o.colore=Math.abs(Math.round(+o.colore||0))%6;return o;}
+function normMeta(d){if(!d||typeof d!=="object")return null;const m=blankMeta();m.started=!!d.started;Object.assign(m.profile,d.profile&&typeof d.profile==="object"?d.profile:{});m.projects=Array.isArray(d.projects)?d.projects.filter(p=>p&&p.id).map(normProject):[];const s=d.report&&d.report.sections;m.report={sections:s&&typeof s==="object"?Object.assign({},s):{}};return m;}
+function normEntry(e){const o=Object.assign({id:"",data:todayISO(),projectId:"",modalita:"presenza",inizio:"",fine:"",pausa:0,ore:0,attivita:"",competenze:[],imparato:"",difficolta:"",voto:0,vidimato:false},e||{});o.ore=Math.max(0,+o.ore||0);o.pausa=Math.max(0,+o.pausa||0);o.voto=Math.min(5,Math.max(0,+o.voto||0));o.competenze=Array.isArray(o.competenze)?o.competenze.map(String):[];o.vidimato=!!o.vidimato;if(!isISO(o.data))o.data=todayISO();return o;}
+
+let real={meta:null,entries:[]};
+let demo=null;
+const cur=()=>demo||real;
+const meta=()=>cur().meta||blankMeta();
+function ensureMeta(){const t=cur();if(!t.meta)t.meta=blankMeta();return t.meta;}
+const goalOf=P=>(+P.obiettivo>0?+P.obiettivo:(SCUOLE[P.scuola]||[0,0])[1])||0;
+
+/* ---------- salvataggio ---------- */
+const STANDALONE=!(window.claude&&typeof window.claude.use==="function");
+const LEGACY_KEY="diario-pcto-v1";let LKEY=LEGACY_KEY;let account=null;
+const store={mode:"loading",ref:null,col:null,unsubs:[],chain:Promise.resolve(),metaTimer:0,metaVer:0,pendingMeta:false,pend:new Map(),gotMeta:false,gotEntries:false,okMeta:false,okEntries:false,ready:false,loadTimer:0,offline:false,status:"loading"};
+const ai={running:false,kind:"",key:"",msg:"",ctl:null};
+
+function readLocal(){try{const r=localStorage.getItem(LKEY);if(!r)return null;const d=JSON.parse(r);return{meta:normMeta(d.meta),entries:Array.isArray(d.entries)?d.entries.map(normEntry).filter(e=>e.id):[]};}catch(e){return null;}}
+function writeLocal(){try{localStorage.setItem(LKEY,JSON.stringify(real));setStatus("local");}catch(e){setStatus("volatile");}}
+async function withRetry(fn){try{return await fn();}catch(e){const c=e&&e.code;if(c==="unavailable"){await sleep(400+Math.random()*800);return await fn();}if(c==="resource_exhausted"){await sleep(1500+Math.random()*1000);return await fn();}throw e;}}
+function enqueue(fn){const p=store.chain.then(async()=>{if(store.mode!=="cloud")return false;try{await withRetry(fn);return true;}catch(e){onWriteError(e);return false;}});store.chain=p;return p;}
+function onWriteError(e){
+  const c=e&&e.code;
+  if(["invalid_argument","revoked","not_granted","capability_disabled","capability_removed","transform_error"].includes(c)){
+    if(store.mode==="cloud"){goLocal(true);toast("Da questo link non posso salvare nel tuo account: da ora il diario si salva su questo dispositivo.");}
+  }else if(c==="quota_exceeded"){setStatus("cloud");toast("Spazio esaurito: scarica un backup ed elimina le giornate che non ti servono.");}
+  else{setStatus("offline");toast("Salvataggio non riuscito. Controlla la connessione: riprovo alla prossima modifica.");}
+}
+function saveMeta(){
+  if(demo)return;
+  if(store.mode==="cloud"){
+    store.metaVer++;store.pendingMeta=true;setStatus("saving");
+    clearTimeout(store.metaTimer);
+    store.metaTimer=setTimeout(()=>{store.metaTimer=0;const ver=store.metaVer;const data=clone(real.meta||blankMeta());
+      enqueue(()=>store.ref.set(data)).then(ok=>{if(ver===store.metaVer)store.pendingMeta=false;if(ok&&store.mode==="cloud")setStatus("cloud");});},700);
+  }else if(store.mode==="sb")sbSave();
+  else if(store.mode==="local")writeLocal();
+}
+function putEntry(e){
+  const t=cur();const i=t.entries.findIndex(x=>x.id===e.id);if(i>=0)t.entries[i]=e;else t.entries.push(e);
+  if(demo)return;
+  if(store.mode==="cloud"){store.pend.set(e.id,e);setStatus("saving");const data=Object.assign({},e);delete data.id;
+    enqueue(()=>store.col.doc(e.id).set(data)).then(ok=>{if(store.pend.get(e.id)===e)store.pend.delete(e.id);if(ok&&store.mode==="cloud")setStatus("cloud");});}
+  else if(store.mode==="sb")sbSave();
+  else if(store.mode==="local")writeLocal();
+}
+function dropEntry(id){
+  const t=cur();t.entries=t.entries.filter(x=>x.id!==id);
+  if(demo)return;
+  if(store.mode==="cloud"){store.pend.set(id,null);setStatus("saving");
+    enqueue(()=>store.col.doc(id).delete()).then(ok=>{if(store.pend.get(id)===null)store.pend.delete(id);if(ok&&store.mode==="cloud")setStatus("cloud");});}
+  else if(store.mode==="sb")sbSave();
+  else if(store.mode==="local")writeLocal();
+}
+function applyEntries(docs){
+  let arr=docs.map(d=>normEntry(Object.assign({},d.data(),{id:d.id})));
+  for(const [id,v] of store.pend){arr=arr.filter(x=>x.id!==id);if(v)arr.push(v);}
+  real.entries=arr;
+}
+function goLocal(keep){
+  store.unsubs.forEach(u=>{try{u();}catch(e){}});store.unsubs=[];clearTimeout(store.loadTimer);clearTimeout(store.metaTimer);
+  store.mode="local";store.ready=true;
+  if(!keep)real=readLocal()||{meta:null,entries:[]};
+  if(keep||real.meta||real.entries.length)writeLocal();else setStatus("local");
+  render();
+}
+function startCloud(db,id){
+  let ref,col;
+  try{ref=db.doc("data/users/"+id+"/diario");col=ref.collection("giornate");}catch(e){goLocal(false);return;}
+  Object.assign(store,{mode:"cloud",ref,col});
+  setStatus("loading");
+  store.loadTimer=setTimeout(()=>{if(!(store.okMeta&&store.okEntries)){store.offline=true;setStatus("offline");if(!store.ready)render();}},10000);
+  const confirmed=()=>{if(store.okMeta&&store.okEntries){clearTimeout(store.loadTimer);if(store.offline){store.offline=false;}if(!store.pendingMeta&&!store.pend.size)setStatus("cloud");}};
+  const ready=()=>{if(!(store.gotMeta&&store.gotEntries))return;if(!store.ready){store.ready=true;if(store.status==="loading")setStatus("cloud");render();offerLocalMigration();}else softRender();};
+  store.unsubs.push(ref.onSnapshot(s=>{store.gotMeta=true;if(!s.metadata.fromCache)store.okMeta=true;
+    if(!store.pendingMeta&&!(ai.running&&!demo))real.meta=s.exists?normMeta(s.data()):null;confirmed();ready();},onSubErr));
+  store.unsubs.push(col.onSnapshot(q=>{store.gotEntries=true;if(!q.metadata.fromCache)store.okEntries=true;applyEntries(q.docs);confirmed();ready();},onSubErr));
+}
+function onSubErr(e){
+  if(store.mode!=="cloud")return;
+  const hadData=store.ready;
+  goLocal(hadData);
+  toast(hadData?"Ho perso il collegamento con il tuo account: per ora salvo su questo dispositivo.":"Non riesco ad aprire i dati del tuo account: il diario si salva su questo dispositivo.");
+}
+function offerLocalMigration(){
+  if(real.meta||real.entries.length)return;
+  const loc=readLocal();
+  if(loc&&(loc.entries.length||(loc.meta&&loc.meta.started))){
+    toast(`Su questo dispositivo c'è un diario con ${loc.entries.length} ${plural(loc.entries.length,"giornata","giornate")}.`,"Portalo nel tuo account",()=>{
+      real.meta=loc.meta;saveMeta();loc.entries.forEach(putEntry);render();toast("Diario copiato nel tuo account.");},12000);
+  }
+}
+
+/* ---------- stato del salvataggio ---------- */
+const STATUS={loading:"Apro il diario…",cloud:"Salvato nel tuo account",saving:"Salvataggio…",local:"Salvato su questo dispositivo",volatile:"Non salvato: scarica un backup",offline:"In attesa di connessione",demo:"Esempio: non salvato"};
+function setStatus(k){store.status=k;renderStatus();}
+function renderStatus(){const k=demo?"demo":store.status;const el=$("#status");el.hidden=store.mode==="locked"&&!demo;el.dataset.k=k;el.lastElementChild.textContent=STATUS[k]||"";}
+
+/* ---------- statistiche ---------- */
+function stats(st){
+  st=st||cur();const m=st.meta||blankMeta();const ents=st.entries;
+  const pmap=new Map(m.projects.map(p=>[p.id,p]));
+  const byAnno={"3":0,"4":0,"5":0,"x":0};const byProj=new Map();const nProj=new Map();const comp=new Map();
+  let vid=0,nonVid=0,vs=0,vn=0;
+  for(const e of ents){
+    const p=pmap.get(e.projectId);const k=p?String(p.anno):"x";const o=+e.ore||0;
+    byAnno[k in byAnno?k:"x"]+=o;
+    const pk=p?p.id:"_";byProj.set(pk,(byProj.get(pk)||0)+o);nProj.set(pk,(nProj.get(pk)||0)+1);
+    if(e.vidimato)vid+=o;else nonVid++;
+    if(e.voto){vs+=e.voto;vn++;}
+    for(const c of e.competenze)comp.set(c,(comp.get(c)||0)+1);
+  }
+  for(const k in byAnno)byAnno[k]=round2(byAnno[k]);
+  const tot=round2(sum(ents.map(e=>e.ore)));
+  return{m,pmap,tot,byAnno,byProj,nProj,comp:[...comp.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])),vid:round2(vid),nonVid,avg:vn?vs/vn:0,n:ents.length};
+}
+const projSorted=m=>m.projects.slice().sort((a,b)=>(a.anno-b.anno)||String(a.inizio||"9").localeCompare(String(b.inizio||"9"))||a.nome.localeCompare(b.nome));
+const entriesOf=(st,pid)=>st.entries.filter(e=>e.projectId===pid).sort((a,b)=>a.data.localeCompare(b.data));
+function monthSeries(st){
+  const map=new Map();let last=null;
+  for(const e of st.entries){if(!isISO(e.data))continue;const k=e.data.slice(0,7);map.set(k,(map.get(k)||0)+(+e.ore||0));if(!last||k>last)last=k;}
+  const now=todayISO().slice(0,7);const end=last&&last>now?last:now;
+  let y=+end.slice(0,4),mo=+end.slice(5,7);const out=[];
+  for(let i=0;i<12;i++){const k=y+"-"+pad(mo);out.unshift({k,y,m:mo,v:round2(map.get(k)||0)});mo--;if(mo===0){mo=12;y--;}}
+  return out;
+}
+const niceMax=v=>[4,8,10,16,20,30,40,50,60,80,100,120,160,200,300,400,500].find(t=>t>=v)||Math.ceil(v/100)*100;
+
+/* ---------- rendering ---------- */
+const VIEWS=["riepilogo","registro","esperienze","relazione","profilo"];
+let view="riepilogo";
+let pendingRender=false;
+function route(){const h=location.hash.slice(1);const v=VIEWS.includes(h)?h:"riepilogo";const changed=v!==view;view=v;render();if(changed)window.scrollTo(0,0);}
+function isLoading(){return !demo&&(store.mode==="loading"||((store.mode==="cloud"||store.mode==="sb")&&!store.ready));}
+function render(){
+  pendingRender=false;
+  renderHeader();renderBanner();renderStatus();
+  $$(".tab").forEach(a=>{if(a.dataset.tab===view)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");});
+  const v=$("#view");
+  if(isLoading()){
+    v.innerHTML=`<div class="loader"><span class="spin"></span>${store.offline?"Non riesco ancora a raggiungere i tuoi dati. Continuo a provare.":"Apro il diario…"}</div>`;
+    $("#fab").hidden=true;return;
+  }
+  if(store.mode==="locked"&&!demo){v.innerHTML=STANDALONE?vLoginSb():vLogin();$("#fab").hidden=true;return;}
+  const welcome=!demo&&!meta().started&&cur().entries.length===0;
+  $("#fab").hidden=welcome;
+  v.innerHTML=({riepilogo:vRiepilogo,registro:vRegistro,esperienze:vEsperienze,relazione:vRelazione,profilo:vProfilo}[view])();
+  if(view==="registro")renderRegList();
+  if(view==="esperienze")renderCatalog();
+  if(view==="relazione"){$$("textarea[data-sec]").forEach(autosize);updAi();}
+}
+function softRender(){
+  const a=document.activeElement;
+  if($("#view").contains(a)&&a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)){pendingRender=true;return;}
+  render();
+}
+document.addEventListener("focusout",()=>{setTimeout(()=>{if(pendingRender){const a=document.activeElement;if(!($("#view").contains(a)&&a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)))render();}},0);});
+function renderHeader(){
+  const P=meta().profile;const who=$("#who");
+  const ac=$("#acct");if(account&&!demo){ac.hidden=false;$("#acct-name").textContent=account.email||account.name||"il tuo account";}else ac.hidden=true;
+  $("#acct-out").hidden=!(store.mode==="sb"&&account&&!demo);
+  $("#eyebrow").textContent=isLab(P)?"Liceo Labriola · Formazione scuola-lavoro":"Formazione scuola-lavoro · ex PCTO";
+  if(P.nome||P.classe){who.textContent=[P.nome,P.classe,P.as?"a.s. "+P.as:""].filter(Boolean).join(" · ");}
+  else who.textContent=(P.istituto||SCHOOL.nome)+" · ore, attività e relazione finale";
+}
+function renderBanner(){
+  $("#banner").innerHTML=demo?`<div class="banner"><div class="wrap"><span><b>Diario di esempio.</b> Persone e testi sono inventati, i percorsi vengono dal catalogo del ${esc(SCHOOL.breve)}. Le modifiche non vengono salvate.</span><span class="grow"></span><button type="button" class="btn small" data-act="demo-off">Esci dall'esempio</button></div></div>`:"";
+}
+function autosize(t){t.style.height="auto";t.style.height=Math.max(t.scrollHeight+2,150)+"px";}
+
+/* ----- riga di una giornata ----- */
+function entryRow(e,pmap,showMonth){
+  const p=pmap.get(e.projectId);const d=toD(e.data);
+  const wd=d.toLocaleDateString("it-IT",{weekday:"short"}).replace(".","");
+  const mon=d.toLocaleDateString("it-IT",{month:"short"}).replace(".","");
+  const comps=e.competenze||[];
+  const time=e.inizio&&e.fine?`${e.inizio}–${e.fine}${e.pausa?` · pausa ${e.pausa} min`:""}`:"";
+  return `<button type="button" class="entry" data-act="edit-entry" data-id="${esc(e.id)}" aria-label="${esc(fmtLong(e.data)+", "+(p?p.nome:"senza esperienza")+", "+fmtH(e.ore)+" ore")}">
+  <span class="e-date"><span class="e-day mono">${d.getDate()}</span><span class="${showMonth?"e-mon":"e-wd"}">${esc(showMonth?mon:wd)}</span>${showMonth?`<span class="e-wd">${d.getFullYear()}</span>`:""}</span>
+  <span class="e-body">
+    <span class="e-top"><span class="dot c${p?p.colore:"x"}"></span><span class="e-proj">${esc(p?p.nome:"Senza esperienza")}</span><span class="e-h mono">${fmtH(e.ore)} h</span></span>
+    ${time||e.modalita?`<span class="e-meta">${esc([time,MOD[e.modalita]].filter(Boolean).join(" · "))}</span>`:""}
+    ${e.attivita?`<span class="e-text">${esc(e.attivita)}</span>`:""}
+    <span class="e-foot"><span class="chips">${comps.slice(0,3).map(c=>`<span class="chip">${esc(c)}</span>`).join("")}${comps.length>3?`<span class="chip">+${comps.length-3}</span>`:""}</span>${e.vidimato?`<span class="stamp">Vidimato</span>`:`<span class="pill todo">Da vidimare</span>`}</span>
+  </span></button>`;
+}
+
+/* ----- accesso ----- */
+function vLogin(){
+  return `<section class="welcome quad">
+    <div><p class="eyebrow">${esc(SCHOOL.breve)} · Formazione scuola-lavoro</p>
+    <h2>Accedi con la tua email per aprire il diario</h2></div>
+    <p class="muted" style="margin:0;max-width:62ch">Il diario è personale: è legato all'email con cui accedi e nessun altro vede le tue giornate. Non serve una password nuova: si usa l'accesso del tuo account Claude.</p>
+    <ol class="steps">
+      <li><span><b>Accedi a claude.ai</b> con la tua email.</span></li>
+      <li><span><b>Riapri il link</b> del diario: si apre con le tue giornate.</span></li>
+      <li><span>Se il diario te l'ha condiviso qualcun altro, chiedigli di <b>invitarti con la tua email</b> dal menu Condividi della pagina.</span></li>
+    </ol>
+    <div class="btnrow"><a class="btn primary" href="https://claude.ai/login" target="_blank" rel="noopener">Vai all'accesso ↗</a><button type="button" class="btn ghost" data-act="demo-on">Intanto guarda un diario di esempio</button></div>
+  </section>`;
+}
+
+/* ----- benvenuto ----- */
+function vWelcome(){
+  const P=meta().profile;const nomeAcc=P.nome||(account&&account.name)||"";
+  return `<section class="welcome quad">
+    <div><p class="eyebrow">${esc(SCHOOL.breve)} · Formazione scuola-lavoro</p>
+    <h2>Tieni il conto delle ore e scrivi la relazione senza ricostruire tutto a fine anno.</h2></div>
+    <ol class="steps">
+      <li><span><b>Aggiungi i percorsi</b> dal catalogo del ${esc(SCHOOL.breve)}: ore, ente, circolare e materie collegate sono già compilati.</span></li>
+      <li><span><b>Tieni il diario di bordo</b> di ogni progetto, come chiede la scuola: orario, attività, competenze, firma del tutor.</span></li>
+      <li><span><b>Controlla le regole</b>: le 90 ore, i tre quarti delle ore di ogni percorso, il Patto formativo e la certificazione delle competenze.</span></li>
+      <li><span><b>Prepara i documenti</b>: il diario di ogni progetto, il foglio presenze e la relazione finale per il portfolio e il colloquio.</span></li>
+    </ol>
+  </section>
+  <form class="panel form-grid" id="welcome-form" novalidate>
+    <h2 class="h2">Inizia il tuo diario</h2>
+    <div class="row2">
+      <label class="field"><span>Nome e cognome</span><input class="in" id="w-nome" autocomplete="name" value="${esc(nomeAcc)}" placeholder="Es. Sara Moretti"></label>
+      <label class="field"><span>Classe</span><input class="in" id="w-classe" value="${esc(P.classe)}" placeholder="Es. 4ª D"></label>
+    </div>
+    <label class="field"><span>Scuola</span><input class="in" id="w-ist" value="${esc(P.istituto)}"></label>
+    <fieldset class="field"><legend>Indirizzo</legend>
+      <div class="school-opts">${SCHOOL.indirizzi.map((x,i)=>`<label class="sopt"><input type="radio" name="w-ind" id="w-ind-${i}" value="${esc(x)}" ${P.indirizzo===x?"checked":""}><span><b>${esc(x)}</b><small>90 ore nel triennio</small></span></label>`).join("")}</div>
+    </fieldset>
+    ${account&&account.email?`<p class="hint" style="margin:0">Il diario sarà collegato a <b>${esc(account.email)}</b>.</p>`:""}
+    <div class="btnrow"><button type="submit" class="btn primary">Apri il mio diario</button><button type="button" class="btn ghost" data-act="demo-on">Guarda un diario di esempio</button></div>
+    <p class="hint">Strumento personale per gli studenti: non è un servizio ufficiale del ${esc(SCHOOL.breve)} e non sostituisce i moduli che ti consegnano i tutor.</p>
+  </form>`;
+}
+
+/* ----- riepilogo ----- */
+function vRiepilogo(){
+  const st=cur(),m=meta(),P=m.profile;
+  if(!demo&&!m.started&&st.entries.length===0)return vWelcome();
+  const s=stats(st);const goal=goalOf(P);const scale=Math.max(goal,s.tot,1);
+  const segs=ANNI.filter(([k])=>s.byAnno[k]>0);
+  const remain=goal?round2(goal-s.tot):null;
+  const pct=goal?Math.min(100,Math.round(s.tot/goal*100)):0;
+  let out=`<section class="progress quad" aria-label="Ore svolte">
+    <div class="pg-top">
+      <div><p class="eyebrow">Ore svolte nel triennio</p><p class="pg-num">${fmtH(s.tot)}<small>${goal?"/ "+goal+" h":"h"}</small></p></div>
+      <div class="pg-side">${goal?(remain>0?`<p class="pg-rem">Mancano <span class="mono">${fmtH(remain)}</span> ore</p>`:`<p class="pg-rem done">Minimo raggiunto${remain<0?` · <span class="mono">+${fmtH(-remain)}</span> h`:""}</p>`):`<p class="pg-rem">Imposta il minimo di ore nel profilo</p>`}
+      <p class="hint">${goal?`${esc((SCUOLE[P.scuola]||SCUOLE.altro)[0])}: almeno ${goal} ore nel triennio per l'ammissione all'esame${goal?` · ${pct}%`:""}`:""}</p></div>
+    </div>
+    <div class="segbar" role="img" aria-label="${esc(segs.map(([k,l])=>l+" "+fmtH(s.byAnno[k])+" ore").join(", ")||"Nessuna ora registrata")}">
+      <div class="seg-in">${segs.map(([k,l,c])=>`<span style="width:${(s.byAnno[k]/scale*100).toFixed(2)}%;background:var(${c})"></span>`).join("")}</div>
+      ${goal&&s.tot>goal?`<i class="goal" style="left:${(goal/scale*100).toFixed(2)}%" title="Minimo: ${goal} ore"></i>`:""}
+    </div>
+    ${segs.length?`<ul class="legend">${segs.map(([k,l,c])=>`<li><span class="sw" style="--c:var(${c})"></span>${k==="x"?l:"Classe "+l} <b>${fmtH(s.byAnno[k])} h</b></li>`).join("")}${s.vid<s.tot?`<li>Confermate dal tutor <b>${fmtH(s.vid)} h</b></li>`:""}${certTot(P)!=null?`<li>Certificate dalla scuola <b>${fmtH(certTot(P))} h</b></li>`:""}</ul>`:""}
+  </section>
+  <section class="panel kpis" aria-label="In sintesi">
+    <div class="kpi"><b>${s.n}</b><span>${plural(s.n,"giornata","giornate")} registrate</span></div>
+    <div class="kpi"><b>${m.projects.length}</b><span>${plural(m.projects.length,"esperienza","esperienze")}</span></div>
+    <div class="kpi${s.nonVid?" warn":""}"><b>${s.nonVid}</b><span>da far vidimare</span></div>
+    <div class="kpi"><b>${s.avg?s.avg.toFixed(1).replace(".",","):"–"}</b><span>giudizio medio su 5</span></div>
+  </section>`;
+  if(!m.projects.length){
+    out+=`<section class="panel empty"><h2 class="h2">Da dove iniziare</h2><p>Ogni giornata appartiene a un'esperienza: un percorso del catalogo della scuola, un corso, uno stage. Aggiungi la prima e poi registra le giornate.</p><div class="btnrow"><button type="button" class="btn primary" data-act="go" data-to="esperienze" data-anchor="catalogo">Apri il catalogo del ${esc(SCHOOL.breve)}</button><button type="button" class="btn" data-act="new-project">Nuova esperienza</button></div></section>`;
+  }
+  out+=`<div class="grid2">
+    <section class="panel"><div class="h2-row"><h2 class="h2">Ore per mese</h2><span class="hint">ultimi 12 mesi</span></div>${chartMonths(st)}</section>
+    <section class="panel"><h2 class="h2">Esperienze</h2>${projMini(st,s)}</section>
+    <section class="panel"><h2 class="h2">Competenze più allenate</h2>${compBars(s)}</section>
+    <section class="panel"><h2 class="h2">Da sistemare</h2>${todoList(st,s)}</section>
+  </div>`;
+  const last=st.entries.slice().sort((a,b)=>b.data.localeCompare(a.data)).slice(0,3);
+  if(last.length)out+=`<section class="panel"><div class="h2-row"><h2 class="h2">Ultime giornate</h2><a class="btn ghost small" href="#registro">Tutto il registro</a></div><div class="entries">${last.map(e=>entryRow(e,s.pmap,true)).join("")}</div></section>`;
+  return out;
+}
+function certTot(P){const v=["3","4","5"].map(k=>String(P["cert"+k]==null?"":P["cert"+k]).trim()).filter(x=>x&&isFinite(parseNum(x)));return v.length?round2(sum(v.map(parseNum))):null;}
+function chartMonths(st){
+  const ser=monthSeries(st);const mx=Math.max(0,...ser.map(d=>d.v));
+  if(!mx)return `<p class="hint">Il grafico si riempie man mano che registri le giornate.</p>`;
+  const top=niceMax(mx);const iMax=ser.findIndex(d=>d.v===mx);
+  const mlabel=d=>new Date(d.y,d.m-1,1).toLocaleDateString("it-IT",{month:"short"}).replace(".","");
+  const mlong=d=>new Date(d.y,d.m-1,1).toLocaleDateString("it-IT",{month:"long",year:"numeric"});
+  return `<div role="img" aria-label="Ore per mese: ${esc(ser.filter(d=>d.v).map(d=>mlong(d)+" "+fmtH(d.v)+" ore").join(", "))}">
+  <div class="mplot">
+    ${[top,top/2,0].map(v=>`<div class="gl" style="bottom:${(v/top*100).toFixed(2)}%"><span class="mono">${fmtH(v)}</span></div>`).join("")}
+    <div class="mbars">${ser.map((d,i)=>{const h=(d.v/top*100).toFixed(2);return `<div class="mcol${i<2?" edge-l":i>9?" edge-r":""}" tabindex="${d.v?0:-1}" style="--bh:${h}%">${d.v?`<span class="mtip">${esc(mlong(d))}: ${fmtH(d.v)} h</span>`:""}${i===iMax?`<span class="mmax mono">${fmtH(d.v)}</span>`:""}<span class="mbar" style="height:${d.v?h:0}%"></span></div>`;}).join("")}</div>
+  </div>
+  <div class="mlabels" aria-hidden="true">${ser.map((d,i)=>`<span>${esc(mlabel(d))}${(i===0||d.m===1)?`<i>${d.y}</i>`:""}</span>`).join("")}</div></div>`;
+}
+function projMini(st,s){
+  const ps=projSorted(s.m);
+  if(!ps.length)return `<p class="hint">Nessuna esperienza ancora.</p>`;
+  return `<ul class="pl">${ps.map(p=>{const o=s.byProj.get(p.id)||0;const prev=p.previste||0;const w=prev?Math.min(100,o/prev*100):(o?100:0);
+    return `<li><div class="row"><span class="dot c${p.colore}"></span><span class="n">${esc(p.nome)}</span><span class="h">${fmtH(o)}${prev?" / "+fmtH(prev):""} h</span></div><div class="track c${p.colore}" style="--c:var(--p${p.colore})"><span style="width:${w.toFixed(1)}%"></span></div></li>`;}).join("")}</ul>`;
+}
+function compBars(s){
+  const top=s.comp.slice(0,6);
+  if(!top.length)return `<p class="hint">Quando segni le competenze nelle giornate, qui vedi quelle che alleni di più.</p>`;
+  const mx=top[0][1];
+  return `<ul class="bars">${top.map(([c,n])=>`<li><span class="lbl">${esc(c)}</span><span class="val">${n} ${plural(n,"giornata","giornate")}</span><span class="track"><span style="width:${(n/mx*100).toFixed(1)}%"></span></span></li>`).join("")}</ul>`;
+}
+function todoList(st,s){
+  const m=s.m,P=m.profile;const items=[];
+  if(!P.nome||!P.classe)items.push(["Completa il profilo con nome e classe","profilo"]);
+  if(!m.projects.some(p=>p.tipo==="sicurezza"))items.push(["Manca il corso sulla sicurezza (4 ore, obbligatorio in 3ª)","esperienze","catalogo"]);
+  if(s.nonVid)items.push([`${s.nonVid} ${plural(s.nonVid,"giornata","giornate")} da far firmare al tutor`,"registro","","todo"]);
+  const noComp=st.entries.filter(e=>!e.competenze.length).length;
+  if(noComp)items.push([`${noComp} ${plural(noComp,"giornata","giornate")} senza competenze segnate`,"registro"]);
+  const today=todayISO();const ended=p=>!!p.fine&&p.fine<today;
+  const noPatto=m.projects.filter(p=>(s.nProj.get(p.id)||0)>0&&!p.patto&&p.tipo!=="sicurezza");
+  if(noPatto.length)items.push([`Patto formativo firmato da consegnare per ${listIt(noPatto.map(p=>p.nome))}`,"esperienze"]);
+  const low=m.projects.filter(p=>ended(p)&&p.previste>0&&(s.byProj.get(p.id)||0)<p.previste*0.75);
+  if(low.length)items.push([`Sotto i tre quarti delle ore previste: ${listIt(low.map(p=>p.nome))}`,"esperienze"]);
+  const noCert=m.projects.filter(p=>ended(p)&&(s.nProj.get(p.id)||0)>0&&!p.cert);
+  if(noCert.length)items.push([`Certificazione delle competenze da ricevere per ${listIt(noCert.map(p=>p.nome))}`,"esperienze"]);
+  ["3","4","5"].forEach(k=>{const raw=String(P["cert"+k]==null?"":P["cert"+k]).trim();const c=parseNum(raw);if(raw&&isFinite(c)&&Math.abs(c-s.byAnno[k])>=0.5)items.push([`In ${k}ª il diario conta ${fmtH(s.byAnno[k])} h, la scuola ne ha certificate ${fmtH(c)}: controlla con il coordinatore`,"profilo","cert"]);});
+  const noTut=m.projects.filter(p=>p.tipo==="stage"&&!p.tutorAz);
+  if(noTut.length)items.push([`Aggiungi il tutor formativo esterno a ${noTut.map(p=>p.nome).join(", ")}`,"esperienze"]);
+  const secs=m.report.sections||{};const empty=SECTIONS.filter(x=>!(secs[x.key]||"").trim()).length;
+  const todos=SECTIONS.reduce((a,x)=>a+((secs[x.key]||"").match(/\[Completa:/g)||[]).length,0);
+  if(st.entries.length&&empty===SECTIONS.length)items.push(["Relazione finale da iniziare","relazione"]);
+  else if(empty||todos)items.push([`Relazione: ${empty?empty+" "+plural(empty,"sezione vuota","sezioni vuote"):""}${empty&&todos?" e ":""}${todos?todos+" "+plural(todos,"parte da completare","parti da completare"):""}`,"relazione"]);
+  if(!items.length)return `<ul class="todo"><li><span class="mk ok" aria-hidden="true">✓</span><span class="t">Tutto in ordine.</span></li></ul>`;
+  return `<ul class="todo">${items.map(([t,to,anchor,f])=>`<li><span class="mk warn" aria-hidden="true">!</span><span class="t">${esc(t)}</span><button type="button" class="btn ghost small" data-act="go" data-to="${to}"${anchor?` data-anchor="${anchor}"`:""}${f?` data-todo="1"`:""}>Apri</button></li>`).join("")}</ul>`;
+}
+
+/* ----- registro ----- */
+let filt={q:"",p:"",anno:"",todo:false};
+function vRegistro(){
+  const st=cur(),m=meta();
+  if(!st.entries.length){
+    return `<section class="panel empty"><h2 class="h2">Il registro è vuoto</h2><p>Registra ogni giornata appena finisce: data, orario, che cosa hai fatto e quali competenze hai usato. A fine anno avrai già tutto per la relazione e per il foglio presenze.</p><div class="btnrow">${m.projects.length?`<button type="button" class="btn primary" data-act="new-entry">Registra la prima giornata</button>`:`<button type="button" class="btn primary" data-act="go" data-to="esperienze" data-anchor="catalogo">Prima aggiungi un'esperienza</button>`}</div></section>`;
+  }
+  return `<section class="panel toolbar" aria-label="Filtri">
+    <div class="tb-row"><label class="search" style="flex:1 1 100%"><span class="sr">Cerca nel registro</span><input class="in" type="search" id="f-q" placeholder="Cerca nelle attività, nelle note, nelle competenze…" value="${esc(filt.q)}"></label></div>
+    <div class="tb-row">
+      <label class="sr" for="f-p">Esperienza</label><select class="in" id="f-p"><option value="">Tutte le esperienze</option>${projSorted(m).map(p=>`<option value="${esc(p.id)}" ${filt.p===p.id?"selected":""}>${esc(p.nome)}</option>`).join("")}</select>
+      <label class="sr" for="f-anno">Classe</label><select class="in" id="f-anno"><option value="">Tutte le classi</option>${["3","4","5"].map(a=>`<option value="${a}" ${filt.anno===a?"selected":""}>Classe ${a}ª</option>`).join("")}</select>
+      <button type="button" class="tchip" id="f-todo" data-act="f-todo" aria-pressed="${filt.todo}">Solo da vidimare</button>
+    </div>
+    <div class="tb-row"><span class="tb-sum mono" id="f-sum"></span><span class="grow"></span><button type="button" class="btn small" data-act="presenze-pdf">Foglio presenze PDF</button><button type="button" class="btn small" data-act="csv">Esporta per Excel</button></div>
+  </section>
+  <div id="reg-list" class="entries"></div>`;
+}
+function filteredEntries(){
+  const st=cur(),pmap=new Map(meta().projects.map(p=>[p.id,p]));const q=filt.q.trim().toLowerCase();
+  return st.entries.filter(e=>{
+    if(filt.p&&e.projectId!==filt.p)return false;
+    if(filt.anno){const p=pmap.get(e.projectId);if(!p||String(p.anno)!==filt.anno)return false;}
+    if(filt.todo&&e.vidimato)return false;
+    if(q){const p=pmap.get(e.projectId);const hay=[e.attivita,e.imparato,e.difficolta,e.competenze.join(" "),p?p.nome:"",p?p.ente:""].join(" ").toLowerCase();if(!hay.includes(q))return false;}
+    return true;
+  }).sort((a,b)=>b.data.localeCompare(a.data)||String(b.inizio).localeCompare(String(a.inizio)));
+}
+function renderRegList(){
+  const list=$("#reg-list");if(!list)return;
+  const es=filteredEntries();const pmap=new Map(meta().projects.map(p=>[p.id,p]));
+  const sumEl=$("#f-sum");if(sumEl)sumEl.textContent=`${es.length} ${plural(es.length,"giornata","giornate")} · ${fmtH(sum(es.map(e=>e.ore)))} h`;
+  if(!es.length){list.innerHTML=`<p class="hint" style="padding:8px 4px">Nessuna giornata con questi filtri.</p>`;return;}
+  let html="",curM="";
+  const groups=new Map();for(const e of es){const k=e.data.slice(0,7);groups.set(k,(groups.get(k)||0)+e.ore);}
+  for(const e of es){const k=e.data.slice(0,7);if(k!==curM){curM=k;html+=`<div class="mhead"><span>${esc(toD(e.data).toLocaleDateString("it-IT",{month:"long",year:"numeric"}))}</span><span class="mono">${fmtH(groups.get(k))} h</span></div>`;}html+=entryRow(e,pmap,false);}
+  list.innerHTML=html;
+}
+
+/* ----- esperienze ----- */
+let catAs="2026/27",catQ="";
+function vEsperienze(){
+  const st=cur(),m=meta(),s=stats(st);const ps=projSorted(m);
+  let out=`<div class="h2-row" style="margin:0"><h2 class="h2" style="font-size:22px">Le mie esperienze</h2><button type="button" class="btn primary" data-act="new-project">+ Nuova esperienza</button></div>`;
+  if(!ps.length)out+=`<section class="panel empty"><p>Non hai ancora esperienze. Scegline una dal catalogo qui sotto oppure creane una nuova (uno stage estivo, un corso esterno, un'attività di orientamento).</p></section>`;
+  for(const a of [3,4,5]){
+    const g=ps.filter(p=>p.anno===a);if(!g.length)continue;
+    const ore=sum(g.map(p=>s.byProj.get(p.id)||0));
+    out+=`<div class="group-h"><h2>Classe ${a}ª</h2><span class="mono">${fmtH(ore)} h</span></div><div class="proj-list">${g.map(p=>projCard(p,s)).join("")}</div>`;
+  }
+  if(s.byProj.get("_"))out+=`<p class="notice">${s.nProj.get("_")} ${plural(s.nProj.get("_"),"giornata non è collegata","giornate non sono collegate")} a nessuna esperienza (${fmtH(s.byProj.get("_"))} h). Aprile dal registro e scegli l'esperienza giusta.</p>`;
+  out+=`<section class="panel" id="catalogo">
+    <div class="h2-row"><h2 class="h2">Catalogo del ${esc(SCHOOL.breve)}</h2><a class="btn ghost small" href="${esc(SCHOOL.url)}" target="_blank" rel="noopener">Pagina della scuola ↗</a></div>
+    <p class="hint" style="margin:-6px 0 12px">Percorsi pubblicati sul sito della scuola, letti il ${CAT_DATE}. Per candidarti segui la circolare del percorso; qui lo aggiungi al diario quando inizi a frequentarlo.</p>
+    <div class="cat-tools"><label class="sr" for="cat-as">Anno scolastico</label><select class="in" id="cat-as">${["2026/27","2025/26"].map(a=>`<option value="${a}" ${catAs===a?"selected":""}>a.s. ${a}</option>`).join("")}</select><label class="sr" for="cat-q">Cerca nel catalogo</label><input class="in" type="search" id="cat-q" placeholder="Cerca un percorso o un ente…" value="${esc(catQ)}"></div>
+    <div id="cat-list"></div>
+  </section>`;
+  return out;
+}
+function projCard(p,s){
+  const o=s.byProj.get(p.id)||0,n=s.nProj.get(p.id)||0,prev=p.previste||0;
+  const w=prev?Math.min(100,o/prev*100):(o?100:0);
+  const per=fmtRangeShort(p.inizio,p.fine);const ended=!!p.fine&&p.fine<todayISO();
+  const soglia=prev?round2(prev*0.75):0;
+  const valid=!prev?"":o>=soglia?`<span class="pill ok">✓ Frequenza valida: almeno ¾ delle ore</span>`:ended?`<span class="pill todo">! Sotto i ¾: servivano ${fmtH(soglia)} h</span>`:`<span class="hint validity">Valida con almeno ${fmtH(soglia)} h (¾ delle ore previste)</span>`;
+  const checks=[];
+  if(p.tipo!=="sicurezza")checks.push(p.patto?`<span class="pill ok">✓ Patto formativo consegnato</span>`:`<span class="pill todo">! Patto formativo da consegnare</span>`);
+  if(n)checks.push(p.cert?`<span class="pill ok">✓ Certificazione ricevuta</span>`:`<span class="pill ${ended?"todo":"off"}">${ended?"! ":""}Certificazione da ricevere</span>`);
+  if(n)checks.push(p.docum?`<span class="pill ok">✓ Relazione e foto raccolte</span>`:`<span class="pill off">Relazione e foto da raccogliere</span>`);
+  const links=[p.circ?`<a href="${esc(p.circ)}" target="_blank" rel="noopener">Circolare ↗</a>`:"",p.doc?`<a href="${esc(p.doc)}" target="_blank" rel="noopener">Percorso formativo ↗</a>`:""].filter(Boolean).join("");
+  return `<article class="panel proj">
+    <div class="proj-h"><span class="dot c${p.colore}"></span><h3>${esc(p.nome)}</h3><span class="pill off">${p.anno}ª${p.as?" · "+esc(p.as):""}</span></div>
+    <p class="proj-sub">${esc([p.fase?"Fase "+p.fase+(p.fase==="1"?" · progetto di classe":" · progetto individuale"):"",TIPO[p.tipo],p.ente,p.sede].filter(Boolean).join(" · "))}</p>
+    <dl class="dl">${per?`<dt>Periodo</dt><dd>${esc(per)}</dd>`:""}${p.tutorAz?`<dt>Tutor esterno</dt><dd>${esc(p.tutorAz)}</dd>`:""}${p.tutorSc?`<dt>Tutor interno</dt><dd>${esc(p.tutorSc)}</dd>`:""}${p.materie.length?`<dt>Materie</dt><dd>${esc(p.materie.join(", "))}</dd>`:""}<dt>Giornate</dt><dd class="mono">${n}</dd></dl>
+    <div class="track" style="--c:var(--p${p.colore})"><span style="width:${w.toFixed(1)}%"></span></div>
+    <div class="meter-l"><span class="mono">${fmtH(o)}${prev?" / "+fmtH(prev):""} h</span><span>${prev?(o>=prev?"Completata":"Mancano "+fmtH(prev-o)+" h"):"Ore previste non indicate"}</span></div>
+    ${valid?`<div>${valid}</div>`:""}
+    ${checks.length?`<div class="checks">${checks.join("")}</div>`:""}
+    ${links?`<div class="links">${links}</div>`:""}
+    <div class="btnrow"><button type="button" class="btn small" data-act="entry-in-project" data-id="${esc(p.id)}">+ Giornata</button>${n?`<button type="button" class="btn small ghost" data-act="go" data-to="registro" data-p="${esc(p.id)}">Giornate</button><button type="button" class="btn small ghost" data-act="proj-pdf" data-id="${esc(p.id)}">Diario PDF</button>`:""}<span class="grow"></span><button type="button" class="btn small ghost" data-act="edit-project" data-id="${esc(p.id)}">Modifica</button></div>
+  </article>`;
+}
+function renderCatalog(){
+  const box=$("#cat-list");if(!box)return;
+  const mine=new Set(meta().projects.map(p=>p.nome.toLowerCase()));const q=catQ.trim().toLowerCase();
+  const items=CATALOGO.map((c,i)=>Object.assign({i},c)).filter(c=>c.as===catAs&&(!q||(c.nome+" "+c.ente+" "+(c.note||"")+" "+c.dest).toLowerCase().includes(q)));
+  if(!items.length){box.innerHTML=`<p class="hint">Nessun percorso trovato.</p>`;return;}
+  box.innerHTML=items.map(c=>{
+    const open=/aperte/i.test(c.stato);const closed=/chiuso|concluso|annullato/i.test(c.stato);const has=mine.has(c.nome.toLowerCase());
+    return `<div class="cat-row"><span class="cat-n">${c.n?esc(c.n):"·"}</span><div style="min-width:0"><div class="cat-t">${esc(c.nome)}</div>${c.ente||c.note?`<div class="cat-e">${esc([c.ente,c.note].filter(Boolean).join(" · "))}</div>`:""}
+      ${c.mat&&c.mat.length?`<div class="cat-e">Materie collegate: ${esc(c.mat.join(", "))}</div>`:""}
+      <div class="cat-meta"><span class="chip mono">${c.max?"max ":""}${c.ore} h</span>${c.dest?`<span class="chip">${esc(c.dest)}</span>`:""}${c.mod?`<span class="chip">${esc(c.mod)}</span>`:""}${c.posti?`<span class="chip">${esc(c.posti)}</span>`:""}${c.stato?`<span class="pill ${open?"ok":closed?"off":"todo"}">${esc(c.stato)}</span>`:""}</div>
+      ${c.circ||c.doc||c.video?`<div class="cat-links">${c.circ?`<a href="${esc(c.circ)}" target="_blank" rel="noopener">Circolare ↗</a>`:""}${c.doc?`<a href="${esc(c.doc)}" target="_blank" rel="noopener">Percorso formativo ↗</a>`:""}${c.video?`<a href="${esc(c.video)}" target="_blank" rel="noopener">Video: come accedere ↗</a>`:""}</div>`:""}</div>
+      <div class="cat-act">${has?`<span class="pill ok">Nel tuo diario</span>`:`<button type="button" class="btn small" data-act="cat-add" data-i="${c.i}">Aggiungi</button>`}</div></div>`;}).join("");
+}
+
+/* ----- relazione ----- */
+let reportUndo=null;const secUndo={};
+function vRelazione(){
+  const st=cur(),m=meta(),s=stats(st);const secs=m.report.sections||{};
+  const todos=SECTIONS.reduce((a,x)=>a+((secs[x.key]||"").match(/\[Completa:/g)||[]).length,0);
+  const any=SECTIONS.some(x=>(secs[x.key]||"").trim());
+  let out=`<section class="panel" style="display:grid;gap:14px">
+    <div><h2 class="h2" style="font-size:22px;margin-bottom:6px">Relazione finale</h2>
+    <p class="muted" style="margin:0;max-width:68ch">Al colloquio dell'esame di Stato presenti le esperienze di formazione scuola-lavoro con una relazione scritta o un elaborato multimediale. La traccia segue la struttura consigliata: contesto, attività, competenze, collegamenti con le materie e bilancio orientativo.</p></div>
+    <div class="btnrow">
+      <button type="button" class="btn${any?"":" primary"}" data-act="gen-report" id="gen-btn">${any?"Rifai la bozza dai dati":"Crea la bozza dai dati del diario"}</button>
+      <button type="button" class="btn ai-only${any?"":""}" data-act="ai-report">Scrivi con Claude</button>
+      <button type="button" class="btn ghost" data-act="slides">Scaletta per le slide</button>
+      ${reportUndo?`<button type="button" class="btn ghost" data-act="undo-report">Ripristina la versione precedente</button>`:""}
+    </div>
+    <div class="ai-status" id="ai-status" hidden><span class="spin"></span><span id="ai-msg"></span><span class="grow"></span><button type="button" class="btn small" data-act="ai-stop">Interrompi</button></div>
+    <div class="export-row"><span class="flabel">Scarica</span>
+      <button type="button" class="btn small" data-act="exp" data-fmt="pdf">PDF</button>
+      <button type="button" class="btn small" data-act="exp" data-fmt="docx">Word</button>
+      <button type="button" class="btn small" data-act="exp" data-fmt="md">Markdown</button>
+      <button type="button" class="btn small ghost" data-act="exp" data-fmt="copy">Copia il testo</button>
+    </div>
+    ${todos?`<p class="todo-note small" style="margin:0" id="todo-count">${todos} ${plural(todos,"parte da completare","parti da completare")}: cerca [Completa: …] nel testo.</p>`:`<p class="todo-note small" style="margin:0" id="todo-count" hidden></p>`}
+  </section>`;
+  SECTIONS.forEach((x,i)=>{const t=secs[x.key]||"";
+    out+=`<section class="panel sec" data-key="${x.key}">
+      <div class="sec-h"><h3>${i+1}. ${esc(x.title)}</h3><span class="mono" id="wc-${x.key}">${words(t)} parole</span></div>
+      <p class="hint">${esc(x.hint)}</p>
+      <label class="sr" for="sec-${x.key}">${esc(x.title)}</label>
+      <textarea class="in ruled" id="sec-${x.key}" data-sec="${x.key}" placeholder="Scrivi qui, oppure crea la bozza dai dati del diario.">${esc(t)}</textarea>
+      <div class="sec-actions"><button type="button" class="btn small ghost ai-only" data-act="ai-section" data-key="${x.key}">${t.trim()?"Migliora con Claude":"Scrivi con Claude"}</button>${secUndo[x.key]!=null?`<button type="button" class="btn small ghost" data-act="undo-sec" data-key="${x.key}">Ripristina il mio testo</button>`:""}</div>
+    </section>`;});
+  const R=reportModel();
+  out+=`<section class="panel"><h3 class="h2">Allegato: riepilogo delle ore</h3><p class="hint" style="margin:-6px 0 10px">Si aggiorna da solo e finisce in fondo al PDF e al file Word.</p>
+    ${R.rows.length?`<div class="tbl-wrap"><table class="tbl"><thead><tr>${R.head.map((h,i)=>`<th${i===6?' class="num"':""}>${esc(h)}</th>`).join("")}</tr></thead><tbody>${R.rows.map(r=>`<tr>${r.map((c,i)=>`<td${i===6?' class="num"':""}>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody><tfoot><tr><td colspan="6">Totale${R.goal?` (minimo ${R.goal} h)`:""}</td><td class="num">${fmtH(s.tot)}</td></tr></tfoot></table></div>`:`<p class="hint">Nessuna esperienza registrata.</p>`}
+  </section>`;
+  return out;
+}
+function updSecCounts(key){
+  const m=meta();const wc=$("#wc-"+key);if(wc)wc.textContent=words(m.report.sections[key])+" parole";
+  const tc=$("#todo-count");if(tc){const n=SECTIONS.reduce((a,x)=>a+((m.report.sections[x.key]||"").match(/\[Completa:/g)||[]).length,0);tc.hidden=!n;tc.textContent=n?`${n} ${plural(n,"parte da completare","parti da completare")}: cerca [Completa: …] nel testo.`:"";}
+}
+function updAi(){
+  const box=$("#ai-status");if(!box)return;
+  box.hidden=!ai.running;const msg=$("#ai-msg");if(msg)msg.textContent=ai.msg;
+  $$("[data-act=ai-report],[data-act=ai-section],[data-act=gen-report]").forEach(b=>b.disabled=ai.running);
+  $$("textarea[data-sec]").forEach(t=>t.readOnly=ai.running&&(ai.kind==="report"||ai.key===t.dataset.sec));
+}
+
+/* ----- profilo ----- */
+let pendingImport=null;
+function vProfilo(){
+  const m=meta(),P=m.profile,st=cur();
+  const who=account?(account.email||account.name||"il tuo account"):"";
+  const dataMode=demo?"Stai guardando l'esempio: le modifiche non vengono salvate.":store.mode==="sb"?`Hai fatto l'accesso come ${who}. Il diario è salvato online ed è privato: le regole del database lo fanno leggere solo a te. Lo ritrovi su ogni dispositivo dove accedi con questa email.`:STANDALONE?"Il diario è salvato in questo browser, su questo dispositivo: non va su nessun server. Per passarlo a un altro dispositivo scarica il backup e importalo lì. Scaricalo anche ogni tanto: se cancelli i dati del browser lo perdi.":store.mode==="cloud"?`Hai fatto l'accesso come ${who}. Il diario è salvato in questo account ed è privato: solo tu vedi le tue giornate, anche se condividi la pagina. Se apri il link con un'altra email trovi un diario diverso.`:`Hai fatto l'accesso come ${who}, ma da questo link il diario non può salvarsi nell'account: lo salvo in questo browser, separato per ogni email. Scarica un backup ogni tanto: se cancelli i dati del browser lo perdi.`;
+  return `<section class="panel form-grid">
+    <h2 class="h2">Studente</h2>
+    <div class="row2">
+      <label class="field"><span>Nome e cognome</span><input class="in" id="pf-nome" data-pf="nome" value="${esc(P.nome)}" autocomplete="name"></label>
+      <label class="field"><span>Classe</span><input class="in" id="pf-classe" data-pf="classe" value="${esc(P.classe)}" placeholder="Es. 4ª D"></label>
+    </div>
+    <div class="row2">
+      <label class="field"><span>Scuola</span><input class="in" id="pf-istituto" data-pf="istituto" value="${esc(P.istituto)}"></label>
+      <label class="field"><span>Indirizzo di studio</span><input class="in" id="pf-indirizzo" data-pf="indirizzo" value="${esc(P.indirizzo)}" list="ind-list" placeholder="Es. Scienze applicate"><datalist id="ind-list">${SCHOOL.indirizzi.map(x=>`<option value="${esc(x)}">`).join("")}</datalist></label>
+    </div>
+    <div class="row2">
+      <label class="field"><span>Tipo di percorso</span><select class="in" id="pf-scuola">${Object.entries(SCUOLE).map(([k,v])=>`<option value="${k}" ${P.scuola===k?"selected":""}>${v[0]}${v[1]?` (${v[1]} ore)`:""}</option>`).join("")}</select></label>
+      <label class="field"><span>Minimo di ore nel triennio</span><input class="in mono" id="pf-obiettivo" data-pf="obiettivo" inputmode="numeric" value="${esc(P.obiettivo)}"></label>
+    </div>
+    <div class="row2">
+      <label class="field"><span>Anno scolastico in corso</span><input class="in" id="pf-as" data-pf="as" value="${esc(P.as)}" placeholder="2026/27"></label>
+      <label class="field"><span>Docente tutor interno</span><input class="in" id="pf-tutor" data-pf="tutorSc" value="${esc(P.tutorSc)}" placeholder="Es. Prof.ssa Rossi"></label>
+    </div>
+    <div class="field"><span class="flabel">Materie del colloquio</span>
+      <div class="tchips" id="pf-mat">${MATERIE.map(x=>`<button type="button" class="tchip" data-act="mat-toggle" data-m="${esc(x)}" aria-pressed="${splitMat(P.materie).includes(x)}">${esc(x)}</button>`).join("")}</div>
+      <div class="btnrow"><button type="button" class="btn small ghost" data-act="mat-2026">Usa quelle della maturità 2026</button><a class="btn small ghost" href="${esc(SCHOOL.materieMin)}" target="_blank" rel="noopener">Cerca sul sito del Ministero ↗</a></div>
+      <span class="hint">Per il liceo scientifico, all'esame 2026 le materie del colloquio erano Italiano, Matematica, Storia e Scienze naturali; per le opzioni verifica sul sito del Ministero. Le materie del 2026 sono uscite a fine gennaio. Servono per la sezione sui collegamenti nella relazione.</span>
+    </div>
+  </section>
+  <section class="panel form-grid" id="cert">
+    <div><h2 class="h2" style="margin-bottom:4px">Ore certificate dalla scuola</h2><p class="hint">A novembre i coordinatori di classe comunicano le ore certificate negli anni precedenti. Scrivile qui: il riepilogo ti avvisa se non coincidono con il diario.</p></div>
+    <div class="row4">${["3","4","5"].map(k=>`<label class="field"><span>Classe ${k}ª</span><input class="in mono" id="pf-cert${k}" data-pf="cert${k}" inputmode="decimal" value="${esc(P["cert"+k]==null?"":P["cert"+k])}" placeholder="–"><span class="hint" style="font-weight:400">Nel diario: ${fmtH(stats(st).byAnno[k])} h</span></label>`).join("")}<span></span></div>
+  </section>
+  <section class="panel" style="display:grid;gap:12px">
+    <h2 class="h2" style="margin:0">I tuoi dati</h2>
+    <p class="muted" style="margin:0">${esc(dataMode)}</p>
+    ${store.mode==="sb"&&!demo?`<div class="btnrow"><button type="button" class="btn small" data-act="sb-newpass">Cambia password</button><button type="button" class="btn small ghost" data-act="logout">Esci dall'account</button></div>`:""}
+    <div class="btnrow"><button type="button" class="btn" data-act="backup">Scarica backup</button><button type="button" class="btn" data-act="import">Importa backup</button><button type="button" class="btn" data-act="csv">Esporta per Excel</button>${demo?`<button type="button" class="btn ghost" data-act="demo-off">Esci dall'esempio</button>`:`<button type="button" class="btn ghost" data-act="demo-on">Guarda il diario di esempio</button>`}</div>
+    <div id="imp-box">${pendingImport?impBox():""}</div>
+    ${!demo&&(st.entries.length||m.started)?`<div class="btnrow"><button type="button" class="btn danger" data-act="wipe">Cancella tutto il diario</button></div>`:""}
+  </section>
+  <section class="panel notice" style="display:grid;gap:12px" id="regole">
+    <h2 class="h2" style="margin:0">Le regole FSL del ${esc(SCHOOL.breve)}</h2>
+    <ul class="rules">
+      <li>Dall'a.s. 2025/26 i PCTO si chiamano <b>formazione scuola-lavoro (FSL)</b>: cambia il nome, restano obblighi e monte ore.</li>
+      <li>Servono almeno <b>90 ore</b> tra 3ª, 4ª e 5ª. Sono obbligatorie, fanno parte del curricolo e sono un requisito di ammissione all'esame.</li>
+      <li><b>Fase 1</b>: progetti di classe, svolti soprattutto a scuola e obbligatori per tutta la classe. <b>Fase 2</b>: progetti individuali per gruppi ristretti, selezionati in base alle motivazioni.</li>
+      <li>Un percorso è valido se ne frequenti <b>almeno tre quarti</b> delle ore previste. Vengono certificate le ore effettivamente frequentate.</li>
+      <li>Prima di iniziare consegni al <b>docente tutor interno</b> il Percorso formativo e il Patto formativo, firmati da te e da un genitore.</li>
+      <li>Per ogni progetto tieni un <b>diario di bordo</b> e documenti l'esperienza con una relazione e delle foto. Le assenze si giustificano al tutor formativo esterno.</li>
+      <li>La <b>certificazione delle competenze</b> la rilascia l'ente ospitante e va acquisita entro lo scrutinio di ammissione all'esame; poi entra nel curriculum dello studente.</li>
+      <li>In 5ª prepari la <b>relazione finale</b>, da inserire nel portfolio e da presentare al colloquio.</li>
+      <li>Per tutti è obbligatorio il corso sulla sicurezza «Studiare il lavoro» (Sicurezza Generale, 4 ore online, in 3ª).</li>
+    </ul>
+    <div class="links"><a href="${esc(SCHOOL.informativa)}" target="_blank" rel="noopener">Informativa FSL ↗</a><a href="${esc(SCHOOL.url)}" target="_blank" rel="noopener">Percorsi dell'anno ↗</a><a href="${esc(SCHOOL.circolari)}" target="_blank" rel="noopener">Circolari FSL ↗</a><a href="${esc(SCHOOL.netiquette)}" target="_blank" rel="noopener">Netiquette per le attività online ↗</a><a href="${esc(SCHOOL.videoSicurezza)}" target="_blank" rel="noopener">Video: corso sicurezza ↗</a></div>
+    <p>Referenti FSL: ${esc(SCHOOL.referenti)} · ${esc(SCHOOL.sede)}</p>
+    <div class="copyline"><code>${esc(SCHOOL.email)}</code><button type="button" class="btn small ghost" data-act="copy" data-copy="${esc(SCHOOL.email)}">Copia e-mail</button><code>${esc(SCHOOL.tel)}</code></div>
+    <p class="hint">La modulistica arriva con la presentazione di ogni progetto. Regole e contatti vengono dal sito del ${esc(SCHOOL.breve)}, consultato il ${CAT_DATE}. Questo diario è uno strumento personale: non è un servizio ufficiale della scuola e non sostituisce i moduli che ti consegnano i tutor.</p>
+  </section>`;
+}
+function impBox(){
+  const d=pendingImport;
+  return `<div class="notice" style="display:grid;gap:10px"><p><b>Backup pronto da importare:</b> ${d.entries.length} ${plural(d.entries.length,"giornata","giornate")} e ${(d.meta&&d.meta.projects||[]).length} esperienze${d.exportedAt?`, salvato il ${esc(fmtD(String(d.exportedAt).slice(0,10)))}`:""}.</p>
+  <div class="btnrow"><button type="button" class="btn primary small" data-act="imp-apply" data-mode="merge">Unisci al diario</button><button type="button" class="btn small" data-act="imp-apply" data-mode="replace">Sostituisci il diario</button><button type="button" class="btn small ghost" data-act="imp-cancel">Annulla</button></div></div>`;
+}
+
+/* ---------- fogli (moduli) ---------- */
+let sheetOpen=false,lastFocus=null;
+function openSheet(html,label,onMount){
+  lastFocus=document.activeElement;
+  const card=$("#sheet-card");card.innerHTML=html;card.setAttribute("aria-label",label||"");
+  $("#sheet").hidden=false;sheetOpen=true;document.body.classList.add("noscroll");
+  if(onMount)onMount(card);
+  const f=card.querySelector("input:not([type=hidden]):not([type=radio]),textarea,select,button");if(f&&window.matchMedia("(min-width:720px)").matches)f.focus();else card.querySelector(".icon-btn")?.focus();
+}
+function closeSheet(){if(!sheetOpen)return;$("#sheet").hidden=true;$("#sheet-card").innerHTML="";sheetOpen=false;document.body.classList.remove("noscroll");if(lastFocus&&lastFocus.isConnected)lastFocus.focus();}
+const closeBtn=`<button type="button" class="icon-btn" data-close aria-label="Chiudi">×</button>`;
+function arm(btn,label,fn){
+  if(btn.dataset.armed){fn();return;}
+  btn.dataset.armed="1";btn.classList.add("armed");const old=btn.textContent;btn.textContent=label;
+  setTimeout(()=>{if(btn.isConnected&&btn.dataset.armed){delete btn.dataset.armed;btn.classList.remove("armed");btn.textContent=old;}},4500);
+}
+
+/* ----- giornata ----- */
+function openEntry(id,presetProj,base){
+  const m=meta(),st=cur();
+  if(!m.projects.length){
+    openSheet(`<div class="sheet-in"><div class="sheet-head"><h2>Prima un'esperienza</h2>${closeBtn}</div><div class="sheet-body"><p>Ogni giornata appartiene a un'esperienza: un percorso del catalogo, uno stage, un corso. Aggiungila e poi registra le giornate.</p></div><div class="sheet-foot"><span class="grow"></span><button type="button" class="btn" data-close data-act="go" data-to="esperienze" data-anchor="catalogo">Apri il catalogo</button><button type="button" class="btn primary" data-act="new-project">Nuova esperienza</button></div></div>`,"Prima un'esperienza");
+    return;
+  }
+  const existing=id?st.entries.find(e=>e.id===id):null;
+  const isNew=!existing;
+  let e;
+  if(existing)e=clone(existing);
+  else{
+    const pid=presetProj||(base&&base.projectId)||(m.projects.some(p=>p.id===prefGet("lastProject"))?prefGet("lastProject"):null)||(st.entries.slice().sort((a,b)=>b.data.localeCompare(a.data))[0]||{}).projectId||projSorted(m).slice(-1)[0].id;
+    const prev=st.entries.filter(x=>x.projectId===pid).sort((a,b)=>b.data.localeCompare(a.data))[0];
+    e=normEntry({id:newId(),projectId:pid,data:base?base.data:todayISO(),modalita:(base||prev||{}).modalita||"presenza",inizio:(base||prev||{}).inizio||"",fine:(base||prev||{}).fine||"",pausa:(base||prev||{}).pausa||0,ore:base?base.ore:0});
+  }
+  let oreManual=!!existing&&calcOre(e.inizio,e.fine,e.pausa)!==e.ore;
+  const allComps=[...new Set([...COMPETENZE,...st.entries.flatMap(x=>x.competenze),...e.competenze])];
+  const html=`<form id="entry-form" novalidate>
+   <div class="sheet-head"><h2>${isNew?(base?"Nuova giornata (copia)":"Nuova giornata"):"Modifica giornata"}</h2>${closeBtn}</div>
+   <div class="sheet-body">
+    <div class="row2">
+      <label class="field"><span>Data</span><input class="in" type="date" id="e-data" value="${esc(e.data)}" required></label>
+      <label class="field"><span>Esperienza</span><select class="in" id="e-proj">${projSorted(m).map(p=>`<option value="${esc(p.id)}" ${p.id===e.projectId?"selected":""}>${esc(p.nome)} · ${p.anno}ª</option>`).join("")}${e.projectId&&!m.projects.some(p=>p.id===e.projectId)?`<option value="" selected>Senza esperienza</option>`:""}</select></label>
+    </div>
+    <fieldset class="field"><legend>Modalità</legend><div class="seg">${MODALITA.map(([k,l])=>`<label class="segopt"><input type="radio" name="e-mod" id="e-mod-${k}" value="${k}" ${e.modalita===k?"checked":""}><span>${l}</span></label>`).join("")}</div></fieldset>
+    <div class="row4">
+      <label class="field"><span>Inizio</span><input class="in mono" type="time" id="e-ini" value="${esc(e.inizio)}"></label>
+      <label class="field"><span>Fine</span><input class="in mono" type="time" id="e-fin" value="${esc(e.fine)}"></label>
+      <label class="field"><span>Pausa (min)</span><input class="in mono" id="e-pausa" inputmode="numeric" value="${e.pausa||""}" placeholder="0"></label>
+      <label class="field"><span>Ore</span><input class="in mono" id="e-ore" inputmode="decimal" value="${e.ore?String(e.ore).replace(".",","):""}" placeholder="0"></label>
+    </div>
+    <p class="calc mono" id="e-calc"></p>
+    <label class="field"><span>Attività svolte</span><textarea class="in" id="e-att" rows="3" placeholder="Che cosa hai fatto? Con quali strumenti? Con chi?">${esc(e.attivita)}</textarea></label>
+    <div class="field"><div class="field-head"><span class="flabel">Competenze allenate</span><button type="button" class="btn ghost small ai-only" id="e-suggest">Suggerisci con Claude</button></div>
+      <div class="tchips" id="e-comps">${allComps.map(c=>`<button type="button" class="tchip" data-c="${esc(c)}" aria-pressed="${e.competenze.includes(c)}">${esc(c)}</button>`).join("")}</div>
+      <div class="addc"><label class="sr" for="e-newc">Nuova competenza</label><input class="in" id="e-newc" placeholder="Aggiungi un'altra competenza"><button type="button" class="btn small" id="e-addc">Aggiungi</button></div>
+    </div>
+    <label class="field"><span>Cosa ho imparato</span><textarea class="in" id="e-imp" rows="2" placeholder="Una cosa nuova che sai fare o hai capito">${esc(e.imparato)}</textarea></label>
+    <label class="field"><span>Difficoltà e come le ho affrontate</span><textarea class="in" id="e-dif" rows="2" placeholder="Un problema e come l'hai risolto (è oro per il colloquio)">${esc(e.difficolta)}</textarea></label>
+    <fieldset class="field"><legend>Com'è andata?</legend><div class="voto" id="e-voto">${VOTI.map((v,i)=>`<button type="button" class="vbtn" data-v="${i+1}" aria-pressed="${e.voto===i+1}"><b>${i+1}</b><span>${v}</span></button>`).join("")}</div></fieldset>
+    <label class="check"><input type="checkbox" id="e-vid" ${e.vidimato?"checked":""}><span>Ore confermate dal tutor (firma sul foglio presenze o attestato)</span></label>
+    <p class="form-err" id="e-err" hidden></p>
+   </div>
+   <div class="sheet-foot">${isNew?"":`<button type="button" class="btn danger" id="e-del">Elimina</button><button type="button" class="btn ghost" id="e-dup">Duplica</button>`}<span class="grow"></span><button type="button" class="btn" data-close>Annulla</button><button type="submit" class="btn primary">Salva</button></div>
+  </form>`;
+  openSheet(html,isNew?"Nuova giornata":"Modifica giornata",card=>{
+    const f=$("#entry-form",card);
+    const recalc=()=>{
+      const o=calcOre($("#e-ini").value,$("#e-fin").value,parseNum($("#e-pausa").value)||0);
+      if(!oreManual&&o!=null)$("#e-ore").value=String(o).replace(".",",");
+      const cur=parseNum($("#e-ore").value);
+      $("#e-calc").textContent=o!=null?(oreManual&&cur!==o?`Dall'orario risultano ${fmtH(o)} h: stai usando ${fmtH(cur||0)} h`:`${fmtH(o)} ore dall'orario`):"Inserisci inizio e fine per calcolare le ore, oppure scrivi le ore a mano.";
+    };
+    ["e-ini","e-fin","e-pausa"].forEach(i=>$("#"+i).addEventListener("input",recalc));
+    $("#e-ore").addEventListener("input",()=>{oreManual=true;recalc();});
+    recalc();
+    $("#e-comps").addEventListener("click",ev=>{const b=ev.target.closest(".tchip");if(b)b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");});
+    const addC=()=>{const v=$("#e-newc").value.trim().replace(/\s+/g," ");if(!v)return;let b=$$(".tchip",card).find(x=>x.dataset.c.toLowerCase()===v.toLowerCase());if(!b){b=document.createElement("button");b.type="button";b.className="tchip";b.dataset.c=v;b.textContent=v;$("#e-comps").appendChild(b);}b.setAttribute("aria-pressed","true");$("#e-newc").value="";};
+    $("#e-addc").addEventListener("click",addC);
+    $("#e-newc").addEventListener("keydown",ev=>{if(ev.key==="Enter"){ev.preventDefault();addC();}});
+    $("#e-voto").addEventListener("click",ev=>{const b=ev.target.closest(".vbtn");if(!b)return;const on=b.getAttribute("aria-pressed")==="true";$$(".vbtn",card).forEach(x=>x.setAttribute("aria-pressed","false"));if(!on)b.setAttribute("aria-pressed","true");});
+    const sug=$("#e-suggest");if(sug)sug.addEventListener("click",()=>aiSuggest(sug,card));
+    const collect=()=>{
+      const sel=$$(".vbtn",card).find(b=>b.getAttribute("aria-pressed")==="true");
+      return normEntry({id:e.id,data:$("#e-data").value,projectId:$("#e-proj").value,modalita:(f.querySelector("input[name=e-mod]:checked")||{}).value||"presenza",
+        inizio:$("#e-ini").value,fine:$("#e-fin").value,pausa:parseNum($("#e-pausa").value)||0,ore:round2(parseNum($("#e-ore").value)||0),
+        attivita:$("#e-att").value.trim(),competenze:$$(".tchip",card).filter(b=>b.getAttribute("aria-pressed")==="true").map(b=>b.dataset.c),
+        imparato:$("#e-imp").value.trim(),difficolta:$("#e-dif").value.trim(),voto:sel?+sel.dataset.v:0,vidimato:$("#e-vid").checked});
+    };
+    f.addEventListener("submit",ev=>{
+      ev.preventDefault();
+      const n=collect();const err=$("#e-err");
+      const problems=[];
+      if(!isISO($("#e-data").value))problems.push("scegli la data");
+      if(!(n.ore>0&&n.ore<=24))problems.push("indica le ore (fra 0 e 24)");
+      if(n.attivita.length<3)problems.push("scrivi le attività svolte");
+      if(problems.length){err.hidden=false;err.textContent="Per salvare "+listIt(problems)+".";err.scrollIntoView({block:"nearest"});return;}
+      putEntry(n);prefSet("lastProject",n.projectId);closeSheet();softRender();
+      toast(isNew?`Giornata salvata: ${fmtH(n.ore)} h`:"Modifiche salvate");
+    });
+    const del=$("#e-del");if(del)del.addEventListener("click",()=>arm(del,"Conferma: elimina",()=>{const keep=clone(existing);dropEntry(e.id);closeSheet();render();toast("Giornata eliminata","Annulla",()=>{putEntry(keep);render();});}));
+    const dup=$("#e-dup");if(dup)dup.addEventListener("click",()=>{const n=collect();closeSheet();openEntry(null,n.projectId,{data:addDays(n.data,1),projectId:n.projectId,modalita:n.modalita,inizio:n.inizio,fine:n.fine,pausa:n.pausa,ore:n.ore});});
+  });
+}
+
+/* ----- esperienza ----- */
+function guessAnno(dest){
+  const P=meta().profile;const cl=parseInt(String(P.classe||"").match(/[345]/)?.[0]||"0",10);
+  const ds=String(dest||"");const inDest=[3,4,5].filter(a=>ds.includes(a+"ª")||ds.includes(a+"A")||ds.includes(a+"B")||ds.includes(a+"C")||ds.includes(a+"D")||ds.includes(a+"E")||ds.includes(a+"G")||ds.includes(a+"N"));
+  if(inDest.length===1)return inDest[0];
+  if(cl&&(!inDest.length||inDest.includes(cl)))return cl;
+  return inDest[0]||cl||3;
+}
+function catalogPreset(i){
+  const c=CATALOGO[i];if(!c)return null;
+  return {nome:c.nome,ente:c.ente||SCHOOL.breve,tipo:c.tipo,previste:c.ore,as:c.as,anno:guessAnno(c.dest),sede:c.mod==="Online"?"Online":"",materie:(c.mat||[]).slice(),circ:c.circ||"",doc:c.doc||"",fase:/classi 3ª, obbligatorio|classe 3B|classi 3A/i.test(c.dest||"")?"1":"",descr:[c.note,`Percorso${c.n?" n. "+c.n:""} del catalogo FSL del ${SCHOOL.breve}, a.s. ${c.as}${c.dest?" ("+c.dest+")":""}.`].filter(Boolean).join(". ")};
+}
+function openProject(id,preset){
+  const m=meta();const st=cur();const existing=id?m.projects.find(p=>p.id===id):null;const isNew=!existing;
+  const used=new Set(m.projects.map(p=>p.colore));const freeColor=[0,1,2,3,4,5].find(c=>!used.has(c));
+  const p=existing?clone(existing):normProject(Object.assign({id:newId(),tutorSc:m.profile.tutorSc,as:m.profile.as,anno:guessAnno(""),colore:freeColor==null?m.projects.length%6:freeColor},preset||{}));
+  const linked=existing?st.entries.filter(e=>e.projectId===p.id).length:0;
+  const html=`<form id="proj-form" novalidate>
+    <div class="sheet-head"><h2>${isNew?(preset?"Aggiungi dal catalogo":"Nuova esperienza"):"Modifica esperienza"}</h2>${closeBtn}</div>
+    <div class="sheet-body">
+      <label class="field"><span>Nome dell'esperienza</span><input class="in" id="p-nome" value="${esc(p.nome)}" placeholder="Es. Stage estivo in laboratorio"></label>
+      <div class="row2">
+        <label class="field"><span>Tipo</span><select class="in" id="p-tipo">${TIPI.map(([k,l])=>`<option value="${k}" ${p.tipo===k?"selected":""}>${l}</option>`).join("")}</select></label>
+        <label class="field"><span>Ente o struttura ospitante</span><input class="in" id="p-ente" value="${esc(p.ente)}"></label>
+      </div>
+      <div class="row2">
+        <label class="field"><span>Settore</span><input class="in" id="p-settore" value="${esc(p.settore)}" placeholder="Es. ricerca biomedica"></label>
+        <label class="field"><span>Sede</span><input class="in" id="p-sede" value="${esc(p.sede)}" placeholder="Es. Roma, Ostia, online"></label>
+      </div>
+      <div class="row2">
+        <label class="field"><span>Tutor formativo esterno</span><input class="in" id="p-tutaz" value="${esc(p.tutorAz)}" placeholder="Il riferimento nell'ente"></label>
+        <label class="field"><span>Docente tutor interno</span><input class="in" id="p-tutsc" value="${esc(p.tutorSc)}"></label>
+      </div>
+      <div class="row4">
+        <label class="field"><span>Classe</span><select class="in" id="p-anno">${[3,4,5].map(a=>`<option value="${a}" ${p.anno===a?"selected":""}>${a}ª</option>`).join("")}</select></label>
+        <label class="field"><span>Anno scolastico</span><input class="in" id="p-as" value="${esc(p.as)}" placeholder="2026/27"></label>
+        <label class="field"><span>Ore previste</span><input class="in mono" id="p-prev" inputmode="decimal" value="${p.previste||""}"></label>
+        <label class="field"><span>Fase</span><select class="in" id="p-fase"><option value="" ${p.fase?"":"selected"}>Non indicata</option><option value="1" ${p.fase==="1"?"selected":""}>1 · di classe</option><option value="2" ${p.fase==="2"?"selected":""}>2 · individuale</option></select></label>
+      </div>
+      <div class="row2">
+        <label class="field"><span>Inizio</span><input class="in" type="date" id="p-ini" value="${esc(p.inizio)}"></label>
+        <label class="field"><span>Fine</span><input class="in" type="date" id="p-fin" value="${esc(p.fine)}"></label>
+      </div>
+      <label class="field"><span>Descrizione e obiettivi</span><textarea class="in" id="p-descr" rows="3">${esc(p.descr)}</textarea></label>
+      <div class="field"><span class="flabel">Materie collegate</span><div class="tchips" id="p-mat">${MATERIE.map(x=>`<button type="button" class="tchip" data-m="${esc(x)}" aria-pressed="${p.materie.includes(x)}">${esc(x)}</button>`).join("")}</div><span class="hint">Servono per i collegamenti nella relazione finale.</span></div>
+      <fieldset class="field"><legend>Documenti del percorso</legend><div style="display:grid;gap:10px">
+        <label class="check"><input type="checkbox" id="p-patto" ${p.patto?"checked":""}><span>Percorso e Patto formativo firmati da me e da un genitore, consegnati al docente tutor interno</span></label>
+        <label class="check"><input type="checkbox" id="p-cert" ${p.cert?"checked":""}><span>Certificazione delle competenze ricevuta dall'ente</span></label>
+        <label class="check"><input type="checkbox" id="p-docum" ${p.docum?"checked":""}><span>Relazione e foto dell'esperienza raccolte</span></label>
+      </div></fieldset>
+      ${p.circ||p.doc?`<div class="links">${p.circ?`<a href="${esc(p.circ)}" target="_blank" rel="noopener">Circolare del percorso ↗</a>`:""}${p.doc?`<a href="${esc(p.doc)}" target="_blank" rel="noopener">Percorso formativo ↗</a>`:""}</div>`:""}
+      <fieldset class="field"><legend>Colore</legend><div class="swatches">${[0,1,2,3,4,5].map(c=>`<label class="swopt c${c}"><input type="radio" name="p-col" id="p-col-${c}" value="${c}" ${p.colore===c?"checked":""}><span></span><span class="sr">Colore ${c+1}</span></label>`).join("")}</div></fieldset>
+      <p class="form-err" id="p-err" hidden></p>
+    </div>
+    <div class="sheet-foot">${isNew?"":`<button type="button" class="btn danger" id="p-del">Elimina</button>`}<span class="grow"></span><button type="button" class="btn" data-close>Annulla</button><button type="submit" class="btn primary">${isNew?"Aggiungi":"Salva"}</button></div>
+  </form>`;
+  openSheet(html,isNew?"Nuova esperienza":"Modifica esperienza",card=>{
+    const f=$("#proj-form",card);
+    $("#p-mat",card).addEventListener("click",ev=>{const b=ev.target.closest(".tchip");if(b)b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");});
+    f.addEventListener("submit",ev=>{
+      ev.preventDefault();
+      const n=normProject({id:p.id,nome:$("#p-nome").value.trim(),tipo:$("#p-tipo").value,ente:$("#p-ente").value.trim(),settore:$("#p-settore").value.trim(),sede:$("#p-sede").value.trim(),tutorAz:$("#p-tutaz").value.trim(),tutorSc:$("#p-tutsc").value.trim(),anno:+$("#p-anno").value,as:$("#p-as").value.trim(),previste:parseNum($("#p-prev").value)||0,inizio:$("#p-ini").value,fine:$("#p-fin").value,descr:$("#p-descr").value.trim(),colore:+((f.querySelector("input[name=p-col]:checked")||{}).value||0),fase:$("#p-fase").value,materie:$$("#p-mat .tchip",card).filter(b=>b.getAttribute("aria-pressed")==="true").map(b=>b.dataset.m),patto:$("#p-patto").checked,cert:$("#p-cert").checked,docum:$("#p-docum").checked,circ:p.circ,doc:p.doc});
+      if(!n.nome){const er=$("#p-err");er.hidden=false;er.textContent="Dai un nome all'esperienza.";return;}
+      if(n.inizio&&n.fine&&n.fine<n.inizio){const er=$("#p-err");er.hidden=false;er.textContent="La data di fine viene prima di quella di inizio.";return;}
+      const mm=ensureMeta();mm.started=true;const i=mm.projects.findIndex(x=>x.id===n.id);if(i>=0)mm.projects[i]=n;else mm.projects.push(n);
+      saveMeta();closeSheet();softRender();
+      toast(isNew?"Esperienza aggiunta":"Esperienza aggiornata",isNew?"Registra una giornata":null,isNew?()=>openEntry(null,n.id):null);
+    });
+    const del=$("#p-del");
+    if(del)del.addEventListener("click",()=>arm(del,linked?`Elimina anche ${linked} ${plural(linked,"giornata","giornate")}`:"Conferma: elimina",()=>{
+      const mm=ensureMeta();mm.projects=mm.projects.filter(x=>x.id!==p.id);saveMeta();
+      cur().entries.filter(e=>e.projectId===p.id).map(e=>e.id).forEach(dropEntry);
+      if(filt.p===p.id)filt.p="";closeSheet();render();toast("Esperienza eliminata");
+    }));
+  });
+}
+
+/* ---------- avvisi ---------- */
+let toastTimer=0;
+function toast(msg,actLabel,actFn,ms){
+  const t=$("#toast");t.innerHTML="";const s=document.createElement("span");s.textContent=msg;t.appendChild(s);
+  if(actLabel&&actFn){const b=document.createElement("button");b.type="button";b.textContent=actLabel;b.addEventListener("click",()=>{t.classList.remove("show");actFn();});t.appendChild(b);}
+  t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("show"),ms||(actLabel?7000:3600));
+}
+
+/* ---------- bozza della relazione ---------- */
+function buildDraft(st){
+  const m=st.meta||blankMeta(),P=m.profile,s=stats(st),goal=goalOf(P);
+  const ps=projSorted(m).filter(p=>(s.byProj.get(p.id)||0)>0);
+  const all=st.entries.slice().sort((a,b)=>a.data.localeCompare(b.data));
+  const TP={stage:"stage",corso:"corsi e laboratori",project:"project work",sicurezza:"formazione sulla sicurezza",orientamento:"orientamento",volontariato:"volontariato",ifs:"impresa formativa simulata",estero:"esperienze all'estero",altro:"altre attività"};
+  const tipi=[...new Set(ps.map(p=>TP[p.tipo]).filter(Boolean))];
+  const nome=P.nome||"[Completa: nome e cognome]";
+  const out={};
+  out.intro=`Mi chiamo ${nome} e frequento la classe ${P.classe||"[Completa: classe]"}${P.indirizzo?`, indirizzo ${P.indirizzo},`:""} ${P.istituto?(/^[aeiouAEIOU]/.test(P.istituto)?"all'":"al ")+P.istituto:"[Completa: scuola]"}. Nel triennio ho partecipato a ${ps.length} ${plural(ps.length,"esperienza","esperienze")} di formazione scuola-lavoro (ex PCTO), per un totale di ${fmtH(s.tot)} ore${goal?` su un minimo di ${goal} previsto per il mio percorso`:""}.${tipi.length>1?` Ho svolto attività di diverso tipo (${tipi.join(", ")}).`:""}\n\nIn questa relazione, che entra nel mio portfolio e che presento al colloquio dell'esame di Stato, racconto che cosa ho fatto, quali competenze ho sviluppato e come queste esperienze hanno influito sulle mie scelte per il futuro.`;
+  out.esperienze=ps.length?ps.map(p=>{
+    const es=entriesOf(st,p.id);const ore=s.byProj.get(p.id)||0;
+    const per=fmtRange(p.inizio||(es[0]||{}).data,p.fine||(es[es.length-1]||{}).data);
+    const acts=[...new Set(es.map(e=>lcFirst(firstSentence(e.attivita))).filter(Boolean))].slice(0,3);
+    const dif=es.find(e=>e.difficolta);
+    const cap=x=>x?x[0].toUpperCase()+x.slice(1):x;
+    const sede=p.sede==="Online"?" online":/^A /.test(p.sede||"")?" "+p.sede[0].toLowerCase()+p.sede.slice(1):p.sede?" a "+p.sede:"";
+    let t=`${p.nome}, ${[p.ente,"classe "+p.anno+"ª",p.as?"a.s. "+p.as:""].filter(Boolean).join(", ")}. `;
+    t+=`${per?cap(per)+" ho":"Ho"} svolto ${fmtH(ore)} ore${sede}${p.tutorAz?"; tutor esterno: "+p.tutorAz:""}.`;
+    if(p.descr)t+=" "+p.descr.replace(/\s*Percorso( n\. \d+)? del catalogo FSL[^.]*\./,"").trim();
+    if(acts.length)t+=` Le attività principali: ${acts.join("; ")}.`;
+    if(dif)t+=` Una difficoltà che ho incontrato: ${lcFirst(firstSentence(dif.difficolta))}.`;
+    return t.replace(/\s+\./g,".").replace(/\.\./g,".").trim();
+  }).join("\n\n"):"[Completa: descrivi le esperienze svolte. Registra le giornate nel diario per avere una bozza automatica.]";
+  const top=s.comp.slice(0,3);
+  const used=new Set();const ex=(pred,n)=>{const r=all.filter(e=>e.imparato&&!used.has(e.id)&&e.competenze.some(pred)).slice(0,n);r.forEach(e=>used.add(e.id));return r.map(e=>"«"+firstSentence(e.imparato)+"»");};
+  const tech=ex(c=>TECNICHE.has(c),2),soft=ex(c=>!TECNICHE.has(c),2);
+  out.competenze=top.length?`Le competenze che ho allenato più spesso sono ${listIt(top.map(([c,n])=>`${c.toLowerCase()} (${n} ${plural(n,"giornata","giornate")})`))}.${tech.length?`\n\nSul piano delle competenze tecniche, ecco che cosa ho annotato nel diario: ${tech.join("; ")}.`:""}${soft.length?`\n\nTra le competenze trasversali: ${soft.join("; ")}.`:""}\n\n[Completa: scegli l'esempio che ti rappresenta di più e racconta in due righe che cosa sai fare oggi che prima non sapevi fare.]`:"[Completa: segna le competenze nelle giornate del diario oppure descrivi qui le competenze tecniche e trasversali che hai sviluppato.]";
+  const mat=splitMat(P.materie);
+  const hasSic=ps.some(p=>p.tipo==="sicurezza");const civ=ps.filter(p=>(p.materie||[]).includes("Educazione civica")||p.tipo==="volontariato"||all.some(e=>e.projectId===p.id&&e.competenze.includes("Cittadinanza attiva"))).map(p=>p.nome);
+  const civOther=civ.filter(x=>!/sicurezza/i.test(x));
+  const matLines=mat.filter(x=>x!=="Educazione civica").map(x=>{const pp=ps.filter(p=>(p.materie||[]).includes(x));return pp.length?`${x}: ${listIt(pp.map(p=>p.nome))}. [Completa: collega l'esperienza a un argomento preciso del programma di ${x.toLowerCase()}.]`:`${x}: [Completa: cerca un collegamento reale con le esperienze; se non c'è, non forzarlo.]`;});
+  out.collegamenti=`${mat.length?`Le materie del mio colloquio sono ${listIt(mat)}.\n\n${matLines.join("\n\n")}`:"[Completa: indica le materie del colloquio nel profilo.]"}${hasSic||civOther.length?"\n\n":""}${hasSic?`Per l'Educazione civica, il corso sulla sicurezza mi ha fatto conoscere il D.Lgs. 81/2008 e i diritti e i doveri dei lavoratori, compresi quelli degli studenti in formazione.`:""}${civOther.length?`${hasSic?" Anche":"Per l'Educazione civica,"} ${listIt(civOther)} ${civOther.length===1?"si collega":"si collegano"} ai temi della cittadinanza attiva.`:""}`;
+  const pv=ps.map(p=>{const es=entriesOf(st,p.id).filter(e=>e.voto);return{p,avg:es.length?sum(es.map(e=>e.voto))/es.length:0};}).filter(x=>x.avg).sort((a,b)=>b.avg-a.avg);
+  const difs=all.filter(e=>e.difficolta).slice(-2).map(e=>"«"+firstSentence(e.difficolta)+"»");
+  const ori=ps.filter(p=>p.tipo==="orientamento").map(p=>p.nome);
+  out.bilancio=`${s.avg?`Nel diario ho dato a ogni giornata un giudizio da 1 a 5: la media è ${s.avg.toFixed(1).replace(".",",")}.`:""}${pv.length?` L'esperienza che ho vissuto meglio è stata ${pv[0].p.nome}.`:""}${difs.length?` Tra le difficoltà che ho annotato: ${difs.join("; ")}.`:""}${ori.length?`\n\nLe attività di orientamento (${listIt(ori)}) mi hanno aiutato a conoscere le possibilità dopo il diploma.`:""}\n\n[Completa: come queste esperienze hanno cambiato il tuo modo di lavorare e influito sulle scelte dopo il diploma: università, ITS Academy, lavoro.]`.trim();
+  out.conclusione=`Il diario di bordo mi ha permesso di tenere traccia di ${s.n} ${plural(s.n,"giornata","giornate")} e ${fmtH(s.tot)} ore di formazione. [Completa: che cosa ti porti via da questo percorso, in due o tre frasi.]`;
+  return out;
+}
+function reportModel(){
+  const st=cur(),m=meta(),P=m.profile,s=stats(st),goal=goalOf(P);
+  const secs=SECTIONS.map((x,i)=>({n:i+1,key:x.key,title:x.title,text:String((m.report.sections||{})[x.key]||"").trim()}));
+  const rows=projSorted(m).map(p=>{const es=entriesOf(st,p.id);return[p.nome,TIPO[p.tipo]||"",p.ente||"",p.anno+"ª",p.as||"",fmtRangeShort(p.inizio||(es[0]||{}).data,p.fine||(es[es.length-1]||{}).data),fmtH(s.byProj.get(p.id)||0)];});
+  if(s.byProj.get("_"))rows.push(["Giornate senza esperienza","","","","","",fmtH(s.byProj.get("_"))]);
+  const info=[[P.nome||"Studente",P.classe?"classe "+P.classe:"",P.indirizzo,P.istituto].filter(Boolean).join(" · "),[P.as?"Anno scolastico "+P.as:"",`ore svolte ${fmtH(s.tot)}${goal?" su un minimo di "+goal:""}`,`${m.projects.length} ${plural(m.projects.length,"esperienza","esperienze")}, ${s.n} ${plural(s.n,"giornata","giornate")}`].filter(Boolean).join(" · ")];
+  return{P,s,goal,secs,rows,info,head:["Esperienza","Tipo","Ente","Classe","A.s.","Periodo","Ore"],foot:["Totale"+(goal?` (minimo ${goal} h)`:""),"","","","","",fmtH(s.tot)]};
+}
+function reportPlain(md){
+  const R=reportModel();const L=[];
+  L.push(md?"# Relazione sulla formazione scuola-lavoro (ex PCTO)":"RELAZIONE SULLA FORMAZIONE SCUOLA-LAVORO (EX PCTO)");L.push("");
+  R.info.forEach(x=>L.push(md?"*"+x+"*  ":x));L.push("");
+  R.secs.forEach(s=>{L.push(md?`## ${s.n}. ${s.title}`:`${s.n}. ${s.title.toUpperCase()}`);L.push("");L.push(s.text||"[Sezione da scrivere]");L.push("");});
+  L.push(md?"## Allegato: riepilogo delle ore":"ALLEGATO: RIEPILOGO DELLE ORE");L.push("");
+  if(md){L.push("| "+R.head.join(" | ")+" |");L.push("|"+R.head.map((h,i)=>i===6?"---:":"---").join("|")+"|");R.rows.forEach(r=>L.push("| "+r.map(c=>String(c).replace(/\|/g,"/")).join(" | ")+" |"));L.push(`| **${R.foot[0]}** |  |  |  |  |  | **${R.foot[6]}** |`);}
+  else{R.rows.forEach(r=>L.push(`- ${r[0]} (${[r[1],r[2],r[3],r[4],r[5]].filter(Boolean).join(", ")}): ${r[6]} h`));L.push(`${R.foot[0]}: ${R.foot[6]} h`);}
+  return L.join("\n");
+}
+function buildSlides(){
+  const st=cur(),m=meta(),P=m.profile,s=stats(st),goal=goalOf(P);
+  const ps=projSorted(m).filter(p=>(s.byProj.get(p.id)||0)>0).sort((a,b)=>(s.byProj.get(b.id)||0)-(s.byProj.get(a.id)||0)).slice(0,4).sort((a,b)=>a.anno-b.anno||String(a.inizio).localeCompare(String(b.inizio)));
+  const all=st.entries;const S=[];
+  S.push({t:"La mia formazione scuola-lavoro",b:[[P.nome,P.classe,P.istituto].filter(Boolean).join(" · ")||"Nome, classe, scuola"]});
+  S.push({t:"Il percorso in numeri",b:[`${fmtH(s.tot)} ore${goal?" su "+goal+" richieste":""}`,`${m.projects.length} esperienze, ${s.n} giornate`,`Per classe: ${["3","4","5"].filter(k=>s.byAnno[k]).map(k=>k+"ª "+fmtH(s.byAnno[k])+" h").join(" · ")||"–"}`,"Grafico: ore per esperienza"]});
+  ps.forEach(p=>{const es=entriesOf(st,p.id);S.push({t:p.nome,b:[[p.ente,fmtRangeShort(p.inizio||(es[0]||{}).data,p.fine||(es[es.length-1]||{}).data),fmtH(s.byProj.get(p.id)||0)+" h"].filter(Boolean).join(" · "),...[...new Set(es.map(e=>firstSentence(e.attivita)).filter(Boolean))].slice(0,3),"Una foto o un materiale prodotto"]});});
+  const tech=s.comp.filter(([c])=>TECNICHE.has(c)).slice(0,4).map(([c])=>c),soft=s.comp.filter(([c])=>!TECNICHE.has(c)).slice(0,4).map(([c])=>c);
+  S.push({t:"Competenze tecniche",b:tech.length?tech:["Strumenti e conoscenze che hai usato"]});
+  S.push({t:"Competenze trasversali",b:soft.length?soft:["Lavoro di squadra, comunicazione, autonomia…"]});
+  const pr=all.filter(e=>e.difficolta).sort((a,b)=>(b.voto||0)-(a.voto||0))[0];
+  S.push({t:"Un problema che ho risolto",b:pr?[firstSentence(pr.difficolta),"Che cosa ho fatto e che cosa ho imparato"]:["Racconta un problema concreto e come l'hai affrontato"]});
+  const mat=String(P.materie||"").split(/[,;]/).map(x=>x.trim()).filter(Boolean);
+  S.push({t:"Collegamenti con le materie",b:[...(mat.length?mat.map(x=>x+": [collegamento]"):["Le materie del colloquio"]),"Educazione civica: sicurezza, diritti, cittadinanza"]});
+  S.push({t:"Bilancio orientativo",b:["Che cosa è cambiato nel mio modo di lavorare","Le mie scelte dopo il diploma"]});
+  S.push({t:"Grazie",b:["Domande della commissione"]});
+  return S;
+}
+
+/* ---------- esportazioni ---------- */
+let capDl=null,capSample=null;
+function initCaps(){
+  if(!(window.claude&&typeof window.claude.use==="function"))return;
+  capDl=window.claude.use("downloads").catch(()=>null);
+  window.claude.use("sample").then(s=>{if(s){capSample=s;document.body.classList.add("has-ai");}}).catch(()=>{});
+}
+async function saveFile(name,data,text){
+  if(STANDALONE){try{const blob=data instanceof Blob?data:new Blob([data],{type:"application/octet-stream"});const u=URL.createObjectURL(blob);const a=document.createElement("a");a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);toast("Scaricato: "+name);}catch(e){if(text!=null)openTextSheet(name,text);else toast("Download non riuscito.");}return;}
+  const dl=capDl?await capDl:null;
+  if(!dl){if(text!=null)return openTextSheet(name,text);toast("Il download non è disponibile in questa vista: apri la pagina su claude.ai.");return;}
+  try{const r=await dl.save({filename:name,data});if(r&&r.status==="saved")toast("Scaricato: "+name);}
+  catch(e){const c=e&&e.code;if(c==="declined")return;if(c==="rate_limited")return toast("C'è già un download in attesa di conferma.");if(text!=null)return openTextSheet(name,text);toast("Download non riuscito. Riprova tra poco.");}
+}
+function openTextSheet(name,text){
+  openSheet(`<div class="sheet-in"><div class="sheet-head"><h2>${esc(name)}</h2>${closeBtn}</div><div class="sheet-body"><p class="hint">Il download non è disponibile qui: copia il testo e incollalo dove ti serve.</p><label class="sr" for="out-ta">Contenuto</label><textarea class="in ta-out" id="out-ta" readonly>${esc(text)}</textarea></div><div class="sheet-foot"><span class="grow"></span><button type="button" class="btn" data-close>Chiudi</button><button type="button" class="btn primary" id="out-copy">Copia</button></div></div>`,name,card=>{
+    $("#out-copy",card).addEventListener("click",()=>copyText(text,$("#out-ta",card)));});
+}
+function copyText(t,el){
+  let p;try{p=navigator.clipboard.writeText(t);}catch(e){p=Promise.reject(e);}
+  p.then(()=>toast("Testo copiato")).catch(()=>{if(el){el.focus();el.select();toast("Seleziona il testo e copialo");}else openTextSheet("Testo",t);});
+}
+const loaded={};
+function loadLib(k){
+  if(k==="supabase"&&window.supabase&&window.supabase.createClient)return Promise.resolve();
+  if(!loaded[k])loaded[k]=new Promise((res,rej)=>{const s=document.createElement("script");s.src=LIBS[k];s.onload=()=>res();s.onerror=()=>{loaded[k]=null;s.remove();rej(new Error("lib"));};document.head.appendChild(s);});
+  return loaded[k];
+}
+async function getJsPDF(){await loadLib("jspdf");try{await loadLib("autotable");}catch(e){}return window.jspdf.jsPDF;}
+const pdfT=s=>String(s==null?"":s).replace(/[–—]/g,"-").replace(/[‘’′]/g,"'").replace(/[“”]/g,'"').replace(/…/g,"...").replace(/€/g,"EUR").replace(/[^\x00-\xFF]/g,"?");
+async function withBusy(btn,label,fn){const old=btn?btn.textContent:"";if(btn){btn.disabled=true;btn.textContent=label;}try{await fn();}finally{if(btn&&btn.isConnected){btn.disabled=false;btn.textContent=old;}}}
+async function pdfRelazione(){
+  let jsPDF;try{jsPDF=await getJsPDF();}catch(e){toast("Non riesco a preparare il PDF adesso: prova con Word o Markdown.");return;}
+  const R=reportModel();const doc=new jsPDF({unit:"mm",format:"a4"});
+  const W=210,H=297,M=20,CW=W-2*M;let y=M+2;
+  const PEN=[37,71,201],INK=[20,28,51],MUT=[110,118,140],LINE=[201,208,224];
+  const need=h=>{if(y+h>H-M){doc.addPage();y=M;}};
+  doc.setFont("helvetica","bold");doc.setFontSize(8.5);doc.setTextColor(...PEN);doc.text("FORMAZIONE SCUOLA-LAVORO (EX PCTO)",M,y);y+=9;
+  doc.setFontSize(22);doc.setTextColor(...INK);doc.text("Relazione finale",M,y);y+=8;
+  doc.setFont("helvetica","normal");doc.setFontSize(10.5);doc.setTextColor(...MUT);
+  R.info.forEach(l=>doc.splitTextToSize(pdfT(l),CW).forEach(w=>{doc.text(w,M,y);y+=5;}));
+  y+=3;doc.setDrawColor(...LINE);doc.setLineWidth(.3);doc.line(M,y,W-M,y);y+=9;
+  R.secs.forEach(s=>{
+    need(20);doc.setFont("helvetica","bold");doc.setFontSize(13);doc.setTextColor(...PEN);doc.text(pdfT(s.n+". "+s.title),M,y);y+=7;
+    doc.setFont("helvetica","normal");doc.setFontSize(11);doc.setTextColor(...INK);
+    (s.text||"[Sezione da scrivere]").split(/\n\s*\n/).forEach(p=>{doc.splitTextToSize(pdfT(p.replace(/\n/g," ").trim()),CW).forEach(ln=>{need(5.8);doc.text(ln,M,y);y+=5.8;});y+=2.6;});
+    y+=3;
+  });
+  need(34);doc.setFont("helvetica","bold");doc.setFontSize(13);doc.setTextColor(...PEN);doc.text("Allegato: riepilogo delle ore",M,y);y+=4;
+  if(typeof doc.autoTable==="function"){
+    doc.autoTable({startY:y,head:[R.head.map(pdfT)],body:R.rows.map(r=>r.map(pdfT)),foot:[R.foot.map(pdfT)],margin:{left:M,right:M},theme:"grid",
+      styles:{font:"helvetica",fontSize:8.8,cellPadding:1.8,lineColor:LINE,lineWidth:.2,textColor:INK},headStyles:{fillColor:PEN,textColor:[255,255,255],fontStyle:"bold"},
+      footStyles:{fillColor:[238,241,247],textColor:INK,fontStyle:"bold"},columnStyles:{0:{cellWidth:44},3:{cellWidth:13},4:{cellWidth:16},6:{halign:"right",cellWidth:13}},showFoot:"lastPage"});
+  }else{
+    y+=4;doc.setFont("helvetica","normal");doc.setFontSize(10);doc.setTextColor(...INK);
+    R.rows.forEach(r=>{doc.splitTextToSize(pdfT(`${r[0]} (${[r[2],r[3],r[4]].filter(Boolean).join(", ")}): ${r[6]} h`),CW).forEach(ln=>{need(5.4);doc.text(ln,M,y);y+=5.4;});});
+    need(6);doc.setFont("helvetica","bold");doc.text(pdfT(R.foot[0]+": "+R.foot[6]+" h"),M,y);
+  }
+  const n=doc.getNumberOfPages();
+  for(let i=1;i<=n;i++){doc.setPage(i);doc.setFont("helvetica","normal");doc.setFontSize(8.5);doc.setTextColor(...MUT);doc.text(pdfT((R.P.nome||"Studente")+" · Relazione FSL"),M,H-10);doc.text(i+" / "+n,W-M,H-10,{align:"right"});}
+  await saveFile(`relazione-fsl-${slug(R.P.nome)}.pdf`,doc.output("blob"));
+}
+async function pdfPresenze(){
+  let jsPDF;try{jsPDF=await getJsPDF();}catch(e){toast("Non riesco a preparare il PDF adesso: usa «Esporta per Excel».");return;}
+  const m=meta(),P=m.profile;const pmap=new Map(m.projects.map(p=>[p.id,p]));
+  const es=filteredEntries().slice().sort((a,b)=>a.data.localeCompare(b.data)||String(a.inizio).localeCompare(String(b.inizio)));
+  if(!es.length){toast("Nessuna giornata con questi filtri.");return;}
+  const doc=new jsPDF({unit:"mm",format:"a4",orientation:"landscape"});
+  const W=297,H=210,M=14;let y=M+3;
+  const PEN=[37,71,201],INK=[20,28,51],MUT=[110,118,140],LINE=[201,208,224];
+  doc.setFont("helvetica","bold");doc.setFontSize(8.5);doc.setTextColor(...PEN);doc.text("FORMAZIONE SCUOLA-LAVORO (EX PCTO)",M,y);y+=8;
+  doc.setFontSize(17);doc.setTextColor(...INK);doc.text("Foglio presenze",M,y);y+=6.5;
+  doc.setFont("helvetica","normal");doc.setFontSize(10);doc.setTextColor(...MUT);
+  doc.text(pdfT([P.nome||"Studente",P.classe?"classe "+P.classe:"",P.istituto].filter(Boolean).join(" · ")),M,y);y+=5;
+  const onlyP=filt.p&&pmap.get(filt.p);
+  if(onlyP){doc.text(pdfT([onlyP.nome,onlyP.ente,onlyP.tutorAz?"tutor esterno: "+onlyP.tutorAz:"",onlyP.tutorSc?"tutor scolastico: "+onlyP.tutorSc:""].filter(Boolean).join(" · ")),M,y);y+=5;}
+  y+=2;
+  const body=es.map(e=>{const p=pmap.get(e.projectId);return[fmtD(e.data,{weekday:"short",day:"2-digit",month:"2-digit",year:"numeric"}),p?p.nome+(p.ente&&!onlyP?"\n"+p.ente:""):"-",e.inizio&&e.fine?e.inizio+"-"+e.fine+(e.pausa?"\npausa "+e.pausa+" min":""):MOD[e.modalita]||"",fmtH(e.ore),(e.attivita.length>170?e.attivita.slice(0,167)+"...":e.attivita),""];});
+  const tot=fmtH(sum(es.map(e=>e.ore)));
+  if(typeof doc.autoTable==="function"){
+    doc.autoTable({startY:y,head:[["Data","Esperienza","Orario","Ore","Attività svolte","Firma del tutor"]],body:body.map(r=>r.map(pdfT)),foot:[["Totale","","",tot,"",""]],margin:{left:M,right:M},theme:"grid",
+      styles:{font:"helvetica",fontSize:8.6,cellPadding:1.8,lineColor:LINE,lineWidth:.2,textColor:INK,minCellHeight:11,valign:"middle"},headStyles:{fillColor:PEN,textColor:[255,255,255],fontStyle:"bold",minCellHeight:7},
+      footStyles:{fillColor:[238,241,247],textColor:INK,fontStyle:"bold",minCellHeight:7},columnStyles:{0:{cellWidth:28},1:{cellWidth:52},2:{cellWidth:26},3:{cellWidth:13,halign:"right"},5:{cellWidth:42}},showFoot:"lastPage"});
+    y=(doc.lastAutoTable&&doc.lastAutoTable.finalY||y)+14;
+  }else{
+    doc.setFontSize(9.5);doc.setTextColor(...INK);
+    body.forEach(r=>{if(y>H-30){doc.addPage();y=M;}doc.text(pdfT(`${r[0]}  ${r[1].split("\n")[0]}  ${r[2].split("\n")[0]}  ${r[3]} h   Firma: ____________`),M,y);y+=7;});
+    doc.setFont("helvetica","bold");doc.text("Totale: "+tot+" h",M,y);y+=14;
+  }
+  if(y>H-22){doc.addPage();y=M+20;}
+  doc.setFont("helvetica","normal");doc.setFontSize(10);doc.setTextColor(...INK);doc.setDrawColor(...MUT);doc.setLineWidth(.3);
+  doc.text("Firma dello studente",M,y);doc.line(M+40,y+.5,M+120,y+.5);doc.text("Firma del tutor scolastico",W/2+6,y);doc.line(W/2+52,y+.5,W-M,y+.5);
+  const n=doc.getNumberOfPages();
+  for(let i=1;i<=n;i++){doc.setPage(i);doc.setFontSize(8.5);doc.setTextColor(...MUT);doc.text(pdfT("Generato dal Diario di bordo il "+fmtD(todayISO())),M,H-8);doc.text(i+" / "+n,W-M,H-8,{align:"right"});}
+  await saveFile(`foglio-presenze-${slug(onlyP?onlyP.nome:P.nome)}.pdf`,doc.output("blob"));
+}
+async function pdfProgetto(pid){
+  let jsPDF;try{jsPDF=await getJsPDF();}catch(e){toast("Non riesco a preparare il PDF adesso: riprova tra poco.");return;}
+  const st=cur(),m=meta(),P=m.profile,p=m.projects.find(x=>x.id===pid);if(!p)return;
+  const es=entriesOf(st,pid);const o=round2(sum(es.map(e=>e.ore)));
+  const doc=new jsPDF({unit:"mm",format:"a4",orientation:"landscape"});
+  const W=297,H=210,M=14,CW=W-2*M;let y=M+3;
+  const PEN=[37,71,201],INK=[20,28,51],MUT=[110,118,140],LINE=[201,208,224];
+  doc.setFont("helvetica","bold");doc.setFontSize(8.5);doc.setTextColor(...PEN);doc.text("DIARIO DI BORDO DEL PROGETTO · FORMAZIONE SCUOLA-LAVORO",M,y);y+=8;
+  doc.setFontSize(17);doc.setTextColor(...INK);doc.splitTextToSize(pdfT(p.nome),CW).forEach(l=>{doc.text(l,M,y);y+=7;});
+  doc.setFont("helvetica","normal");doc.setFontSize(10);doc.setTextColor(...MUT);
+  const per=fmtRange(p.inizio||(es[0]||{}).data,p.fine||(es[es.length-1]||{}).data);
+  const pct=p.previste?Math.round(o/p.previste*100):null;
+  [[P.nome||"Studente",P.classe?"classe "+P.classe:"",P.istituto].filter(Boolean).join(" · "),
+   [p.ente,TIPO[p.tipo],p.fase?"Fase "+p.fase:"","classe "+p.anno+"ª",p.as?"a.s. "+p.as:""].filter(Boolean).join(" · "),
+   [per?per.charAt(0).toUpperCase()+per.slice(1):"",p.tutorAz?"tutor formativo esterno: "+p.tutorAz:"",p.tutorSc?"docente tutor interno: "+p.tutorSc:""].filter(Boolean).join(" · "),
+   `Ore frequentate: ${fmtH(o)}${p.previste?` su ${fmtH(p.previste)} previste (${pct}%, per la validità serve almeno il 75%)`:""}`
+  ].filter(Boolean).forEach(l=>doc.splitTextToSize(pdfT(l),CW).forEach(w=>{doc.text(w,M,y);y+=4.8;}));
+  if(p.descr){y+=1;doc.setFont("helvetica","italic");doc.splitTextToSize(pdfT(p.descr),CW).slice(0,3).forEach(w=>{doc.text(w,M,y);y+=4.8;});doc.setFont("helvetica","normal");}
+  y+=3;
+  const body=es.map(e=>[fmtD(e.data,{weekday:"short",day:"2-digit",month:"2-digit",year:"numeric"}),e.inizio&&e.fine?e.inizio+"-"+e.fine:(MOD[e.modalita]||""),fmtH(e.ore),e.attivita,[e.imparato?"Imparato: "+e.imparato:"",e.difficolta?"Difficoltà: "+e.difficolta:"",e.competenze.length?"Competenze: "+e.competenze.join(", "):""].filter(Boolean).join("\n"),e.vidimato?"sì":""]);
+  if(!body.length){toast("Nessuna giornata registrata per questa esperienza.");return;}
+  if(typeof doc.autoTable==="function"){
+    doc.autoTable({startY:y,head:[["Data","Orario","Ore","Attività svolte","Riflessioni","Firmata"]],body:body.map(r=>r.map(pdfT)),foot:[["Totale","",fmtH(o),"","",""]],margin:{left:M,right:M},theme:"grid",
+      styles:{font:"helvetica",fontSize:8.4,cellPadding:1.8,lineColor:LINE,lineWidth:.2,textColor:INK,valign:"top"},headStyles:{fillColor:PEN,textColor:[255,255,255],fontStyle:"bold"},
+      footStyles:{fillColor:[238,241,247],textColor:INK,fontStyle:"bold"},columnStyles:{0:{cellWidth:26},1:{cellWidth:22},2:{cellWidth:12,halign:"right"},3:{cellWidth:95},5:{cellWidth:16,halign:"center"}},showFoot:"lastPage"});
+    y=(doc.lastAutoTable&&doc.lastAutoTable.finalY||y)+14;
+  }else{
+    doc.setFontSize(9.5);doc.setTextColor(...INK);
+    body.forEach(r=>{doc.splitTextToSize(pdfT(`${r[0]} · ${r[1]} · ${r[2]} h · ${r[3]}`),CW).forEach(l=>{if(y>H-28){doc.addPage();y=M;}doc.text(l,M,y);y+=5;});y+=1.5;});
+    y+=10;
+  }
+  if(y>H-22){doc.addPage();y=M+20;}
+  doc.setFont("helvetica","normal");doc.setFontSize(9.5);doc.setTextColor(...INK);doc.setDrawColor(...MUT);doc.setLineWidth(.3);
+  const cw=(W-2*M)/3;[["Firma dello studente",0],["Firma del tutor formativo esterno",1],["Firma del docente tutor interno",2]].forEach(([t,i])=>{const x=M+i*cw;doc.text(t,x,y);doc.line(x,y+9,x+cw-10,y+9);});
+  const n=doc.getNumberOfPages();
+  for(let i=1;i<=n;i++){doc.setPage(i);doc.setFontSize(8.5);doc.setTextColor(...MUT);doc.text(pdfT("Generato dal Diario di bordo il "+fmtD(todayISO())),M,H-8);doc.text(i+" / "+n,W-M,H-8,{align:"right"});}
+  await saveFile(`diario-${slug(p.nome)}.pdf`,doc.output("blob"));
+}
+function xmlEsc(s){return String(s==null?"":s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g,"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function wRun(t,o){o=o||{};const pr=`<w:rFonts w:ascii="Calibri" w:hAnsi="Calibri" w:cs="Calibri"/>${o.b?"<w:b/>":""}${o.i?"<w:i/>":""}${o.color?`<w:color w:val="${o.color}"/>`:""}<w:sz w:val="${o.sz||22}"/><w:szCs w:val="${o.sz||22}"/>`;
+  return `<w:r><w:rPr>${pr}</w:rPr>${String(t).split("\n").map((p,i)=>(i?"<w:br/>":"")+`<w:t xml:space="preserve">${xmlEsc(p)}</w:t>`).join("")}</w:r>`;}
+function wP(runs,o){o=o||{};return `<w:p><w:pPr>${o.keep?"<w:keepNext/>":""}<w:spacing w:before="${o.before||0}" w:after="${o.after==null?140:o.after}" w:line="${o.line||300}" w:lineRule="auto"/>${o.right?'<w:jc w:val="right"/>':""}</w:pPr>${runs}</w:p>`;}
+async function docxRelazione(){
+  try{await loadLib("jszip");}catch(e){toast("Non riesco a preparare il file Word adesso: prova con PDF o Markdown.");return;}
+  const R=reportModel();let b="";
+  b+=wP(wRun("FORMAZIONE SCUOLA-LAVORO (EX PCTO)",{b:true,color:"2547C9",sz:17}),{after:60});
+  b+=wP(wRun("Relazione finale",{b:true,sz:44,color:"141C33"}),{after:120});
+  R.info.forEach(l=>b+=wP(wRun(l,{color:"5A6380",sz:21}),{after:40}));
+  b+=wP("",{after:200});
+  R.secs.forEach(s=>{b+=wP(wRun(s.n+". "+s.title,{b:true,sz:28,color:"2547C9"}),{before:240,after:100,keep:true});
+    (s.text||"[Sezione da scrivere]").split(/\n\s*\n/).forEach(p=>b+=wP(wRun(p.trim())));});
+  b+=wP(wRun("Allegato: riepilogo delle ore",{b:true,sz:28,color:"2547C9"}),{before:300,after:120,keep:true});
+  const widths=[2500,1500,1700,700,850,1500,888];
+  const cell=(t,i,o)=>`<w:tc><w:tcPr><w:tcW w:w="${widths[i]}" w:type="dxa"/>${o&&o.fill?`<w:shd w:val="clear" w:color="auto" w:fill="${o.fill}"/>`:""}</w:tcPr>${wP(wRun(t,{b:o&&o.b,sz:18,color:o&&o.fg}),{after:0,line:260,right:i===6})}</w:tc>`;
+  const brd=["top","left","bottom","right","insideH","insideV"].map(k=>`<w:${k} w:val="single" w:sz="4" w:space="0" w:color="C9D0E0"/>`).join("");
+  b+=`<w:tbl><w:tblPr><w:tblW w:w="5000" w:type="pct"/><w:tblBorders>${brd}</w:tblBorders><w:tblCellMar><w:top w:w="50" w:type="dxa"/><w:left w:w="80" w:type="dxa"/><w:bottom w:w="50" w:type="dxa"/><w:right w:w="80" w:type="dxa"/></w:tblCellMar></w:tblPr><w:tblGrid>${widths.map(w=>`<w:gridCol w:w="${w}"/>`).join("")}</w:tblGrid>`;
+  b+=`<w:tr>${R.head.map((h,i)=>cell(h,i,{b:true,fill:"2547C9",fg:"FFFFFF"})).join("")}</w:tr>`;
+  R.rows.forEach(r=>b+=`<w:tr>${r.map((c,i)=>cell(c,i)).join("")}</w:tr>`);
+  b+=`<w:tr>${R.foot.map((c,i)=>cell(c,i,{b:true,fill:"EEF1F7"})).join("")}</w:tr></w:tbl>`;
+  b+=wP("",{after:0});
+  const docXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>${b}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="708" w:footer="708" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const zip=new window.JSZip();
+  zip.file("[Content_Types].xml",`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`);
+  zip.file("_rels/.rels",`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`);
+  zip.file("word/document.xml",docXml);
+  const blob=await zip.generateAsync({type:"blob",mimeType:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"});
+  await saveFile(`relazione-fsl-${slug(R.P.nome)}.docx`,blob);
+}
+function csvExport(){
+  const m=meta();const pmap=new Map(m.projects.map(p=>[p.id,p]));
+  const head=["Data","Esperienza","Ente","Classe","Anno scolastico","Modalità","Inizio","Fine","Pausa (min)","Ore","Attività svolte","Competenze","Cosa ho imparato","Difficoltà","Giudizio (1-5)","Confermata dal tutor"];
+  const rows=cur().entries.slice().sort((a,b)=>a.data.localeCompare(b.data)).map(e=>{const p=pmap.get(e.projectId)||{};return[fmtD(e.data,{day:"2-digit",month:"2-digit",year:"numeric"}),p.nome||"",p.ente||"",p.anno?p.anno+"ª":"",p.as||"",MOD[e.modalita]||"",e.inizio,e.fine,e.pausa||"",fmtH(e.ore),e.attivita,e.competenze.join(", "),e.imparato,e.difficolta,e.voto||"",e.vidimato?"sì":"no"];});
+  const q=c=>{const s=String(c==null?"":c);return /[;"\n\r]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s;};
+  const csv="﻿"+[head,...rows].map(r=>r.map(q).join(";")).join("\r\n");
+  saveFile(`registro-fsl-${slug(m.profile.nome)}.csv`,csv,csv);
+}
+function backupExport(){
+  const d={app:"diario-di-bordo-pcto",version:1,exportedAt:new Date().toISOString(),meta:real.meta||blankMeta(),entries:real.entries};
+  const json=JSON.stringify(d,null,1);
+  saveFile(`diario-pcto-backup-${todayISO()}.json`,json,json);
+}
+function handleImportFile(file){
+  if(!file)return;
+  const r=new FileReader();
+  r.onload=()=>{try{const d=JSON.parse(String(r.result));if(!d||!Array.isArray(d.entries)||typeof d.meta!=="object")throw 0;pendingImport=d;const box=$("#imp-box");if(box)box.innerHTML=impBox();else{location.hash="#profilo";}}catch(e){toast("Questo file non è un backup del diario.");}};
+  r.onerror=()=>toast("Non riesco a leggere il file.");
+  r.readAsText(file);
+}
+function applyImport(mode){
+  const d=pendingImport;pendingImport=null;if(!d)return;
+  if(demo){demo=null;}
+  const inMeta=normMeta(d.meta)||blankMeta();inMeta.started=true;const inE=d.entries.map(normEntry).filter(e=>e.id);
+  if(mode==="replace"||!real.meta){
+    const keep=new Set(inE.map(e=>e.id));const old=real.entries.map(e=>e.id).filter(id=>!keep.has(id));
+    real.meta=inMeta;saveMeta();old.forEach(dropEntry);inE.forEach(putEntry);
+  }else{
+    const m=real.meta;const ids=new Set(m.projects.map(p=>p.id));inMeta.projects.forEach(p=>{if(!ids.has(p.id))m.projects.push(p);});
+    for(const k in inMeta.profile)if(!m.profile[k]&&inMeta.profile[k])m.profile[k]=inMeta.profile[k];
+    SECTIONS.forEach(x=>{if(!(m.report.sections[x.key]||"").trim()&&inMeta.report.sections[x.key])m.report.sections[x.key]=inMeta.report.sections[x.key];});
+    m.started=true;saveMeta();const have=new Set(real.entries.map(e=>e.id));inE.filter(e=>!have.has(e.id)).forEach(putEntry);
+  }
+  render();toast(`Backup importato: ${inE.length} ${plural(inE.length,"giornata","giornate")}.`);
+}
+function wipeAll(){
+  demo=null;const ids=real.entries.map(e=>e.id);
+  if(store.mode==="cloud"){ids.forEach(dropEntry);real.meta=null;store.metaVer++;store.pendingMeta=true;clearTimeout(store.metaTimer);const ver=store.metaVer;enqueue(()=>store.ref.delete()).then(()=>{if(ver===store.metaVer)store.pendingMeta=false;});}
+  else{real={meta:null,entries:[]};try{localStorage.removeItem(LKEY);}catch(e){}}
+  real.meta=null;reportUndo=null;if(store.mode==="sb")sbSave();filt={q:"",p:"",anno:"",todo:false};
+  location.hash="#riepilogo";render();toast("Diario cancellato.");
+}
+
+/* ---------- Claude ---------- */
+function aiErr(e){
+  const c=e&&e.code;
+  if(["not_granted","sampling_disabled","not_declared","capability_disabled","capability_removed"].includes(c)){document.body.classList.remove("has-ai");capSample=null;return "Claude non è disponibile in questa pagina.";}
+  if(c==="rate_limited")return "Troppe richieste a Claude: riprova tra qualche minuto.";
+  if(c==="session_expired")return "Accedi di nuovo a Claude e riprova.";
+  if(c==="refused")return "Claude non ha completato la richiesta. Modifica il testo e riprova.";
+  if(c==="prompt_too_large")return "Il diario è troppo lungo per una richiesta sola: migliora una sezione alla volta.";
+  if(c==="invalid_json"||c==="empty_completion")return "La risposta non era completa. Riprova.";
+  return "Connessione interrotta. Riprova.";
+}
+function digest(max){
+  const st=cur(),m=meta(),P=m.profile,s=stats(st),goal=goalOf(P);const L=[];
+  L.push(`Studente: ${P.nome||"(nome non indicato)"}; classe ${P.classe||"?"}; indirizzo ${P.indirizzo||"?"}; scuola ${P.istituto||"?"} (${(SCUOLE[P.scuola]||SCUOLE.altro)[0]}); minimo ore nel triennio ${goal||"?"}; ore svolte ${fmtH(s.tot)}.`);
+  if(P.materie)L.push(`Materie del colloquio: ${P.materie}.`);
+  projSorted(m).forEach(p=>{const es=entriesOf(st,p.id);
+    L.push(`\nESPERIENZA: ${p.nome} | tipo: ${TIPO[p.tipo]||""} | ente: ${p.ente||"-"} | sede: ${p.sede||"-"} | settore: ${p.settore||"-"} | classe ${p.anno}ª | a.s. ${p.as||"-"} | periodo: ${fmtRange(p.inizio||(es[0]||{}).data,p.fine||(es[es.length-1]||{}).data)||"-"} | fase: ${p.fase||"-"} | materie collegate: ${p.materie.join(", ")||"-"} | tutor formativo esterno: ${p.tutorAz||"-"} | ore previste: ${p.previste||"-"} | ore svolte: ${fmtH(s.byProj.get(p.id)||0)} | descrizione: ${p.descr||"-"}`);
+    es.forEach(e=>L.push(`- ${e.data} (${fmtH(e.ore)} h, ${MOD[e.modalita]||""}, giudizio ${e.voto||"-"}/5): attività: ${e.attivita} | competenze: ${e.competenze.join(", ")||"-"} | imparato: ${e.imparato||"-"} | difficoltà: ${e.difficolta||"-"}`));});
+  let t=L.join("\n");if(t.length>(max||20000))t=t.slice(0,max||20000)+"\n[…diario troncato]";
+  return t;
+}
+const AI_RULES=`Scrivi in prima persona, in italiano corretto e naturale, con il tono di uno studente di 17-19 anni: chiaro e concreto, senza frasi fatte né esagerazioni. Usa SOLO i fatti presenti nel diario. Non inventare enti, date, numeri, strumenti o risultati. Dove manca un'informazione che serve (per esempio le scelte dopo il diploma o i collegamenti con le materie), inserisci un segnaposto nella forma [Completa: …] che dica allo studente che cosa scrivere. Niente markdown, niente titoli, niente elenchi puntati; separa i paragrafi con una riga vuota.`;
+async function aiReport(){
+  if(!capSample||ai.running)return;
+  const m=ensureMeta();const prev=clone(m.report.sections||{});
+  const own=SECTIONS.filter(x=>(prev[x.key]||"").trim()).map(x=>`### ${x.key}\n${prev[x.key]}`).join("\n\n");
+  const prompt=`Aiuti uno studente di scuola superiore a scrivere la relazione finale sulla formazione scuola-lavoro (ex PCTO) da presentare al colloquio dell'esame di Stato.\n${AI_RULES}\n\nRispondi solo con un oggetto JSON con sei chiavi, ognuna con il testo della sezione:\n- intro: introduzione e contesto (chi sono, scuola, numero di esperienze e ore totali), 80-130 parole\n- esperienze: un paragrafo per esperienza in ordine cronologico, con ente, periodo, tutor, attività, strumenti e come ho gestito i problemi, 150-350 parole\n- competenze: competenze tecniche e trasversali con esempi concreti dal diario, 120-200 parole\n- collegamenti: collegamenti reali con le materie del colloquio ed eventualmente con l'Educazione civica, 80-150 parole\n- bilancio: bilancio orientativo, cosa è cambiato nel mio modo di lavorare e nelle scelte future, 100-180 parole\n- conclusione: 40-70 parole\nEsempio di forma: {"intro":"…","esperienze":"…","competenze":"…","collegamenti":"…","bilancio":"…","conclusione":"…"}\n${own?`\nLo studente ha già scritto queste parti: mantieni le sue idee e la sua voce, migliorando la forma.\n${own}\n`:""}\nDIARIO\n${digest(18000)}`;
+  ai.running=true;ai.kind="report";ai.key="";ai.ctl=new AbortController();ai.msg="Claude sta leggendo il diario…";updAi();
+  try{
+    const out=await capSample.json(prompt,{signal:ai.ctl.signal,onText:({text})=>{ai.msg=`Claude sta scrivendo la relazione… ${text.length.toLocaleString("it-IT")} caratteri`;updAi();}});
+    if(!out||typeof out!=="object")throw{code:"invalid_json"};
+    const secs={};SECTIONS.forEach(x=>{const v=out[x.key];secs[x.key]=typeof v==="string"&&v.trim()?v.trim():(prev[x.key]||"");});
+    reportUndo=prev;m.report.sections=secs;ai.running=false;saveMeta();render();
+    toast("Relazione scritta da Claude: rileggila e completa le parti segnate.","Ripristina la precedente",undoReport,9000);
+  }catch(e){ai.running=false;render();if(!(e&&e.code==="cancelled"))toast(aiErr(e));}
+}
+async function aiSection(key){
+  if(!capSample||ai.running)return;
+  const m=ensureMeta();const prev=m.report.sections[key]||"";const sec=SECTIONS.find(x=>x.key===key);if(!sec)return;
+  const prompt=`Aiuti uno studente di scuola superiore con la relazione finale sulla formazione scuola-lavoro (ex PCTO) per il colloquio dell'esame di Stato. Lavori sulla sezione «${sec.title}». Scopo della sezione: ${sec.hint}\n${AI_RULES}\n${prev.trim()?`\nTesto attuale dello studente:\n<<<\n${prev}\n>>>\nMiglioralo: correggi gli errori, rendilo più chiaro e concreto, aggiungi dettagli SOLO se sono nel diario. Mantieni i segnaposto [Completa: …] se l'informazione manca ancora.`:"\nScrivi questa sezione da zero, 100-250 parole."}\nRispondi solo con il testo della sezione.\n\nDIARIO\n${digest(16000)}`;
+  ai.running=true;ai.kind="section";ai.key=key;ai.ctl=new AbortController();ai.msg=`Claude sta lavorando su «${sec.title}»…`;updAi();
+  try{
+    const r=await capSample(prompt,{signal:ai.ctl.signal,cache:false,onText:({text})=>{m.report.sections[key]=text;const ta=$("#sec-"+key);if(ta){ta.value=text;autosize(ta);}updSecCounts(key);}});
+    m.report.sections[key]=r.text.trim();secUndo[key]=prev;ai.running=false;saveMeta();render();
+    if(r.truncated)toast("La risposta si è interrotta: rileggi la fine della sezione.");
+  }catch(e){ai.running=false;m.report.sections[key]=prev;render();if(!(e&&e.code==="cancelled"))toast(aiErr(e));}
+}
+function undoReport(){if(!reportUndo)return;const m=ensureMeta();const now=clone(m.report.sections);m.report.sections=reportUndo;reportUndo=null;saveMeta();render();toast("Versione precedente ripristinata","Annulla",()=>{reportUndo=clone(ensureMeta().report.sections);ensureMeta().report.sections=now;saveMeta();render();});}
+async function aiSuggest(btn,card){
+  if(!capSample)return;
+  const att=$("#e-att",card).value.trim();
+  if(att.length<8){const er=$("#e-err",card);er.hidden=false;er.textContent="Scrivi prima le attività svolte: Claude le usa per suggerire le competenze.";return;}
+  const old=btn.textContent;btn.disabled=true;btn.textContent="Ci penso…";
+  try{
+    const arr=await capSample.json(`Dall'elenco seguente scegli da 1 a 4 competenze esercitate in questa giornata di formazione scuola-lavoro di uno studente delle superiori.\nElenco: ${COMPETENZE.join("; ")}.\nAttività: «${att}»\nCosa ho imparato: «${$("#e-imp",card).value.trim()||"-"}»\nRispondi solo con un array JSON di stringhe copiate esattamente dall'elenco, per esempio ["Lavoro di squadra","Comunicazione"].`,{modelTier:"quick"});
+    const ok=(Array.isArray(arr)?arr:[]).map(String).filter(x=>COMPETENZE.includes(x)).slice(0,4);
+    ok.forEach(c=>{const b=$$(".tchip",card).find(x=>x.dataset.c===c);if(b)b.setAttribute("aria-pressed","true");});
+    toast(ok.length?`Segnate ${ok.length} ${plural(ok.length,"competenza","competenze")}: controlla che siano giuste.`:"Nessun suggerimento utile per questa giornata.");
+  }catch(e){toast(aiErr(e));}
+  finally{if(btn.isConnected){btn.disabled=false;btn.textContent=old;}}
+}
+
+/* ---------- esempio ---------- */
+function makeDemo(){
+  const T="Prof. Luca Romano";
+  const P={nome:"Sara Moretti",classe:"4ª D",istituto:SCHOOL.nome,indirizzo:"Scienze applicate",scuola:"liceo",obiettivo:90,tutorSc:T,as:"2026/27",materie:MAT2026.join(", "),cert3:"41",cert4:"",cert5:""};
+  const projects=[
+    {id:"d_sic",nome:"Sicurezza Generale (corso «Studiare il lavoro»)",tipo:"sicurezza",ente:SCHOOL.breve,settore:"Formazione obbligatoria",sede:"Online",tutorAz:"",tutorSc:T,anno:3,as:"2025/26",inizio:"2025-11-13",fine:"2025-11-13",previste:4,descr:"Corso obbligatorio per le classi terze sulla sicurezza nei luoghi di lavoro.",colore:2,fase:"1",materie:["Educazione civica"],patto:true,cert:true,docum:true},
+    {id:"d_cyf",nome:"Choose your Future (educazione finanziaria)",tipo:"corso",ente:"VIK School",settore:"Educazione finanziaria",sede:"A scuola",tutorAz:"",tutorSc:T,anno:3,as:"2025/26",inizio:"2026-01-20",fine:"2026-02-10",previste:16,descr:"Percorso di educazione finanziaria per le classi terze.",colore:1,fase:"1",materie:["Matematica","Educazione civica"],patto:true,cert:true,docum:true},
+    {id:"d_mem",nome:"Progetto Memoria",tipo:"project",ente:"Associazione La Sibilla",settore:"Storia e cittadinanza",sede:"A scuola e sul territorio",tutorAz:"",tutorSc:T,anno:3,as:"2025/26",inizio:"2026-03-05",fine:"2026-05-07",previste:25,descr:"Percorso obbligatorio per tutte le classi terze.",colore:3,fase:"1",materie:["Storia","Educazione civica"],patto:true,cert:false,docum:true},
+    {id:"d_cri",nome:"Giovani per la prevenzione",tipo:"volontariato",ente:"Croce Rossa Italiana, Comitato Municipio X Roma",settore:"Salute e prevenzione",sede:"Roma",tutorAz:"Elena Greco",tutorSc:T,anno:4,as:"2026/27",inizio:"2026-10-13",fine:"",previste:30,descr:"Percorso per le classi quarte e quinte su prevenzione e promozione della salute.",colore:0,fase:"2",materie:["Scienze naturali","Educazione civica"],patto:true,cert:false,docum:false,circ:"https://www.liceolabriola.edu.it/circolare/giovani-per-la-prevenzione-croce-rossa-italiana-comitato-municipio-10-di-roma/"}
+  ];
+  const E=(id,pid,data,mod,ini,fin,ore,att,comps,imp,dif,voto,vid)=>normEntry({id,projectId:pid,data,modalita:mod,inizio:ini,fine:fin,pausa:0,ore,attivita:att,competenze:comps,imparato:imp,difficolta:dif,voto,vidimato:vid});
+  const entries=[
+    E("x01","d_sic","2025-11-13","distanza","","",4,"Corso online «Studiare il lavoro»: rischio, danno e prevenzione; i ruoli della sicurezza in azienda; diritti e doveri dello studente in formazione. Test finale superato.",["Sicurezza sul lavoro","Cittadinanza attiva"],"Anche durante la formazione scuola-lavoro lo studente deve rispettare le regole di sicurezza e segnalare i pericoli.","",3,true),
+    E("x02","d_cyf","2026-01-20","scuola","14:00","18:00",4,"Primo incontro: entrate, uscite e come costruire un budget mensile. Esercizio sul budget di uno studente universitario fuori sede.",["Competenza matematica e scientifica","Organizzazione e gestione del tempo"],"Distinguere le spese fisse da quelle variabili; ho calcolato quanto potrei risparmiare in un anno.","",4,true),
+    E("x03","d_cyf","2026-01-27","scuola","14:00","18:00",4,"Risparmio e interesse composto; confronto tra conti, carte prepagate e altri strumenti di pagamento.",["Competenza matematica e scientifica","Pensiero critico"],"Con l'interesse composto anche piccole somme crescono molto nel tempo: lo abbiamo verificato con un foglio di calcolo.","",5,true),
+    E("x04","d_cyf","2026-02-03","scuola","14:00","18:00",4,"Lavoro di gruppo: progettare un piccolo evento scolastico con un budget assegnato e presentarlo alla classe.",["Lavoro di squadra","Spirito di iniziativa","Comunicazione"],"","Il gruppo voleva spendere quasi tutto in pubblicità; abbiamo rifatto i conti insieme e trovato un compromesso.",4,true),
+    E("x05","d_cyf","2026-02-10","scuola","14:00","18:00",4,"Truffe online e phishing finanziario; test finale del percorso.",["Competenza digitale","Cittadinanza attiva"],"Controllare sempre il mittente e non inserire mai i dati della carta da un link ricevuto per messaggio.","",4,true),
+    E("x06","d_mem","2026-03-05","scuola","09:00","14:00",5,"Incontro di apertura: presentazione del percorso e dell'associazione; lavoro a gruppi su fonti e testimonianze.",["Imparare a imparare","Cittadinanza attiva"],"Come si legge una fonte: chi l'ha scritta, quando e perché.","",4,true),
+    E("x07","d_mem","2026-03-19","scuola","09:00","14:00",5,"Ricerca guidata in biblioteca e online; schedatura delle fonti trovate dal mio gruppo.",["Competenza digitale","Pensiero critico","Lavoro di squadra"],"","Molte pagine web non citavano le fonti: abbiamo imparato a scartarle e a cercare quelle verificabili.",3,true),
+    E("x08","d_mem","2026-04-09","presenza","09:00","14:00",5,"Uscita sul territorio con la guida dell'associazione; appunti e fotografie per il lavoro finale.",["Comunicazione","Autonomia e responsabilità"],"Prendere appunti in modo ordinato mentre ascolto, per non perdere i dettagli.","",5,true),
+    E("x09","d_mem","2026-04-23","scuola","09:00","14:00",5,"Preparazione del prodotto finale: testi e immagini per una presentazione multimediale.",["Creatività","Competenza digitale","Organizzazione e gestione del tempo"],"","Dividere il lavoro senza sovrapporci: abbiamo usato un documento condiviso con i compiti di ciascuno.",4,true),
+    E("x10","d_mem","2026-05-07","scuola","09:00","14:00",5,"Presentazione del lavoro finale alle altre classi terze e restituzione con i referenti.",["Comunicazione","Spirito di iniziativa"],"Parlare davanti a tante persone: provare prima con il cronometro mi ha aiutato a rispettare i tempi.","",5,true),
+    E("x11","d_cri","2026-10-13","presenza","15:00","18:00",3,"Presentazione dell'associazione e dei suoi principi; introduzione alla prevenzione e alla promozione della salute.",["Cittadinanza attiva","Comunicazione"],"","",4,true),
+    E("x12","d_cri","2026-10-20","presenza","15:00","18:00",3,"Primo soccorso di base: chiamata al 112, posizione laterale di sicurezza, esercitazione a coppie.",["Competenze specifiche del settore","Autonomia e responsabilità"],"Che cosa dire quando si chiama il 112: dove sei, che cosa è successo, quante persone sono coinvolte.","All'inizio mi bloccavo nella simulazione della chiamata; ripetendola tre volte è diventata naturale.",5,true),
+    E("x13","d_cri","2026-11-03","presenza","15:00","18:00",3,"Progettazione a gruppi di un intervento di sensibilizzazione sulla prevenzione per le classi prime.",["Lavoro di squadra","Creatività","Comunicazione"],"","",4,false)
+  ];
+  const st={meta:{v:1,started:true,profile:P,projects:projects.map(normProject),report:{sections:{}}},entries};
+  st.meta.report.sections=buildDraft(st);
+  return st;
+}
+function enterDemo(){demo=makeDemo();reportUndo=null;filt={q:"",p:"",anno:"",todo:false};if(location.hash!=="#riepilogo")location.hash="#riepilogo";render();window.scrollTo(0,0);}
+function exitDemo(){demo=null;reportUndo=null;filt={q:"",p:"",anno:"",todo:false};render();}
+
+/* ---------- azioni ---------- */
+const ACT={
+  "new-entry":()=>openEntry(null),
+  "edit-entry":a=>openEntry(a.dataset.id),
+  "entry-in-project":a=>openEntry(null,a.dataset.id),
+  "new-project":()=>openProject(null),
+  "edit-project":a=>openProject(a.dataset.id),
+  "cat-add":a=>{const p=catalogPreset(+a.dataset.i);if(p)openProject(null,p);},
+  "go":a=>{
+    if(a.dataset.todo)filt={q:"",p:"",anno:"",todo:true};
+    if(a.dataset.p)filt={q:"",p:a.dataset.p,anno:"",todo:false};
+    const to="#"+a.dataset.to;const anchor=a.dataset.anchor;
+    if(location.hash===to)render();else location.hash=to;
+    setTimeout(()=>{if(anchor){const el=$("#"+anchor);if(el)el.scrollIntoView({block:"start"});}else window.scrollTo(0,0);},30);
+  },
+  "demo-on":()=>enterDemo(),
+  "demo-off":()=>exitDemo(),
+  "f-todo":a=>{filt.todo=!filt.todo;a.setAttribute("aria-pressed",String(filt.todo));renderRegList();},
+  "gen-report":a=>{
+    const m=ensureMeta();const any=SECTIONS.some(x=>(m.report.sections[x.key]||"").trim());
+    const doIt=()=>{reportUndo=clone(m.report.sections||{});m.report.sections=buildDraft(cur());m.started=true;saveMeta();render();toast("Bozza creata dai dati del diario.",any?"Ripristina la precedente":null,any?undoReport:null,8000);};
+    if(any)arm(a,"Conferma: sostituisci il testo",doIt);else doIt();
+  },
+  "ai-report":()=>aiReport(),
+  "ai-section":a=>aiSection(a.dataset.key),
+  "ai-stop":()=>{if(ai.ctl)ai.ctl.abort();},
+  "undo-report":()=>undoReport(),
+  "undo-sec":a=>{const k=a.dataset.key;if(secUndo[k]==null)return;const m=ensureMeta();m.report.sections[k]=secUndo[k];delete secUndo[k];saveMeta();render();},
+  "slides":()=>{
+    const S=buildSlides();const md=S.map((s,i)=>`${i+1}. ${s.t}\n${s.b.map(x=>"   - "+x).join("\n")}`).join("\n");
+    openSheet(`<div class="sheet-in"><div class="sheet-head"><h2>Scaletta per le slide</h2>${closeBtn}</div><div class="sheet-body"><p class="hint">${S.length} slide, circa 7-10 minuti di esposizione. Usa le slide come traccia e non leggerle: guarda la commissione.</p><ol class="slides">${S.map(s=>`<li><b>${esc(s.t)}</b><ul>${s.b.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></li>`).join("")}</ol></div><div class="sheet-foot"><span class="grow"></span><button type="button" class="btn" id="sl-dl">Scarica</button><button type="button" class="btn primary" id="sl-copy">Copia la scaletta</button></div></div>`,"Scaletta per le slide",card=>{
+      $("#sl-copy",card).addEventListener("click",()=>copyText(md));
+      $("#sl-dl",card).addEventListener("click",()=>saveFile(`scaletta-slide-${slug(meta().profile.nome)}.md`,"# Scaletta per le slide\n\n"+md,md));
+    });
+  },
+  "exp":a=>{
+    const f=a.dataset.fmt;
+    if(f==="copy"){copyText(reportPlain(false));return;}
+    if(f==="md"){const t=reportPlain(true);saveFile(`relazione-fsl-${slug(meta().profile.nome)}.md`,t,t);return;}
+    if(f==="pdf")withBusy(a,"Preparo…",pdfRelazione);
+    if(f==="docx")withBusy(a,"Preparo…",docxRelazione);
+  },
+  "presenze-pdf":a=>withBusy(a,"Preparo…",pdfPresenze),
+  "csv":()=>csvExport(),
+  "backup":()=>backupExport(),
+  "import":()=>$("#imp-file").click(),
+  "imp-apply":a=>applyImport(a.dataset.mode),
+  "imp-cancel":()=>{pendingImport=null;const b=$("#imp-box");if(b)b.innerHTML="";},
+  "wipe":a=>arm(a,"Conferma: cancella tutto",wipeAll),
+  "copy":a=>copyText(a.dataset.copy||""),
+  "logout":()=>sbLogout(),
+  "sb-link":()=>sbLink(),
+  "sb-reset":()=>sbReset(),
+  "sb-newpass":()=>openNewPassword(false),
+  "mat-toggle":a=>{const m=ensureMeta();const x=a.dataset.m;let arr=splitMat(m.profile.materie);arr=arr.includes(x)?arr.filter(y=>y!==x):arr.concat([x]);arr=MATERIE.filter(y=>arr.includes(y)).concat(arr.filter(y=>!MATERIE.includes(y)));m.profile.materie=arr.join(", ");m.started=true;saveMeta();a.setAttribute("aria-pressed",String(arr.includes(x)));},
+  "mat-2026":()=>{const m=ensureMeta();m.profile.materie=MAT2026.join(", ");m.started=true;saveMeta();$$("#pf-mat .tchip").forEach(b=>b.setAttribute("aria-pressed",String(MAT2026.includes(b.dataset.m))));toast("Materie impostate: "+MAT2026.join(", "));},
+  "proj-pdf":a=>withBusy(a,"Preparo…",()=>pdfProgetto(a.dataset.id))
+};
+document.addEventListener("click",ev=>{
+  const c=ev.target.closest("[data-close]");const a=ev.target.closest("[data-act]");
+  if(c)closeSheet();
+  if(a&&ACT[a.dataset.act]){if(a.tagName==="A")ev.preventDefault();ACT[a.dataset.act](a,ev);}
+});
+$("#sheet").addEventListener("click",ev=>{if(ev.target.id==="sheet")closeSheet();});
+document.addEventListener("keydown",ev=>{if(ev.key==="Escape"&&sheetOpen)closeSheet();});
+document.addEventListener("submit",ev=>{
+  if(ev.target.id==="sb-form"){ev.preventDefault();sbSubmit();return;}
+  if(ev.target.id!=="welcome-form")return;
+  ev.preventDefault();
+  const m=ensureMeta();const P=m.profile;
+  P.nome=$("#w-nome").value.trim();P.classe=$("#w-classe").value.trim();P.istituto=$("#w-ist").value.trim();
+  const ind=(document.querySelector("input[name=w-ind]:checked")||{}).value;if(ind)P.indirizzo=ind;P.scuola="liceo";P.obiettivo=SCUOLE.liceo[1];
+  m.started=true;saveMeta();render();window.scrollTo(0,0);
+  toast("Diario creato. Aggiungi la tua prima esperienza dal catalogo.","Apri il catalogo",()=>ACT.go({dataset:{to:"esperienze",anchor:"catalogo"}}));
+});
+document.addEventListener("input",ev=>{
+  const t=ev.target;
+  if(t.id==="sb-email"){sbEmail=t.value;return;}
+  if(t.id==="f-q"){filt.q=t.value;renderRegList();return;}
+  if(t.id==="cat-q"){catQ=t.value;renderCatalog();return;}
+  if(t.dataset.pf){const m=ensureMeta();let v=t.value;if(t.dataset.pf==="obiettivo")v=Math.max(0,Math.round(parseNum(v)||0));m.profile[t.dataset.pf]=v;m.started=true;saveMeta();renderHeader();return;}
+  if(t.dataset.sec){if(ai.running&&(ai.kind==="report"||ai.key===t.dataset.sec))return;const m=ensureMeta();m.report.sections[t.dataset.sec]=t.value;delete secUndo[t.dataset.sec];autosize(t);updSecCounts(t.dataset.sec);m.started=true;saveMeta();}
+});
+document.addEventListener("change",ev=>{
+  const t=ev.target;
+  if(t.id==="f-p"){filt.p=t.value;renderRegList();}
+  else if(t.id==="f-anno"){filt.anno=t.value;renderRegList();}
+  else if(t.id==="cat-as"){catAs=t.value;renderCatalog();}
+  else if(t.id==="pf-scuola"){const m=ensureMeta();const oldDef=(SCUOLE[m.profile.scuola]||[0,0])[1];m.profile.scuola=t.value;const def=(SCUOLE[t.value]||[0,0])[1];if(def&&(!+m.profile.obiettivo||+m.profile.obiettivo===oldDef)){m.profile.obiettivo=def;const o=$("#pf-obiettivo");if(o)o.value=def;}m.started=true;saveMeta();}
+  else if(t.id==="imp-file"){handleImportFile(t.files&&t.files[0]);t.value="";}
+  else if(t.name==="sb-mode"){sbMode=t.value;sbMsg=null;const em=$("#sb-email");if(em)sbEmail=em.value;render();}
+});
+window.addEventListener("hashchange",route);
+
+
+/* ---------- accesso con email (Supabase, solo versione GitHub) ---------- */
+const CFG=window.DIARIO_CONFIG||{};
+const SB_ON=STANDALONE&&!!(CFG.supabaseUrl&&CFG.supabaseKey);
+const PAGE_URL=location.origin+location.pathname;
+const sbs={client:null,uid:null,timer:0,retry:0,pending:false,saving:false,again:false,lastRemote:null,warned:false};
+let sbMode="login",sbEmail="",sbMsg=null;
+async function sbBoot(){
+  try{await loadLib("supabase");}catch(e){}
+  if(!(window.supabase&&window.supabase.createClient)){goLocal(false);toast("Non riesco a raggiungere il servizio di accesso: per ora il diario si salva in questo browser.");return;}
+  try{sbs.client=window.supabase.createClient(CFG.supabaseUrl,CFG.supabaseKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});}
+  catch(e){goLocal(false);toast("La configurazione di Supabase in config.js non è valida.");return;}
+  sbs.client.auth.onAuthStateChange((ev,session)=>{setTimeout(()=>sbAuthEvent(ev,session),0);});
+  let session=null;
+  try{const r=await sbs.client.auth.getSession();session=r&&r.data&&r.data.session;}catch(e){}
+  if(session&&session.user)sbStart(session.user);
+  else if(!sbs.uid){store.mode="locked";render();}
+}
+function sbAuthEvent(ev,session){
+  if(ev==="PASSWORD_RECOVERY")openNewPassword(true);
+  if(session&&session.user){if(sbs.uid!==session.user.id)sbStart(session.user);}
+  else if(sbs.uid||ev==="SIGNED_OUT")sbStopped();
+}
+async function sbStart(user){
+  sbs.uid=user.id;account={id:user.id,email:user.email||"",name:""};
+  LKEY=LEGACY_KEY+":sb:"+user.id;
+  store.mode="sb";store.ready=false;sbMsg=null;setStatus("loading");
+  const cached=readLocal();
+  if(cached){real=cached;store.ready=true;}
+  render();
+  const r=await sbFetch();
+  if(sbs.uid!==user.id)return;
+  if(r===false){if(!store.ready){real={meta:null,entries:[]};store.ready=true;}setStatus("offline");render();toast("Non riesco a scaricare il diario: lavoro sulla copia di questo dispositivo e la carico appena torna la connessione.");return;}
+  if(r){real=r;try{localStorage.setItem(LKEY,JSON.stringify(real));}catch(e){}}
+  else if(!cached)real={meta:null,entries:[]};
+  store.ready=true;setStatus("cloud");render();
+  if(!r)sbOfferLegacy();
+}
+async function sbFetch(){
+  try{
+    const {data,error}=await sbs.client.from("diari").select("data,updated_at").eq("user_id",sbs.uid).maybeSingle();
+    if(error)throw error;
+    if(!data)return null;
+    sbs.lastRemote=data.updated_at;
+    const d=data.data||{};
+    return{meta:normMeta(d.meta),entries:Array.isArray(d.entries)?d.entries.map(normEntry).filter(e=>e.id):[]};
+  }catch(e){console.warn("Supabase:",e);return false;}
+}
+function sbSave(){
+  try{localStorage.setItem(LKEY,JSON.stringify(real));}catch(e){}
+  sbs.pending=true;setStatus("saving");clearTimeout(sbs.timer);sbs.timer=setTimeout(sbFlush,900);
+}
+async function sbFlush(){
+  clearTimeout(sbs.timer);
+  if(!sbs.client||!sbs.uid)return;
+  if(sbs.saving){sbs.again=true;return;}
+  sbs.saving=true;sbs.pending=false;
+  const now=new Date().toISOString();const uid=sbs.uid;
+  let error=null;
+  try{const r=await sbs.client.from("diari").upsert({user_id:uid,data:real,updated_at:now});error=r.error;}catch(e){error=e;}
+  sbs.saving=false;
+  if(uid!==sbs.uid)return;
+  if(error){
+    console.warn("Supabase:",error);sbs.pending=true;setStatus("offline");
+    if(!sbs.warned){sbs.warned=true;toast("Salvataggio online non riuscito: il diario resta su questo dispositivo e riprovo da solo.");}
+    clearTimeout(sbs.retry);sbs.retry=setTimeout(()=>{if(sbs.pending)sbFlush();},20000);
+  }else{sbs.lastRemote=now;sbs.warned=false;if(!sbs.pending)setStatus("cloud");}
+  if(sbs.again){sbs.again=false;sbFlush();}
+}
+function sbStopped(){
+  clearTimeout(sbs.timer);clearTimeout(sbs.retry);
+  try{if(LKEY!==LEGACY_KEY)localStorage.removeItem(LKEY);}catch(e){}
+  sbs.uid=null;sbs.pending=false;account=null;demo=null;real={meta:null,entries:[]};LKEY=LEGACY_KEY;
+  store.mode="locked";store.ready=false;reportUndo=null;filt={q:"",p:"",anno:"",todo:false};
+  closeSheet();render();
+}
+async function sbLogout(){
+  if(!sbs.client)return;
+  if(sbs.pending||sbs.saving){toast("Salvo le ultime modifiche…");await sbFlush();for(let i=0;i<20&&sbs.saving;i++)await sleep(150);}
+  try{await sbs.client.auth.signOut();}catch(e){}
+  if(sbs.uid)sbStopped();
+  toast("Sei uscito dall'account.");
+}
+function sbOfferLegacy(){
+  let loc=null;try{const r=localStorage.getItem(LEGACY_KEY);if(r)loc=JSON.parse(r);}catch(e){}
+  if(!loc||!Array.isArray(loc.entries)||!loc.entries.length)return;
+  toast(`In questo browser c'è un diario salvato senza account (${loc.entries.length} ${plural(loc.entries.length,"giornata","giornate")}).`,"Portalo nel tuo account",()=>{
+    real={meta:normMeta(loc.meta),entries:loc.entries.map(normEntry).filter(e=>e.id)};sbSave();
+    try{localStorage.removeItem(LEGACY_KEY);}catch(e){}render();toast("Diario copiato nel tuo account.");},12000);
+}
+document.addEventListener("visibilitychange",async()=>{
+  if(store.mode!=="sb"||!sbs.uid)return;
+  if(document.visibilityState==="hidden"){if(sbs.pending)sbFlush();return;}
+  if(sbs.pending||sbs.saving)return;
+  const before=sbs.lastRemote;const r=await sbFetch();
+  if(r&&sbs.lastRemote!==before&&!sbs.pending&&!sbs.saving){real=r;try{localStorage.setItem(LKEY,JSON.stringify(real));}catch(e){}softRender();}
+});
+window.addEventListener("online",()=>{if(store.mode==="sb"&&sbs.pending)sbFlush();});
+
+function vLoginSb(){
+  const signup=sbMode==="signup";
+  return `<section class="welcome quad">
+    <div><p class="eyebrow">${esc(SCHOOL.breve)} · Formazione scuola-lavoro</p>
+    <h2>Accedi con la tua email per aprire il diario</h2></div>
+    <p class="muted" style="margin:0;max-width:62ch">Il diario è personale: è collegato alla tua email, è salvato online e lo ritrovi su ogni dispositivo. Nessun altro può leggere le tue giornate.</p>
+  </section>
+  <form class="panel form-grid" id="sb-form" novalidate>
+    <div class="seg">${[["login","Accedi"],["signup","Crea un account"]].map(([k,l])=>`<label class="segopt"><input type="radio" name="sb-mode" id="sb-mode-${k}" value="${k}" ${sbMode===k?"checked":""}><span>${l}</span></label>`).join("")}</div>
+    <label class="field"><span>Email</span><input class="in" type="email" id="sb-email" autocomplete="email" inputmode="email" value="${esc(sbEmail)}" placeholder="nome@esempio.it"></label>
+    <label class="field"><span>Password</span><input class="in" type="password" id="sb-pass" autocomplete="${signup?"new-password":"current-password"}"></label>
+    ${signup?`<p class="hint">Almeno 6 caratteri. Scegli una password che non usi per altri siti.</p>`:""}
+    ${sbMsg?`<p class="${sbMsg.t==="err"?"form-err":"notice"}" role="alert">${esc(sbMsg.m)}</p>`:""}
+    <div class="btnrow"><button type="submit" class="btn primary" id="sb-go">${signup?"Crea l'account":"Accedi"}</button><button type="button" class="btn ghost" data-act="sb-link">Ricevi un link via email</button>${signup?"":`<button type="button" class="btn ghost" data-act="sb-reset">Password dimenticata?</button>`}</div>
+    <p class="hint">Strumento personale per gli studenti: non è un servizio ufficiale del ${esc(SCHOOL.breve)}.</p>
+    <div><button type="button" class="btn ghost small" data-act="demo-on">Intanto guarda un diario di esempio</button></div>
+  </form>`;
+}
+function sbSay(t,m){sbMsg={t,m};if(store.mode==="locked"&&!demo){const em=$("#sb-email");if(em)sbEmail=em.value;render();}else toast(m);}
+function sbErr(e){
+  const c=e&&e.code;const m=String((e&&(e.message||e.error_description))||"").toLowerCase();
+  if(c==="invalid_credentials"||m.includes("invalid login"))return "Email o password non corretti.";
+  if(c==="email_not_confirmed"||m.includes("not confirmed"))return "Prima conferma l'account con il link che ti è arrivato per email.";
+  if(c==="user_already_exists"||c==="email_exists"||m.includes("already registered"))return "Esiste già un account con questa email: scegli «Accedi».";
+  if(c==="weak_password")return "La password è troppo debole: usane una più lunga.";
+  if(c==="over_email_send_rate_limit"||m.includes("rate limit"))return "Sono state inviate troppe email in poco tempo: riprova più tardi, oppure accedi con email e password.";
+  if(c==="email_address_not_authorized"||m.includes("not authorized"))return "Il sito non può ancora inviare email a questo indirizzo: accedi con email e password. Chi gestisce il sito può attivare l'invio delle email nelle impostazioni di Supabase.";
+  if(c==="signup_disabled"||m.includes("signups not allowed"))return "Le nuove registrazioni sono chiuse.";
+  if(c==="same_password")return "La nuova password deve essere diversa da quella attuale.";
+  if(m.includes("fetch")||m.includes("network"))return "Non c'è connessione: riprova.";
+  return "Non è andata: "+((e&&e.message)||"errore sconosciuto")+".";
+}
+const validEmail=x=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(x);
+async function sbSubmit(){
+  if(!sbs.client)return;
+  const email=$("#sb-email").value.trim(),pass=$("#sb-pass").value;sbEmail=email;
+  if(!validEmail(email))return sbSay("err","Scrivi un indirizzo email valido.");
+  if(pass.length<6)return sbSay("err","La password deve avere almeno 6 caratteri.");
+  const btn=$("#sb-go");if(btn){btn.disabled=true;btn.textContent="Un momento…";}
+  try{
+    if(sbMode==="signup"){
+      const {data,error}=await sbs.client.auth.signUp({email,password:pass,options:{emailRedirectTo:PAGE_URL}});
+      if(error)throw error;
+      if(!(data&&data.session))sbSay("ok",`Ti ho mandato un'email a ${email}: apri il link per confermare l'account, poi torna qui e accedi.`);
+    }else{
+      const {error}=await sbs.client.auth.signInWithPassword({email,password:pass});
+      if(error)throw error;
+    }
+  }catch(e){sbSay("err",sbErr(e));}
+  finally{const b=$("#sb-go");if(b){b.disabled=false;b.textContent=sbMode==="signup"?"Crea l'account":"Accedi";}}
+}
+async function sbLink(){
+  if(!sbs.client)return;
+  const em=$("#sb-email");const email=(em?em.value:sbEmail).trim();sbEmail=email;
+  if(!validEmail(email))return sbSay("err","Scrivi prima la tua email, poi tocca «Ricevi un link via email».");
+  try{const {error}=await sbs.client.auth.signInWithOtp({email,options:{emailRedirectTo:PAGE_URL}});if(error)throw error;
+    sbSay("ok",`Ti ho mandato un link a ${email}. Aprilo su questo dispositivo per entrare.`);}
+  catch(e){sbSay("err",sbErr(e));}
+}
+async function sbReset(){
+  if(!sbs.client)return;
+  const em=$("#sb-email");const email=(em?em.value:sbEmail).trim();sbEmail=email;
+  if(!validEmail(email))return sbSay("err","Scrivi prima la tua email, poi tocca «Password dimenticata?».");
+  try{const {error}=await sbs.client.auth.resetPasswordForEmail(email,{redirectTo:PAGE_URL});if(error)throw error;
+    sbSay("ok",`Se esiste un account con ${email}, ti arriva un'email con il link per scegliere una nuova password.`);}
+  catch(e){sbSay("err",sbErr(e));}
+}
+function openNewPassword(recovery){
+  if(!sbs.client)return;
+  openSheet(`<form id="np-form" novalidate><div class="sheet-head"><h2>${recovery?"Scegli una nuova password":"Cambia password"}</h2>${closeBtn}</div>
+    <div class="sheet-body"><label class="field"><span>Nuova password</span><input class="in" type="password" id="np-pass" autocomplete="new-password"></label><p class="hint">Almeno 6 caratteri.</p><p class="form-err" id="np-err" hidden></p></div>
+    <div class="sheet-foot"><span class="grow"></span><button type="button" class="btn" data-close>Annulla</button><button type="submit" class="btn primary">Salva la password</button></div></form>`,"Nuova password",card=>{
+    $("#np-form",card).addEventListener("submit",async ev=>{
+      ev.preventDefault();const pw=$("#np-pass",card).value;const er=$("#np-err",card);
+      if(pw.length<6){er.hidden=false;er.textContent="La password deve avere almeno 6 caratteri.";return;}
+      try{const {error}=await sbs.client.auth.updateUser({password:pw});if(error)throw error;closeSheet();toast("Password aggiornata.");}
+      catch(e){er.hidden=false;er.textContent=sbErr(e);}
+    });
+  });
+}
+
+/* ---------- avvio ---------- */
+async function boot(){
+  const h=location.hash.slice(1);view=VIEWS.includes(h)?h:"riepilogo";
+  render();
+  initCaps();
+  let db=null,user=null;
+  if(window.claude&&typeof window.claude.use==="function"){
+    try{[db,user]=await Promise.all([window.claude.use("db"),window.claude.use("user")]);}catch(e){}
+  }
+  if(STANDALONE){if(SB_ON)sbBoot();else goLocal(false);return;}
+  let me=null;
+  if(user){try{me=await user.me();}catch(e){}}
+  if(!me||!(me.id||me.email)){store.mode="locked";setStatus("loading");$("#status").hidden=true;render();return;}
+  account={id:me.id||null,email:me.email||"",name:me.name||""};
+  LKEY=LEGACY_KEY+":"+(account.id||account.email.toLowerCase());
+  try{if(!localStorage.getItem(LKEY)&&localStorage.getItem(LEGACY_KEY)){localStorage.setItem(LKEY,localStorage.getItem(LEGACY_KEY));localStorage.removeItem(LEGACY_KEY);}}catch(e){}
+  if(db&&account.id)startCloud(db,account.id);else goLocal(false);
+}
+boot();
+})();
+</script>
+</body>
+</html>
